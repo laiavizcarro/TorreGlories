@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102.3" height="125.941" viewBox="0 0 102.3 125.941">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Trazado_11" data-name="Trazado 11" d="M0,0H102.3V-125.941H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="horarios" transform="translate(0 125.941)">
+    <g id="Grupo_2" data-name="Grupo 2" clip-path="url(#clip-path)">
+      <g id="Grupo_1" data-name="Grupo 1" transform="translate(1.22 -0.5)">
+        <path id="Trazado_10" data-name="Trazado 10" d="M0,0H101.082" fill="none" stroke="#0028dd" stroke-width="1"/>
+      </g>
+    </g>
+    <path id="Trazado_12" data-name="Trazado 12" d="M0-23.639H102.3v-102.3H0Z" fill="#ededed"/>
+    <g id="Grupo_3" data-name="Grupo 3" transform="translate(26.329 -84.666)">
+      <path id="Trazado_13" data-name="Trazado 13" d="M0,0H50.162M41.216-14.906h8.946V38.259H-.518V-14.906H8.561M12.9,20.123l6.957,6.956,16.89-16.894m-1.8-20.8V-18.5M14.7-10.618v-7.89m6.362,3.6h7.524" fill="none" stroke="#0028dd" stroke-linecap="square" stroke-width="4"/>
+    </g>
+    <g id="icones_como_llegar-03" data-name="icones como llegar-03" transform="translate(0 -125.941)">
+      <rect id="Rectángulo_4" data-name="Rectángulo 4" width="102.3" height="102.3" fill="#ededed"/>
+      <line id="Línea_1" data-name="Línea 1" x2="50.2" transform="translate(26.3 41.3)" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Trazado_4" data-name="Trazado 4" d="M67.6,26.4h8.9V79.5H25.8V26.4h9.1" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Trazado_5" data-name="Trazado 5" d="M39.2,61.4l7,7L63.1,51.5" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <line id="Línea_2" data-name="Línea 2" y1="7.9" transform="translate(61.3 22.8)" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <line id="Línea_3" data-name="Línea 3" y1="7.9" transform="translate(41 22.8)" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <line id="Línea_4" data-name="Línea 4" x2="7.5" transform="translate(47.4 26.4)" fill="none" stroke="#0029de" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
