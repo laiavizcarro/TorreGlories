@@ -1,58 +1,56 @@
-<!--HEADER-->
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Torre Glòries</title>
-    <link rel="stylesheet" href="view/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
+$orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity'] > 0 ? $_SESSION['order_quantity'] : '';
+?>
 
-</head>
+<header>
+	<nav class="navbar navbar-expand-lg preheader">
+		
+		<div class="container justify-content-end ">
+			<div>
+			<a href="<?= url ?>/index.php?controller=User">
+				<img src="images/iconografia/login-register.svg" alt="Logo usuari." width="20px">
+				Login/Registre
+			</div>
+</a>
+			<div class="button-resume">				
+				<a href="<?= url ?>/index.php?controller=Order">
+					<img src="images/iconografia/shoppingcart-white.svg" width="24px" alt="Icone del carrito">Resum compra
+					<span class="badge text-bg-secondary"><?= $orderQuantity ?></span>
+				</a>
+				
+			</div>
+		</div>
+	</nav>
 
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container">
+			<a class="navbar-brand" href="<?= url ?>/index.php?controller=Home">
+				<img src="images/logoPrincipal.svg" alt="Logo">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'menu-link-active' : '' ?>" 
+							href="<?= url ?>/index.php?controller=Home">Restaurant</a>
+					</li>
 
+					<li class="nav-item">
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') ? 'menu-link-active' : '' ?>" 
+							href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
+					</li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Cercar</button>
+				</form>
+			</div>
+		</div>
+	</nav>
 
-<body>
-    <header>
-        <div>
-          <button class="button-resume"><img src="/TorreGlories/images/iconografia/shopping-cart-20.png" alt="">Resum compra</button>          
-        </div>
-        <div>
-            <nav class="menu">
-                <a href="#">Restaurant</a>
-                <a href="#">Carta</a>
-            </nav>
-        </div>
-        <BR></BR>
-
-
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/TorreGlories/images/logoPrincipal.svg"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
-        
-    </header>
-
-</body>
-</html>
+</header>

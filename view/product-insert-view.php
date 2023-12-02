@@ -1,3 +1,4 @@
+<br><br><br><br><br><br><br><br><br><br>
 <form action="<?= url ?>/index.php?controller=Product&action=insert" method="post">
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" value="name" ><br>

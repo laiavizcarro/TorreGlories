@@ -12,6 +12,7 @@ class Product {
     protected $is_offer;
     protected $offer_price;
     protected $total_offer_price;
+    protected $img_path;
 
     public function __construct(){
                
@@ -214,6 +215,26 @@ class Product {
     public function setTotal_offer_price($total_offer_price)
     {
         $this->total_offer_price = $total_offer_price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of img_path
+     */ 
+    public function getImg_path()
+    {
+        return $this->img_path;
+    }
+
+    /**
+     * Set the value of img_path
+     *
+     * @return  self
+     */ 
+    public function setImg_path($img_path)
+    {
+        $this->img_path = $img_path;
 
         return $this;
     }

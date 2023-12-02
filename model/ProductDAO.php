@@ -36,7 +36,7 @@ class ProductDAO {
         $con->close();
 
         $productsList = [];
-        while ($productDB = $result->fetch_object($category_id)){
+        while ($productDB = $result->fetch_object("Product")){
             $productsList[] = $productDB;
         }
 
@@ -124,12 +124,31 @@ class ProductDAO {
                 $offer_price = $_POST['offer_price'];
                 $total_offer_price = $_POST['total_offer_price'];
             
-                $query = "INSERT INTO products (id, name, category_id, stock, iva, base_price, total_price, is_offer, offer_price, total_offer_price)"; 
-                $query .= "VALUES (NULL, '', '', '', '', '', '', '', '', '')";
+                $query = "INSERT INTO products (name, category_id, stock, iva, base_price, total_price, is_offer, offer_price, total_offer_price)"; 
+                $query .= "VALUES ($name, $category_id, $stock, $iva, $base_price, $total_price, $is_offer, $offer_price, $total_offer_price)";
         }
         
 
         
+    }
+
+    public static function getAllAllergens(){
+
+        $con = DB::connectDB();
+
+        $stmt = $con->prepare("SELECT * FROM allergens");
+
+        $stmt ->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+
+        $allergensList = [];
+        while ($allergensDB = $result->fetch_object("Allergen")) {
+            $allergenList[] = $allergensDB;
+        }
+
+        return $allergenList;
     }
 
 }

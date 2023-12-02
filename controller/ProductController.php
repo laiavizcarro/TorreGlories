@@ -3,6 +3,12 @@ include_once 'model/ProductDAO.php';
 
 class ProductController{
 
+    function __construct() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+    
     public function index() {
         $allProducts = ProductDAO::getAllProducts();
         include_once 'view/products-view.php';
@@ -40,6 +46,13 @@ class ProductController{
         $allProducts = ProductDAO::insertProduct();
         include_once 'view/product-insert-view.php';
     }
+
+    public function products() {
+        $allProducts = ProductDAO::getProductsByCategory($_GET['category_id']);
+        include_once 'view/menu-view.php';
+    }
+
+    
  
 }
 
