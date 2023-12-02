@@ -34,8 +34,8 @@
 <section class="container mt-70 mb-1">
     <div class="order">
         <div class="orderHeader">
-            <h8 style="margin: 20px;">RESTAURANT TORRE GLÒRIES</h8>
-            <img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px" style="margin-left: 20px;">
+            <h4 class="white bold m-20">RESTAURANT TORRE GLÒRIES</h4>
+            <!--img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px" style="margin-left: 20px;"-->
         </div>
         
     
@@ -79,9 +79,9 @@
                             <td class="align-middle">
                                 <form action="<?= url ?>/index.php?controller=Order&action=increaseOrDecrease" method="POST">
                                     <input type="hidden" name="prd" value="<?=$orderLine->getProduct()->getId()?>">
-                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <div class="btn-group btn-group-quantity" role="group" aria-label="Quantity button">
                                         <button type="submit" class="btn btn-add-del" name="decrease" value="<?=$orderLine->getProduct()->getId()?>"> - </button>
-                                        <button type="button" class="btn no-btn"><?=$orderLine->getQuantity()?></button>
+                                        <div><?=$orderLine->getQuantity()?></div>
                                         <button type="submit" class="btn btn-add-del" name="increase" value="<?=$orderLine->getProduct()->getId()?>"> + </button>
                                     </div>
                                 </form>

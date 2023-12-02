@@ -10,11 +10,11 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 		
 		<div class="container justify-content-end ">
 			<div>
-			<a href="<?= url ?>/index.php?controller=User">
-				<img src="images/iconografia/login-register.svg" alt="Logo usuari." width="20px">
-				Login/Registre
+				<a href="<?= url ?>/index.php?controller=User">
+					<img src="images/iconografia/login-register.svg" alt="Logo usuari." width="20px">
+					Login/Registre
+				</a>
 			</div>
-</a>
 			<div class="button-resume">				
 				<a href="<?= url ?>/index.php?controller=Order">
 					<img src="images/iconografia/shoppingcart-white.svg" width="24px" alt="Icone del carrito">Resum compra

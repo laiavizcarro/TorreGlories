@@ -1,0 +1,23 @@
+.preheader {
+    background-color: var(--bg-preHeader);
+    padding: 0 !important;
+    height: 35px;
+}
+
+.button-resume {
+    float: right;
+    background-color: var(--pink);
+    border: 0;
+    width: 180px;
+    text-decoration: none !important;    
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.button-resume > a {
+    color: white;
+    font-weight: bold;
+}

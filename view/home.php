@@ -26,7 +26,7 @@
 <section class="container text-center mt-70">
 	<div>
 		<h2>Benvinguts al Restaurant Torre Glòries</h2>
-		<h6>Una experiència inoblidable per a descobrir nous sabors des del restaurant ubicat al mirador.</h6>
+		<h4>Una experiència inoblidable per a descobrir nous sabors des del restaurant ubicat al mirador.</h4>
 	</div>
 </section>
 
@@ -34,14 +34,13 @@
 	<div class="row g-4">
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 			<div class="p-5 home-welcome-primary">
-				<h3>Plats cassolans</h3>
+				<h3 class="pink">Plats cassolans</h3>
 				<p style="color: white; font-size:19px;">Vine a provar els nostres plats cassolans, cuinats pel xef de la casa.
 					Recomanem els canelons de la iaia i el pastís de formatge per a un menú complet.
 				</p>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">
 					<button class="btn btn-outline-primary">Consultar</button>
 				</a>
-
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -61,7 +60,7 @@
 						</div>
 						<div class="vl col-1"></div>
 						<div class="col-9">
-							<h4>Esmorzars i berenars</h4>
+							<h3 class="h3-smallest white">Esmorzars i berenars</h3>
 							<p style="color:white">Prova el croissant de mantega i el biquini planxat calent estrella de torre Glòries.</p>
 							<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4">
 								<button class="btn btn-outline-primary">Consultar</button>
@@ -81,7 +80,7 @@
 							<img src="images/iconografia/drink.svg" alt="" height="80" width="80">
 						</div>
 						<div class="col-10">
-							<h4>Begudes</h4>
+							<h3 class="h3-smallest white">Begudes</h3>
 							<p style="color:white">Consulta les nostres begudes i cocktails premium per acompanyar els teus àpats.</p>
 							<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=3">
 								<button class="btn btn-outline-primary">Consultar</button>
@@ -108,21 +107,33 @@
 <section class="container mt-70">
 	<div class="row g-4">
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-			<div class="p-5 home-offer-breakfast-bg">
-				<h5>Entrepà vegetal més suc o cafè</h5>
-				<button class="btn btn-outline-secondary">Accedir</button>
+			<div class="p-5 home-offer home-offer-breakfast-bg">
+				<div class="home-offer-heading">
+					<h3 class="h3-offers">Entrepà vegetal més suc o cafè</h3>
+				</div>
+				<div class="home-offer-button">
+					<button class="btn">Accedir</button>
+				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-			<div class="p-5 home-offer-pasta-bg">
-				<h5>Plat de pasta i postre</h5>
-				<button class="btn btn-outline-secondary">Accedir</button>
-			</div>
+			<div class="p-5 home-offer home-offer-pasta-bg">
+				<div class="home-offer-heading">
+					<h3 class="h3-offers">Plat de pasta i postre</h3>
+				</div>
+				<div class="home-offer-button">
+					<button class="btn">Accedir</button>
+				</div>
+			</div>	
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-			<div class="p-5 home-offer-toast-bg">
-				<h5>Torrades amb melmelada</h5>
-				<button class="btn btn-outline-secondary">Accedir</button>
+			<div class="p-5 home-offer home-offer-toast-bg">
+				<div class="home-offer-heading">
+					<h3 class="h3-offers">Torrades amb melmelada</h3>
+				</div>
+				<div class="home-offer-button">
+					<button class="btn">Accedir</button>
+				</div>
 			</div>
 		</div>
 
@@ -136,7 +147,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<div class="p-5 ">
 						<!--<img src="images/iconografia/horarios-1.svg" alt="" width="100px">-->
-						<img src="images/iconografia/calendar-clock.svg" alt="" width="50px"><h7>Dinars i sopars</h7>
+						<img src="images/iconografia/calendar-clock.svg" alt="" width="50px"><h5>Dinars i sopars</h5>
 						<p style="font-weight: bold; color: black ">Durant tot l'any</p>
 						<p>De dilluns a diumenge, de 12 a 15:30 h i de 20:00 a 00:00 h.</p>
 						<p style="font-weight: bold; color: black ">Dies de tancament</p>
@@ -147,7 +158,7 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<div class="p-5">
-						<h7>Esmorzars i berenars</h7>
+						<h5>Esmorzars i berenars</h5>
 						<p style="font-weight: bold; color: black ">Durant tot l'any</p>
 						<p>De dilluns a diumenge, de 7:30 a 11:45 h i de 16:00 a 19:45 h.</p>
 						<p style="font-weight: bold; color: black ">Dies de tancament</p>

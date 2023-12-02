@@ -1,7 +1,7 @@
 <section class="container text-center mt-70">
 	<div>
 		<h2>Consulta els productes</h2>
-		<h6>Consulta els plats a escollir de la carta</h6>
+		<h4>Consulta els plats a escollir de la carta</h4>
 	</div>
 </section>
 
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h7 class="card-title"><?= $product->getName() ?></h7>
+                                <h4 class="card-title"><?= $product->getName() ?></h4>
                                 <p class="card-text"><?= $product->getTotal_Price() ?> €</p>
                                 <div>
                                     <small class="text-body-secondary">

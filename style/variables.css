@@ -1,0 +1,11 @@
+/*variables colors*/
+:root {
+    --pink: #E5007D;
+    --bg-footer: #262626;
+    --bg-dark-blue: #080083;
+    --bg-dark-blue-alpha: rgb(8, 0, 131, 0.7);
+    --bg-light-blue: #0900ba;
+    --text-blue: #0029de;
+    --bg-preHeader: #ebebeb;
+    --bg-ligth-gray: #eaeaea;
+}
