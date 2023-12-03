@@ -40,7 +40,7 @@
 				</p>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">
 					<button class="btn btn-outline-primary">Consultar</button>
-				</a>
+				</a>		
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -52,21 +52,19 @@
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 			<div class="p-5 home-welcome-secondary">
-
-				<div class="container ">
-					<div class="row align-items-center">
-						<div class="col-2">
-							<img src="images/iconografia/sandwich.svg" alt="" height="80" width="80">
-						</div>
-						<div class="vl col-1"></div>
-						<div class="col-9">
-							<h3 class="h3-smallest white">Esmorzars i berenars</h3>
-							<p style="color:white">Prova el croissant de mantega i el biquini planxat calent estrella de torre Glòries.</p>
-							<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4">
-								<button class="btn btn-outline-primary">Consultar</button>
-							</a>
-
-						</div>
+				<div class="row">
+					<div class="col-2">
+						<img src="images/iconografia/sandwich.svg" alt="" height="80" width="80">
+					</div>
+					<div class="col-1 home-welcome-secondary-separator">
+						<div></div>
+					</div>
+					<div class="col-9 home-welcome-secondary-body">
+						<h3 class="h3-smallest white">Esmorzars i berenars</h3>
+						<p style="color:white">Prova el croissant de mantega i el biquini planxat calent estrella de torre Glòries.</p>
+						<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4">
+							<button class="btn btn-outline-primary">Consultar</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -74,21 +72,21 @@
 
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 			<div class="p-5 home-welcome-secondary">
-				<div class="container ">
-					<div class="row align-items-center">
-						<div class="col-2">
-							<img src="images/iconografia/drink.svg" alt="" height="80" width="80">
-						</div>
-						<div class="col-10">
-							<h3 class="h3-smallest white">Begudes</h3>
-							<p style="color:white">Consulta les nostres begudes i cocktails premium per acompanyar els teus àpats.</p>
-							<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=3">
-								<button class="btn btn-outline-primary">Consultar</button>
-							</a>
-						</div>
+				<div class="row">
+					<div class="col-2">
+						<img src="images/iconografia/drink.svg" alt="" height="80" width="80">
+					</div>
+					<div class="col-1 home-welcome-secondary-separator">
+						<div></div>
+					</div>
+					<div class="col-9 home-welcome-secondary-body">
+						<h3 class="h3-smallest white">Begudes</h3>
+						<p style="color:white">Consulta les nostres begudes i cocktails premium per acompanyar els teus àpats.</p>
+						<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=3">
+							<button class="btn btn-outline-primary">Consultar</button>
+						</a>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -145,7 +143,7 @@
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-					<div class="p-5 ">
+					<div class="p-5">
 						<!--<img src="images/iconografia/horarios-1.svg" alt="" width="100px">-->
 						<img src="images/iconografia/calendar-clock.svg" alt="" width="50px"><h5>Dinars i sopars</h5>
 						<p style="font-weight: bold; color: black ">Durant tot l'any</p>
@@ -171,4 +169,11 @@
 			</div>
 		</div>
 	</div>
+</section>
+
+<section class="container-fluid mt-70" style="margin-bottom: -70px; position: relative;">
+	<div class="floating-address">
+		<p class="bold">Direcció</p>
+	</div>
+    <img src="images/footer/mapa.svg" alt="">
 </section>

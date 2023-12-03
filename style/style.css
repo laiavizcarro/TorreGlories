@@ -31,7 +31,7 @@ h4 {
 
 h5 {
     color:var(--text-blue) !important;
-    font-weight: bold;  
+    font-weight: bold !important;  
 }
 
 @media (min-width: 1400px) {
@@ -358,20 +358,40 @@ h5 {
 
 /* HOME CARDS */
 .home-welcome-primary {
-    background-color: #080083; 
+    background-color: var(--bg-dark-blue); 
     height: 380px;
-    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+}
 
+.home-welcome-primary > a {
+    margin-top: auto;
 }
 
 .home-welcome-secondary {
     background-color: var(--bg-light-blue);
     height: 281.8px;
+    display: flex;
 }
 
-.home-welcome-secondary .h4 .p{
+.home-welcome-secondary-separator {
     display: flex;
-    flex-direction: right;
+    justify-content: center;
+}
+
+.home-welcome-secondary-separator > div {
+    width: 0.5px;
+    height: 100%;
+    background-color: white;
+}
+
+.home-welcome-secondary-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-welcome-secondary >* a {
+    margin-top: auto;
 }
 
 .home-plates-bg {
@@ -476,11 +496,22 @@ h5 {
 }
 
 
+
+
 /* REGISTER / LOGIN */
 .register, .login {
     border: 1px solid #cacccd;
     box-shadow: 2px 2.3px 0 0 #cacccd;
     width: 250px;
     height: 35px;
+}
 
+.floating-address {
+    position: absolute; 
+    top: 40px; 
+    left: 40px; 
+    background-color: rgb(255, 255, 255, 0.5); 
+    width: 350px; 
+    height:400px; 
+    padding: 15px;
 }

@@ -1,5 +1,5 @@
 <section class="container-fluid mt-70">
-    <img src="images/footer/mapa.svg" alt="">
+
     <div class="footerContact">
         <div class="container">
         <p>Estàs pensant a celebrar un esdeveniment exclusiu en un lloc emblemàtic de Barcelona?</p>
