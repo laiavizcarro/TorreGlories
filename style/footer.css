@@ -3,22 +3,19 @@
     height: 350px;
 }
 
-.footerContact {
-    background-color: #090083;
-    height: 213.6px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .footer {
     background-color: var(--bg-footer);
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center  ;
     height: 150px;
+}
 
+.footer > div img {
+    margin-left: 5px;
 }

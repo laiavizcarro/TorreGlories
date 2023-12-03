@@ -143,9 +143,9 @@
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-					<div class="p-5">
-						<!--<img src="images/iconografia/horarios-1.svg" alt="" width="100px">-->
-						<img src="images/iconografia/calendar-clock.svg" alt="" width="50px"><h5>Dinars i sopars</h5>
+					<div class="p-5 horaris">
+						<img src="images/iconografia/horarios-1.svg" alt="" width="80px">
+						<h5>Dinars i sopars</h5>
 						<p style="font-weight: bold; color: black ">Durant tot l'any</p>
 						<p>De dilluns a diumenge, de 12 a 15:30 h i de 20:00 a 00:00 h.</p>
 						<p style="font-weight: bold; color: black ">Dies de tancament</p>
@@ -171,9 +171,17 @@
 	</div>
 </section>
 
-<section class="container-fluid mt-70" style="margin-bottom: -70px; position: relative;">
+<section class="container-fluid mt-70" style="position: relative;">
 	<div class="floating-address">
 		<p class="bold">Direcció</p>
 	</div>
     <img src="images/footer/mapa.svg" alt="">
+</section>
+
+<section class="container-fluid" style="margin-bottom: -70px;">
+	<div class="contact">
+		<div class="container">
+		<p>Estàs pensant a celebrar un esdeveniment exclusiu en un lloc emblemàtic de Barcelona?</p>
+		</div>
+	</div>
 </section>

@@ -296,6 +296,9 @@ h5 {
 .m-20 {
     margin: 20px !important;
 }
+.mt-10 {
+    margin-top: 10px !important;
+}
 .mt-70 {
     margin-top: 70px !important;
 }
@@ -496,7 +499,10 @@ h5 {
 }
 
 
-
+.horaris {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* REGISTER / LOGIN */
 .register, .login {
@@ -514,4 +520,13 @@ h5 {
     width: 350px; 
     height:400px; 
     padding: 15px;
+}
+
+.contact {
+    background-color: #090083;
+    height: 213.6px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
