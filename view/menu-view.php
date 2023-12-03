@@ -38,20 +38,22 @@
 <section class="container mt-70">
     <div class="row">
         <?php foreach ($allProducts as $product) { ?>
-            <div class="col-xs-12 col-sm-12 col-md-6 product-cards">
-                <div class="card mb-3">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="card product-card">
                     <div class="row g-0">
-                        <div class="col-md-4 productImage">
-                            <img src="<?php echo $product->getImg_path() ?>" class="img-fluid" alt="Imatge del producte">
+                        <div class="col-xs-4 col-sm-4 col-md-4 card-image">
+                            <img src="<?php echo $product->getImg_path() ?>" 
+                                alt="Imatge del producte">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-xs-8 col-sm-8 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title"><?= $product->getName() ?></h4>
+                                <p class="card-title"><?= $product->getName() ?></p>
                                 <p class="card-text"><?= $product->getTotal_Price() ?> €</p>
                                 <div>
-                                    <small class="text-body-secondary">
-										<img src="images/iconografia/icon-gluten.png" alt="Iconografia de l'al·lèrgen" class="icons">
-									</small>
+                                    <div>
+										<img src="images/iconografia/icon-gluten.png" alt="Iconografia de l'al·lèrgen" 
+                                            class="icons">
+                                    </div>
                                     <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
                                         <button class="add-btn">
                                             <img src="images/iconografia/shoppingcart-white.svg" alt="" class="icons">Afegir
