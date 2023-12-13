@@ -25,7 +25,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container">
 			<a class="navbar-brand" href="<?= url ?>/index.php?controller=Home">
-				<img src="images/logoPrincipal.svg" alt="Logo">
+				<img src="images/logoPrincipal.svg" alt="Logo principal de la web">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 					</li>
 				</ul>
 				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+					<input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Buscador">
 					<button class="btn btn-outline-success" type="submit">Cercar</button>
 				</form>
 			</div>
