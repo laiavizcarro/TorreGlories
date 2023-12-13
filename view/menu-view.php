@@ -56,7 +56,7 @@
                                     </div>
                                     <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
                                         <button class="add-btn">
-                                            <img src="images/iconografia/shoppingcart-white.svg" alt="" class="icons">Afegir
+                                            <img src="images/iconografia/shoppingcart-white.svg" alt="Imatge del producte de la carta" class="icons">Afegir
                                         </button>
                                     </a>
                                 </div>
