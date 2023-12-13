@@ -3,8 +3,6 @@
     height: 350px;
 }
 
-
-
 .footer {
     background-color: var(--bg-footer);
     color: white;
@@ -19,3 +17,17 @@
 .footer > div img {
     margin-left: 5px;
 }
+
+.instagram, .facebook, .twitter {
+    width: 25px;
+}
+
+.instagram:hover path,
+.facebook:hover path,
+.twitter:hover path {
+    fill: var(--dark-pink); 
+    cursor: pointer; 
+    transition: all .5s;
+
+}
+
