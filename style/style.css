@@ -291,6 +291,23 @@ h5 {
     object-fit: cover;
 }
 
+/*payment checkout*/
+.payment {
+    border: solid lightgray 1px;
+    padding: 15px;
+    border-radius: 10px;
+    height: 400px;
+}
+.checkout {
+    width: 400px !important;
+}
+.payment-card {
+    width: 50px;
+}
+.card-row {
+    display: flex;
+    justify-content: center;
+}
 
 
 

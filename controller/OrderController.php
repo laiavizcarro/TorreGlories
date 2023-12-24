@@ -75,22 +75,20 @@ class OrderController {
 
     //Funció que comprova si existeix una sessió iniciada o cal obrir per a procedir al pagament
     public function checkout() {
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . url . '/index.php?controller=User&action=loginOrRegister');
+        if (!isset($_SESSION['email'])) {
+            header('Location: ' . url . '/index.php?controller=User&action=loginView');
+            return;
         }
     
         if (empty($_SESSION['order'])) {
             header('Location: ' . url . '/index.php?controller=Order&action=index');
-            exit();
+            return;
         }
-    
-        header('Location: ' . url . '/index.php?controller=Order&action=checkoutPayment');
-        exit();
-    }
-    
 
-    public function checkoutPersonalData() {
-        // SESSION to Database
+        $order = isset($_SESSION['order']) ? $_SESSION['order'] : array();
+    
+        include_once 'view/payment-view.php';
+        return;
     }
 
     public function checkoutPayment() {
