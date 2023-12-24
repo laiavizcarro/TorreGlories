@@ -41,3 +41,7 @@ INSERT INTO products ('id', 'name', 'category_id', 'stock', 'iva', 'base_price',
 
 insert into allergens ('id', 'code', 'name', 'description', 'img_path') VALUES 
 ();
+
+
+/* roles */
+INSERT INTO `roles` (`id`, `name`) VALUES (NULL, 'admin'), (NULL, 'basic');

@@ -84,7 +84,6 @@ class OrderController {
             exit();
         }
     
-        
         header('Location: ' . url . '/index.php?controller=Order&action=checkoutPayment');
         exit();
     }

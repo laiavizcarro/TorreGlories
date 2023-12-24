@@ -1,8 +1,8 @@
 <?php
 include_once 'config/db.php';
-include_once 'model/User.php';
-include_once 'model/BasicUser.php';
-include_once 'model/AdminUser.php';
+include_once 'User.php';
+include_once 'BasicUser.php';
+include_once 'AdminUser.php';
 
 class UserDAO {
     
@@ -19,7 +19,25 @@ class UserDAO {
 
         $usersList = [];
         while ($userDB = $result->fetch_object("User")) {
-            $usersList[] = $userDB;
+            $user = $userDB['role_id'] == 1 ?
+                new AdminUser(
+                    $userDB['id'],
+                    $userDB['name'],
+                    $userDB['surname'],
+                    $userDB['email'],
+                    $userDB['password'],
+                    $userDB['role_id'],
+                    $userDB['incorporation_date']
+                ) : new BasicUser(
+                    $userDB['id'],
+                    $userDB['name'],
+                    $userDB['surname'],
+                    $userDB['email'],
+                    $userDB['password'],
+                    $userDB['role_id'],
+                    $userDB['phone_number'],
+                );
+            $usersList[] = $user;
         }
 
         return $usersList;
@@ -39,7 +57,25 @@ class UserDAO {
 
         $usersList = [];
         while ($userDB = $result->fetch_object("User")) {
-            $usersList[] = $userDB;
+            $user = $userDB['role_id'] == 1 ?
+                new AdminUser(
+                    $userDB['id'],
+                    $userDB['name'],
+                    $userDB['surname'],
+                    $userDB['email'],
+                    $userDB['password'],
+                    $userDB['role_id'],
+                    $userDB['incorporation_date']
+                ) : new BasicUser(
+                    $userDB['id'],
+                    $userDB['name'],
+                    $userDB['surname'],
+                    $userDB['email'],
+                    $userDB['password'],
+                    $userDB['role_id'],
+                    $userDB['phone_number'],
+                );
+            $usersList[] = $user;
         }
 
         return $usersList;
@@ -51,12 +87,19 @@ class UserDAO {
         $email = $user->getEmail();
         $password = $user->getPassword();
         $roleId = $user->getRoleId();
-        $phoneNumber = $user->getPhoneNumber();
+
+        $incorporationDate = null;
+        $phoneNumber = null;
+        if ($roleId = 1) {
+            $incorporationDate = $user->getIncorporationDate();
+        } else {
+            $phoneNumber = $user->getPhoneNumber();
+        }
 
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("INSERT INTO users (name, surname, email, password, role_id, phone_number) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssis", $name, $surname, $email, $password, $roleId, $phoneNumber);
+        $stmt = $con->prepare("INSERT INTO users (name, surname, email, password, role_id, phone_number, incorporation_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssiss", $name, $surname, $email, $password, $roleId, $phoneNumber, $incorporationDate);
 
         $result = $stmt->execute();
 
@@ -125,7 +168,26 @@ class UserDAO {
 
         $con->close();
 
-        return $result->fetch_object('User');
+        $resultArray = $result->fetch_array();
+
+        return $resultArray['role_id'] == 1 ?
+            new AdminUser(
+                $resultArray['id'],
+                $resultArray['name'],
+                $resultArray['surname'],
+                $resultArray['email'],
+                $resultArray['password'],
+                $resultArray['role_id'],
+                $resultArray['incorporation_date']
+            ) : new BasicUser(
+                $resultArray['id'],
+                $resultArray['name'],
+                $resultArray['surname'],
+                $resultArray['email'],
+                $resultArray['password'],
+                $resultArray['role_id'],
+                $resultArray['phone_number'],
+            );
     }
 
     public static function getUserByEmail($email) {
@@ -136,11 +198,30 @@ class UserDAO {
         $stmt->bind_param("s", $email);
 
         $stmt->execute();
-        $result=$stmt->get_result();
+        $result = $stmt->get_result();
 
         $con->close();
 
-        return $result->fetch_object('User', ['id', 'name', 'surname', 'email', 'password', 'role_id']);
+        $resultArray = $result->fetch_array();
+
+        return $resultArray['role_id'] == 1 ?
+            new AdminUser(
+                $resultArray['id'],
+                $resultArray['name'],
+                $resultArray['surname'],
+                $resultArray['email'],
+                $resultArray['password'],
+                $resultArray['role_id'],
+                $resultArray['incorporation_date']
+            ) : new BasicUser(
+                $resultArray['id'],
+                $resultArray['name'],
+                $resultArray['surname'],
+                $resultArray['email'],
+                $resultArray['password'],
+                $resultArray['role_id'],
+                $resultArray['phone_number'],
+            );
     }
 
 

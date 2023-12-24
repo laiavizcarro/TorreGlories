@@ -19,8 +19,37 @@ class UserController {
         include_once 'view/admin-panel-view';
     }
 
-    public function login() {
+    public function loginView() {
         include_once 'view/login-register-view.php';
+    }
+
+    public function login() {
+        if (isset($_POST['email'], $_POST['password'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $user = UserDAO::getUserByEmail($email);
+            
+            if ($user == null) {
+                $error_login = "Login incorrecte";
+                include_once 'view/login-register-view.php';
+                return;
+            }
+
+            $password = md5($password);
+            if ($password != $user->getPassword()) {
+                $error_login = "Login incorrecte";
+                include_once 'view/login-register-view.php';
+                return;
+            }
+
+            $_SESSION['loggedIn'] = true;
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['name'] = $user->getName();
+            $_SESSION['surname'] = $user->getSurname();
+
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
     }
 
     public function register() {
@@ -35,12 +64,14 @@ class UserController {
             if ($password != $passwordCheck) {
                 $error = "Els passwords no coincideixen";
                 include_once 'view/login-register-view.php';
+                return;
             }
             $password = md5($password);
 
             if (UserDAO::getUserByEmail($email) != null) {
                 $error = "Aquest correu ja està registrat";
                 include_once 'view/login-register-view.php';
+                return;
             }
             
             $user = new BasicUser(null, $name, $surname, $email, $password, 2, $phoneNumber);
@@ -51,10 +82,14 @@ class UserController {
             $_SESSION['name'] = $name;
             $_SESSION['surname'] = $surname;
 
-            include_once 'view/home.php';
+            header('Location: ' . url . '/index.php?controller=Home');
         }
     }
 
-   
+    public function logout() {
+        session_destroy();
+        header('Location: ' . url . '/index.php?controller=Home');
+
+    }
 }
 ?>

@@ -68,7 +68,6 @@ class User {
         return $this;
     }
 
-   
     /**
      * Get the value of password
      */ 

@@ -7,7 +7,6 @@
 .button-login {
     display: flex;
     align-items: center;
-    height: 35px; 
 }
 
 .button-login > a {
@@ -31,4 +30,13 @@
     text-decoration: none !important; 
     color: white;
     font-weight: bold;
+}
+
+.navbar .btn {
+    border: none !important;
+}
+
+.navbar .dropdown-item:active {
+    background-color: white !important;
+    color: black !important;
 }

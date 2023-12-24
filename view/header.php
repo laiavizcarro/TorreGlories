@@ -7,21 +7,30 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 
 <header>
 	<nav class="navbar navbar-expand-lg preheader">
-		
 		<div class="container justify-content-end ">
-			<div class="button-login">
 				<?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] = true) { ?>
-				<p><?php echo $_SESSION['name'] ?></p>
+					<div class="dropdown">
+						<button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<?php echo $_SESSION['name'] ?>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Perfil</a></li>
+							<li><a class="dropdown-item" href="<?= url ?>/index.php?controller=User&action=logout">Tancar sessió</a></li>
+						</ul>
+					</div>
+					
 				<?php } else { ?>
-				<a href="<?= url ?>/index.php?controller=User&action=login">Login</a>
+					<div class="button-login">
+					<a href="<?= url ?>/index.php?controller=User&action=loginView">Login</a>
+					</div>
 				<?php } ?>
-			</div>
-			<div class="button-resume">				
+			
+			<div class="button-resume">
 				<a href="<?= url ?>/index.php?controller=Order">
 					<img src="images/iconografia/shoppingcart-white.svg" width="24px" alt="Icone del carrito">Resum compra
 					<span class="badge text-bg-secondary"><?= $orderQuantity ?></span>
 				</a>
-				
+
 			</div>
 		</div>
 	</nav>
@@ -37,13 +46,11 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'menu-link-active' : '' ?>" 
-							href="<?= url ?>/index.php?controller=Home">Restaurant</a>
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'menu-link-active' : '' ?>" href="<?= url ?>/index.php?controller=Home">Restaurant</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') ? 'menu-link-active' : '' ?>" 
-							href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') ? 'menu-link-active' : '' ?>" href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
 					</li>
 				</ul>
 				<form class="d-flex" role="search">

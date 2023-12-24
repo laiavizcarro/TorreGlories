@@ -3,11 +3,15 @@
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="p-3">
                 <h4>Inici sessió</h4>
-                <form action="">
+                <form action="<?= url ?>/index.php?controller=User&action=login" method="POST">
                     <input type="text" name="email" class="login m-2" placeholder="Adreça electrònica *">
                     <input type="password" name="password" class="login m-2" placeholder="Contrasenya *">
+                    <button type="submit" value="Submit" class="submit-button bold mt-20">Iniciar sessió</button>
                 </form>
-                <button type="submit" form="" value="Submit" class="submit-button bold mt-20">Iniciar sessió</button>
+
+                <p class="error">
+                    <?php echo isset($error_login) ? $error_login : "" ?>
+                </p>
             </div>
         </div>
 
