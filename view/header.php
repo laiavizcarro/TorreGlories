@@ -10,7 +10,11 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 		
 		<div class="container justify-content-end ">
 			<div class="button-login">
-				<a href="<?= url ?>/index.php?controller=User">Login</a>
+				<?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] = true) { ?>
+				<p><?php echo $_SESSION['name'] ?></p>
+				<?php } else { ?>
+				<a href="<?= url ?>/index.php?controller=User&action=login">Login</a>
+				<?php } ?>
 			</div>
 			<div class="button-resume">				
 				<a href="<?= url ?>/index.php?controller=Order">

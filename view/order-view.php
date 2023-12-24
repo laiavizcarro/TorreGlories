@@ -4,16 +4,16 @@
         <img src="images/iconografia/shoppingcart-white.svg" alt="Icone passos cistella." width="25px">
     </div>
     <div class="rectangle-active">
-        <p>Confirmació cistella</p>
+        <p>Cistella</p>
     </div>
-    
+    <!--
     <div class="circle-disabled">
         <img src="images/iconografia/steps-menu.svg" alt="Icone passos menu." width="25px">
     </div>
     <div class="rectangle-disabled">
         <p>Dades personals</p>
     </div>
-
+    -->
     <div class="circle-disabled">
         <img src="images/iconografia/steps-card.svg" alt="Icone passos targeta pagament." width="25px">
     </div>
@@ -88,7 +88,7 @@
                             </td>
                             <td class="align-middle">
                                 <a href="<?= url ?>/index.php?controller=Order&action=delete&product_id=<?=$orderLine->getProduct()->getId()?>">
-                                    <img src="images/iconografia/paperera.svg" height="25px" alt="Logo escombraries, esborrar producte">
+                                    <img class="delete-icon" src="images/iconografia/paperera.svg" height="25px" alt="Logo escombraries, esborrar producte">
                                 </a>
                             </td>
                         </tr>
@@ -101,7 +101,9 @@
                             
                             <td colspan="2" style="text-align:right;">TOTAL <?=PriceCalculator::calculateOrderTotalPrice($order)?>€</td>
                             <td>
-                                <button class="button-resume" style="color:white; font-weight: bold; width:200px; height: 50px" >FINALITZAR COMPRA</button>
+                                <a href="<?= url ?>/index.php?controller=Order&action=checkout">
+
+                                </a><button class="button-resume" style="color:white; font-weight: bold; width:200px; height: 50px" >FINALITZAR COMPRA</button>
                             </td>
                             <td></td>
                         </tr>                      

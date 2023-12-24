@@ -19,6 +19,7 @@ h3 {
     font-size: 48px !important;
     font-weight: bold !important;
 }
+
 .h3-smallest {
     font-size: 36.80px !important;
 }
@@ -59,6 +60,12 @@ h5 {
     font-weight: bold !important;
 }
 
+.error {
+    color: tomato;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
 /* BUTTONS */
 
 .btn-outline-success {
@@ -85,6 +92,13 @@ h5 {
     border-style: none;
     color: white;
     font-weight: bold;
+}
+
+.add-btn:hover {
+    border: 2px solid var(--bg-light-blue) !important;
+    background-color: var(--bg-light-blue) !important;
+    transition: all .5s;
+
 }
 
 .category_button {
@@ -222,8 +236,7 @@ h5 {
 
 
 .circle-active,
-.circle-disabled {
-    
+.circle-disabled { 
     z-index: 2; 
 }
 
@@ -302,6 +315,11 @@ h5 {
 .mt-70 {
     margin-top: 70px !important;
 }
+
+.mt-20 {
+    margin-top: 20px;
+}
+
 
  /* ICONS */
 .icons {
@@ -502,7 +520,28 @@ h5 {
 .horaris {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start; /* Alinea los elementos al principio del contenedor */
 }
+
+.horaris img {
+    margin-right: 20px; /* Ajusta el valor según sea necesario para la separación deseada */
+}
+
+.horaris-content {
+    flex: 1; /* Para que el contenido se expanda y ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+}
+
+.horaris-content p {
+    width: 100%; /* Hace que los párrafos ocupen todo el ancho disponible */
+    margin-top: 0; /* Elimina el margen superior para que "Dies de tancament" esté más cerca del texto */
+}
+
+
+
+
 
 /* REGISTER / LOGIN */
 .register, .login {
@@ -511,6 +550,22 @@ h5 {
     width: 250px;
     height: 35px;
 }
+
+
+
+.submit-button {
+    background-color: var(--pink);
+    border: 0;
+    width: 150px;   
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: white;
+}
+
+
 
 .floating-address {
     position: absolute; 
@@ -527,6 +582,17 @@ h5 {
     height: 213.6px;
     color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
+    
 }
+
+.contact > .container {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+
+
+

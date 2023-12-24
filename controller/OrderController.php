@@ -16,6 +16,7 @@ class OrderController {
         include_once 'view/order-view.php';
     }
 
+    //Funció per afegir un producte a la cistella
     public function add() {
         if (isset($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
@@ -42,6 +43,7 @@ class OrderController {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+    //Funció per a eliminar un producte de la cistella
     public function delete() {
         if (isset($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
@@ -51,11 +53,8 @@ class OrderController {
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
-    
-    public function checkout() {
-        // SESSION to Database
-    }
 
+    //Funció que permet augmentar o disminuir la quantitat d'un producte a la cistella
     public function increaseOrDecrease() {
         if (isset($_POST['increase'])) {
             $product_id = $_POST['increase'];
@@ -72,5 +71,41 @@ class OrderController {
         }
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    //Funció que comprova si existeix una sessió iniciada o cal obrir per a procedir al pagament
+    public function checkout() {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ' . url . '/index.php?controller=User&action=loginOrRegister');
+        }
+    
+        if (empty($_SESSION['order'])) {
+            header('Location: ' . url . '/index.php?controller=Order&action=index');
+            exit();
+        }
+    
+        
+        header('Location: ' . url . '/index.php?controller=Order&action=checkoutPayment');
+        exit();
+    }
+    
+
+    public function checkoutPersonalData() {
+        // SESSION to Database
+    }
+
+    public function checkoutPayment() {
+        // SESSION to Database
+    }
+
+    public function checkoutConfirm() {
+        //Guardo la comanda a la base de dades. OrderDAO per guardar-ho a la BBDD.
+
+        //Un cop confirmat el order, borro del carrito
+        unset($_SESSION['order_quantity']);
+        //Guardo la cookie
+        setcookie('lastOrder', $_POST['finalQuantity'], 3600);
+
+        //Un cop he mostrar el text de l'ultima comanda va ser de X, ja no mostro més el text.
     }
 }

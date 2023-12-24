@@ -20,6 +20,7 @@
 
 .instagram, .facebook, .twitter {
     width: 25px;
+    height: 25px;
 }
 
 .instagram:hover path,
@@ -29,5 +30,11 @@
     cursor: pointer; 
     transition: all .5s;
 
+}
+
+.instagram, 
+.facebook, 
+.twitter {
+    cursor: pointer;
 }
 

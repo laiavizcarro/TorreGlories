@@ -127,11 +127,10 @@ class ProductDAO {
                 $query = "INSERT INTO products (name, category_id, stock, iva, base_price, total_price, is_offer, offer_price, total_offer_price)"; 
                 $query .= "VALUES ($name, $category_id, $stock, $iva, $base_price, $total_price, $is_offer, $offer_price, $total_offer_price)";
         }
-        
-
-        
+                
     }
 
+    /*
     public static function getAllAllergens(){
 
         $con = DB::connectDB();
@@ -150,7 +149,7 @@ class ProductDAO {
 
         return $allergenList;
     }
-
+    */
 }
 
 
