@@ -561,14 +561,17 @@ h5 {
 
 
 /* REGISTER / LOGIN */
-.register, .login {
+.tg-form input {
     border: 1px solid #cacccd;
     box-shadow: 2px 2.3px 0 0 #cacccd;
     width: 250px;
     height: 35px;
+    padding: 10px;
 }
 
-
+.tg-form input:focus {
+    outline: none !important;
+}
 
 .submit-button {
     background-color: var(--pink);

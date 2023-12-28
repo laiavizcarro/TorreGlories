@@ -32,11 +32,11 @@
     font-weight: bold;
 }
 
-.navbar .btn {
-    border: none !important;
-}
-
 .navbar .dropdown-item:active {
     background-color: white !important;
     color: black !important;
+}
+
+.tg-btn-dropdown {
+    border: none !important;
 }

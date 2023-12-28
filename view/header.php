@@ -10,7 +10,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 		<div class="container justify-content-end ">
 				<?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] = true) { ?>
 					<div class="dropdown">
-						<button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button class="btn dropdown-toggle tg-btn-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<?php echo $_SESSION['name'] ?>
 						</button>
 						<ul class="dropdown-menu">
