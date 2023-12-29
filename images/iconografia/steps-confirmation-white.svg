@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="14px" viewBox="0 0 20 14" version="1.1">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_tick</title>
+    <desc fill="#ffffff">Created with Sketch.</desc>
+    <defs fill="#ffffff"/>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="24-px-Icons" transform="translate(-410.000000, -125.000000)" stroke="#ffffff">
+            <g id="ic_tick" transform="translate(408.000000, 120.000000)">
+                <g id="tick">
+                    <g transform="translate(3.000000, 6.000000)" stroke-width="2">
+                        <path d="M0,6 L6,12" id="Line" fill="#ffffff"/>
+                        <path d="M6,12 L18,0" id="Line" fill="#ffffff"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -85,7 +85,7 @@ class ProductDAO {
             $product->getId()
         );
 
-        $stmt ->execute();
+        $stmt->execute();
         $result=$stmt->get_result();
 
         $con->close();

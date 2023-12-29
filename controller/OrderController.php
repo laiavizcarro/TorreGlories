@@ -1,6 +1,10 @@
 <?php
-include_once 'model/Order.php';
+include_once 'model/OrderSession.php';
 include_once 'utils/PriceCalculator.php';
+include_once 'model/Order.php';
+include_once 'model/OrderDAO.php';
+include_once 'model/OrderProduct.php';
+include_once 'model/OrderProductDAO.php';
 
 
 class OrderController {
@@ -33,7 +37,7 @@ class OrderController {
                 $_SESSION['order'][$product_id]->setQuantity($_SESSION['order'][$product_id]->getQuantity() + 1);
             } else {
                 $product = ProductDAO::getProductById($_GET['product_id']);
-                $order = new Order($product);
+                $order = new OrderSession($product);
                 $_SESSION['order'][$product->getId()] = $order;
             }
 
@@ -76,6 +80,7 @@ class OrderController {
     //Funció que comprova si existeix una sessió iniciada o cal obrir per a procedir al pagament
     public function checkout() {
         if (!isset($_SESSION['email'])) {
+            $_SESSION['fromCheckout'] = true;
             header('Location: ' . url . '/index.php?controller=User&action=loginView');
             return;
         }
@@ -92,17 +97,48 @@ class OrderController {
     }
 
     public function checkoutPayment() {
-        // SESSION to Database
-    }
+        //Validar que omplin les dades del formulari correctament
+        if (!isset($_POST['card-name'], $_POST['card-number'], $_POST['card-expiry-date'], $_POST['card-cvv'] )) {
+            $error = 'Les dades de pagament no són correctes.';
+            return;
+        }
 
-    public function checkoutConfirm() {
-        //Guardo la comanda a la base de dades. OrderDAO per guardar-ho a la BBDD.
+        //Guardar la comanda i productes a la bbdd 
+        $user = UserDAO::getUserByEmail($_SESSION['email']);
+        $order = new Order(null, $user->getId(), date("Y-m-d H:i:s"), 0);
+        $order_id = OrderDAO::createOrder($order);
+        $order->setId($order_id);
 
-        //Un cop confirmat el order, borro del carrito
+        foreach($_SESSION['order'] as $orderProductSession) {
+            $orderProduct = new OrderProduct(
+                $order->getId(), 
+                $orderProductSession->getProduct()->getId(),
+                $orderProductSession->getProduct()->getName(),
+                $orderProductSession->getQuantity(),
+                $orderProductSession->getProduct()->getIva(),
+                $orderProductSession->getProduct()->getBase_price(),
+                $orderProductSession->getProduct()->getTotal_price(),
+                $orderProductSession->getProduct()->getIs_offer(),
+                $orderProductSession->getProduct()->getOffer_price(),
+                $orderProductSession->getProduct()->getTotal_offer_price(),
+            );
+            OrderProductDAO::createOrderProduct($orderProduct);
+        }
+
+        // Calcular el total price de la comanda
+        $orderTotalPrice = PriceCalculator::calculateOrderTotalPrice($_SESSION['order']);
+
+        // Pagament
+        // ...
+
+        // Marcar la comanda com a pagada
+        OrderDAO::orderPay($order);
+
+        // TODO: Guardar la comanda en cookie
+        setcookie('lastOrder', "a", time() + 3600);
+
+        // Eliminar la comanda de la session
+        unset($_SESSION['order']);
         unset($_SESSION['order_quantity']);
-        //Guardo la cookie
-        setcookie('lastOrder', $_POST['finalQuantity'], 3600);
-
-        //Un cop he mostrar el text de l'ultima comanda va ser de X, ja no mostro més el text.
     }
 }

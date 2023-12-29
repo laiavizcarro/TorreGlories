@@ -48,7 +48,12 @@ class UserController {
             $_SESSION['name'] = $user->getName();
             $_SESSION['surname'] = $user->getSurname();
 
-            header('Location: ' . url . '/index.php?controller=Home');
+            if ($_SESSION['fromCheckout'] == true) {
+                header('Location: ' . url . '/index.php?controller=Order&action=checkout');
+            } else {
+                header('Location: ' . url . '/index.php?controller=Home');
+
+            }
         }
     }
 

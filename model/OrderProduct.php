@@ -1,37 +1,64 @@
 <?php
-
-class Product {
-
-    protected $id;
+class OrderProduct {
+    protected $order_id;
+    protected $product_id;
     protected $name;
-    protected $category_id;
-    protected $stock;
+    protected $quantity;
     protected $iva;
     protected $base_price;
     protected $total_price;
     protected $is_offer;
     protected $offer_price;
     protected $total_offer_price;
-    protected $img_path;
 
-    public function __construct() {
+    public function __construct($order_id, $product_id, $name, $quantity, $iva, $base_price,
+    $total_price, $is_offer, $offer_price, $total_offer_price) {
+        $this->order_id = $order_id;
+        $this->product_id = $product_id;
+        $this->name = $name;
+        $this->quantity = $quantity;
+        $this->iva = $iva;
+        $this->base_price = $base_price;
+        $this->total_price = $total_price;
+        $this->is_offer = $is_offer;
+        $this->offer_price = $offer_price;
+        $this->total_offer_price = $total_offer_price;
+        
     }
 
 
     /**
-     * Get the value of id
+     * Get the value of order_id
      */
-    public function getId() {
-        return $this->id;
+    public function getOrderId() {
+        return $this->order_id;
     }
 
     /**
-     * Set the value of id
+     * Set the value of order_id
      *
      * @return  self
      */
-    public function setId($id) {
-        $this->id = $id;
+    public function setOrderId($order_id) {
+        $this->order_id = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of product_id
+     */
+    public function getProductId() {
+        return $this->product_id;
+    }
+
+    /**
+     * Set the value of product_id
+     *
+     * @return  self
+     */
+    public function setProductId($product_id) {
+        $this->product_id = $product_id;
 
         return $this;
     }
@@ -55,37 +82,19 @@ class Product {
     }
 
     /**
-     * Get the value of category
+     * Get the value of quantity
      */
-    public function getCategory() {
-        return $this->category_id;
+    public function getQuantity() {
+        return $this->quantity;
     }
 
     /**
-     * Set the value of category
+     * Set the value of quantity
      *
      * @return  self
      */
-    public function setCategory($category) {
-        $this->category_id = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of stock
-     */
-    public function getStock() {
-        return $this->stock;
-    }
-
-    /**
-     * Set the value of stock
-     *
-     * @return  self
-     */
-    public function setStock($stock) {
-        $this->stock = $stock;
+    public function setQuantity($quantity) {
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -111,7 +120,7 @@ class Product {
     /**
      * Get the value of base_price
      */
-    public function getBase_price() {
+    public function getBasePrice() {
         return $this->base_price;
     }
 
@@ -120,7 +129,7 @@ class Product {
      *
      * @return  self
      */
-    public function setBase_price($base_price) {
+    public function setBasePrice($base_price) {
         $this->base_price = $base_price;
 
         return $this;
@@ -129,7 +138,7 @@ class Product {
     /**
      * Get the value of total_price
      */
-    public function getTotal_price() {
+    public function getTotalPrice() {
         return $this->total_price;
     }
 
@@ -138,7 +147,7 @@ class Product {
      *
      * @return  self
      */
-    public function setTotal_price($total_price) {
+    public function setTotalPrice($total_price) {
         $this->total_price = $total_price;
 
         return $this;
@@ -147,7 +156,7 @@ class Product {
     /**
      * Get the value of is_offer
      */
-    public function getIs_offer() {
+    public function getIsOffer() {
         return $this->is_offer;
     }
 
@@ -156,7 +165,7 @@ class Product {
      *
      * @return  self
      */
-    public function setIs_offer($is_offer) {
+    public function setIsOffer($is_offer) {
         $this->is_offer = $is_offer;
 
         return $this;
@@ -165,7 +174,7 @@ class Product {
     /**
      * Get the value of offer_price
      */
-    public function getOffer_price() {
+    public function getOfferPrice() {
         return $this->offer_price;
     }
 
@@ -174,7 +183,7 @@ class Product {
      *
      * @return  self
      */
-    public function setOffer_price($offer_price) {
+    public function setOfferPrice($offer_price) {
         $this->offer_price = $offer_price;
 
         return $this;
@@ -183,7 +192,7 @@ class Product {
     /**
      * Get the value of total_offer_price
      */
-    public function getTotal_offer_price() {
+    public function getTotalOfferPrice() {
         return $this->total_offer_price;
     }
 
@@ -192,27 +201,12 @@ class Product {
      *
      * @return  self
      */
-    public function setTotal_offer_price($total_offer_price) {
+    public function setTotalOfferPrice($total_offer_price) {
         $this->total_offer_price = $total_offer_price;
 
         return $this;
     }
-
-    /**
-     * Get the value of img_path
-     */
-    public function getImg_path() {
-        return $this->img_path;
-    }
-
-    /**
-     * Set the value of img_path
-     *
-     * @return  self
-     */
-    public function setImg_path($img_path) {
-        $this->img_path = $img_path;
-
-        return $this;
-    }
 }
+
+
+?>
