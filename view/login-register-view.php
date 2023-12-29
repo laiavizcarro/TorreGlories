@@ -1,11 +1,11 @@
 <section class="container mt-70">
-    <div class="row g-4">
+    <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="p-3">
                 <h4>Inici sessió</h4>
                 <form class="tg-form" action="<?= url ?>/index.php?controller=User&action=login" method="POST">
-                    <input type="text" name="email" class="m-2" placeholder="Adreça electrònica *">
-                    <input type="password" name="password" class="m-2" placeholder="Contrasenya *">
+                    <input type="text" name="email" placeholder="Adreça electrònica *">
+                    <input type="password" name="password" placeholder="Contrasenya *">
                     <button type="submit" value="Submit" class="submit-button bold mt-20">Iniciar sessió</button>
                 </form>
 
@@ -19,15 +19,15 @@
             <div class="p-3">
                 <h4>Registre</h4>
                 <form class="tg-form" action="<?= url ?>/index.php?controller=User&action=register" method="POST">
-                    <input type="text" name="name" class="m-2" placeholder="Nom *" required>
-                    <input type="text" name="surname" class="m-2" placeholder="Cognoms *" required>
-                    <input type="text" name="email" class="m-2" placeholder="Adreça electrònica *" required 
+                    <input type="text" name="name" placeholder="Nom *" required>
+                    <input type="text" name="surname" placeholder="Cognoms *" required>
+                    <input type="text" name="email" placeholder="Adreça electrònica *" required 
                         pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
-                    <input type="text" name="phone_number" class="m-2" placeholder="Telefon *" required 
+                    <input type="text" name="phone_number" placeholder="Telefon *" required 
                         pattern="^[\d]{9}$">
 
-                    <input type="password" name="password" class="m-2" placeholder="Contrasenya *" required>
-                    <input type="password" name="password_check" class="m-2" placeholder="Repeteix la contrasenya *" required>
+                    <input type="password" name="password" placeholder="Contrasenya *" required>
+                    <input type="password" name="password_check" placeholder="Repeteix la contrasenya *" required>
                     <button type="submit" value="submit" class="submit-button bold mt-20">Registrar-se</button>
                 </form>
 

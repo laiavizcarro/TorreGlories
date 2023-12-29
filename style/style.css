@@ -573,6 +573,10 @@ h5 {
     outline: none !important;
 }
 
+.tg-form input {
+    margin: 10px 10px 10px 0px;
+}
+
 .submit-button {
     background-color: var(--pink);
     border: 0;
