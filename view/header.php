@@ -14,7 +14,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 							<?php echo $_SESSION['name'] ?>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Perfil</a></li>
+							<li><a class="dropdown-item" href="<?= url ?>/index.php?controller=Profile">Perfil</a></li>
 							<li><a class="dropdown-item" href="<?= url ?>/index.php?controller=User&action=logout">Tancar sessió</a></li>
 						</ul>
 					</div>

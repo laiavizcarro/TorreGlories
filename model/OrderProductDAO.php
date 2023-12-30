@@ -6,7 +6,7 @@ include_once 'Order.php';
 
 class OrderProductDAO {
 
-    public static function createOrderProduct (OrderProduct $orderProduct) {
+    public static function createOrderProduct(OrderProduct $orderProduct) {
         $order_id = $orderProduct->getOrderId();
         $product_id = $orderProduct->getProductId();
         $name = $orderProduct->getName();
@@ -33,6 +33,26 @@ class OrderProductDAO {
         $con->close();
 
         return $result;
+    }
+
+    public static function getOrderProductsByOrderId($orderId){
+
+        $con = DB::connectDB();
+
+        $stmt = $con->prepare("SELECT * FROM order_products WHERE order_id = ?");
+        $stmt->bind_param("i", $orderId);
+
+        $stmt ->execute();
+        $result = $stmt->get_result();
+
+        $con->close();
+
+        $list = [];
+        while ($current = $result->fetch_object("OrderProduct")){
+            $list[] = $current;
+        }
+
+        return $list;
     }
     
 }

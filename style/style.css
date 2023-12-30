@@ -558,8 +558,6 @@ h5 {
 
 
 
-
-
 /* REGISTER / LOGIN */
 .tg-form input {
     border: 1px solid #cacccd;
@@ -615,8 +613,15 @@ h5 {
 
     justify-content: space-between;
 }
+ 
 
+/* PROFILE */
+.last-order {
+    background-color: var(--bg-dark-blue);
+    padding: 20px !important;
+}
 
-
-
-
+.last-order h4,
+.last-order p {
+    color: white !important;
+}

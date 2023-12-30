@@ -1,11 +1,16 @@
 <?php
 
+// Mantindre totes les cookies 1h després de reiniciar el navegador.
+session_set_cookie_params(time() + 3600);
+
+// Importem tots els scripts necessaris.
 include_once 'config/parameters.php';
 include_once 'utils/PriceCalculator.php';
 include_once 'controller/ProductController.php';
 include_once 'controller/HomeController.php';
 include_once 'controller/OrderController.php';
 include_once 'controller/UserController.php';
+include_once 'controller/ProfileController.php';
 
 ?>
 

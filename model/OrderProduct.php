@@ -11,20 +11,7 @@ class OrderProduct {
     protected $offer_price;
     protected $total_offer_price;
 
-    public function __construct($order_id, $product_id, $name, $quantity, $iva, $base_price,
-    $total_price, $is_offer, $offer_price, $total_offer_price) {
-        $this->order_id = $order_id;
-        $this->product_id = $product_id;
-        $this->name = $name;
-        $this->quantity = $quantity;
-        $this->iva = $iva;
-        $this->base_price = $base_price;
-        $this->total_price = $total_price;
-        $this->is_offer = $is_offer;
-        $this->offer_price = $offer_price;
-        $this->total_offer_price = $total_offer_price;
-        
-    }
+    public function __construct() {}
 
 
     /**

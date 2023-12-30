@@ -79,5 +79,5 @@ INSERT INTO roles (name) VALUES
 -- Bolcament de dades per a la taula 'users'
 --
 INSERT INTO users (name, surname, email, phone_number, password, role_id, incorporation_date) VALUES
-('Admin', 'Admin', 'admin@gmail.com', '123456789', '21232f297a57a5a743894a0e4a801fc3', 1, NULL), -- password: admin
-('Laia', 'Vizcarro', 'vizcarrolaia@gmail.com', '671704007', '81dc9bdb52d04dc20036dbd8313ed055', 2, NULL); -- password: 1234
+('Admin', 'Admin', 'admin@torreglories.com', '123456789', '21232f297a57a5a743894a0e4a801fc3', 1, NULL), -- password: admin
+('Laia', 'Vizcarro', 'laia@torreglories.com', '123456789', '81dc9bdb52d04dc20036dbd8313ed055', 2, NULL); -- password: 1234

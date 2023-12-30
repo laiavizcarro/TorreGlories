@@ -122,6 +122,7 @@ CREATE TABLE `orders` (
   `user_id` int NOT NULL,
   `date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `is_paid` tinyint(1) NOT NULL,
+  `total_price` decimal(5,2) NOT NULL,
   
   CONSTRAINT PK_ORDERS PRIMARY KEY (id),
   CONSTRAINT FK_ORDERS_USER_ID FOREIGN KEY (user_id) REFERENCES users (id)

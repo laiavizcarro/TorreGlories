@@ -1,16 +1,18 @@
 <?php
+
+include_once 'utils/PriceCalculator.php';
+
 class Order {
 
-    protected $id;
-    protected $user_id;
-    protected $date;
-    protected $is_paid;
+    private $id;
+    private $user_id;
+    private $date;
+    private $is_paid;
+    private $total_price;
 
-    public function __construct($id, $user_id, $date, $is_paid) {
-        $this->id = $id;
-        $this->user_id = $user_id;
-        $this->date = $date;
-        $this->is_paid = $is_paid;
+    private array $orderProducts = [];
+
+    public function __construct() {
     }
 
     /**
@@ -84,4 +86,51 @@ class Order {
 
         return $this;
     }
+
+    /**
+     * Get the value of products
+     */
+    public function getOrderProducts() {
+        return $this->orderProducts;
+    }
+
+    /**
+     * Set the value of products
+     *
+     * @return  self
+     */
+    public function setOrderProducts($orderProducts) {
+        $this->orderProducts = $orderProducts;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of total_price
+     */
+    public function getTotalPrice() {
+        return $this->total_price;
+    }
+
+    /**
+     * Set the value of total_price
+     *
+     * @return  self
+     */
+    public function setTotalPrice($total_price) {
+        $this->total_price = $total_price;
+
+        return $this;
+    }
+
+    public function calculateTotalPrice() {
+        $totalPrice = 0;
+
+        foreach($this->getOrderProducts() as $orderProduct) {
+            $totalPrice += $orderProduct->getTotalPrice() * $orderProduct->getQuantity();
+        }
+
+        return PriceCalculator::fixDecimal($totalPrice);
+    }
+
 }

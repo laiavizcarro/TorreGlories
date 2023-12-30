@@ -41,7 +41,6 @@ class ProductDAO {
         }
 
         return $productsList;
-     
     }
 
     public static function deleteProduct($id){

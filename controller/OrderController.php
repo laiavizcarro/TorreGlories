@@ -1,6 +1,7 @@
 <?php
-include_once 'model/OrderSession.php';
+
 include_once 'utils/PriceCalculator.php';
+include_once 'model/OrderSession.php';
 include_once 'model/Order.php';
 include_once 'model/OrderDAO.php';
 include_once 'model/OrderProduct.php';
@@ -97,36 +98,49 @@ class OrderController {
     }
 
     public function checkoutPayment() {
-        //Validar que omplin les dades del formulari correctament
+        // Validar que omplin les dades del formulari correctament
         if (!isset($_POST['card-name'], $_POST['card-number'], $_POST['card-expiry-date'], $_POST['card-cvv'] )) {
             $error = 'Les dades de pagament no són correctes.';
             return;
         }
 
-        //Guardar la comanda i productes a la bbdd 
+        // Obtenim l'usuari de la DB
         $user = UserDAO::getUserByEmail($_SESSION['email']);
-        $order = new Order(null, $user->getId(), date("Y-m-d H:i:s"), 0);
+
+        // Creem l'objecte Order
+        $order = new Order();
+        $order->setUserId($user->getId());
+        $order->setDate(date("Y-m-d H:i:s"));
+        $order->setIsPaid(0);
+
+        // Assignem tots els products al Order
+        $orderProductsList = [];
+        foreach($_SESSION['order'] as $orderProductSession) {
+            $orderProduct = new OrderProduct();
+            $orderProduct->setProductId($orderProductSession->getProduct()->getId());
+            $orderProduct->setName($orderProductSession->getProduct()->getName());
+            $orderProduct->setQuantity($orderProductSession->getQuantity());
+            $orderProduct->setIva($orderProductSession->getProduct()->getIva());
+            $orderProduct->setBasePrice($orderProductSession->getProduct()->getBase_price());
+            $orderProduct->setTotalPrice($orderProductSession->getProduct()->getTotal_price());
+            $orderProduct->setIsOffer($orderProductSession->getProduct()->getIs_offer());
+            $orderProduct->setOfferPrice($orderProductSession->getProduct()->getOffer_price());
+            $orderProduct->setTotalOfferPrice($orderProductSession->getProduct()->getTotal_offer_price());
+            array_push($orderProductsList, $orderProduct);
+        }
+        $order->setOrderProducts($orderProductsList);
+
+        // Calculem el totalPrice per a la comanda
+        $order->setTotalPrice($order->calculateTotalPrice());
+        
+        // Creem la comanda i els seus productes a la DB
         $order_id = OrderDAO::createOrder($order);
         $order->setId($order_id);
 
-        foreach($_SESSION['order'] as $orderProductSession) {
-            $orderProduct = new OrderProduct(
-                $order->getId(), 
-                $orderProductSession->getProduct()->getId(),
-                $orderProductSession->getProduct()->getName(),
-                $orderProductSession->getQuantity(),
-                $orderProductSession->getProduct()->getIva(),
-                $orderProductSession->getProduct()->getBase_price(),
-                $orderProductSession->getProduct()->getTotal_price(),
-                $orderProductSession->getProduct()->getIs_offer(),
-                $orderProductSession->getProduct()->getOffer_price(),
-                $orderProductSession->getProduct()->getTotal_offer_price(),
-            );
+        foreach($order->getOrderProducts() as $orderProduct) {
+            $orderProduct->setOrderId($order->getId());
             OrderProductDAO::createOrderProduct($orderProduct);
         }
-
-        // Calcular el total price de la comanda
-        $orderTotalPrice = PriceCalculator::calculateOrderTotalPrice($_SESSION['order']);
 
         // Pagament
         // ...
@@ -134,11 +148,24 @@ class OrderController {
         // Marcar la comanda com a pagada
         OrderDAO::orderPay($order);
 
-        // TODO: Guardar la comanda en cookie
-        setcookie('lastOrder', "a", time() + 3600);
+        // Guardar la comanda en cookie
+        setcookie('lastOrder', $order->getId(), time() + 3600);
 
         // Eliminar la comanda de la session
         unset($_SESSION['order']);
         unset($_SESSION['order_quantity']);
+    }
+
+    public function repeatOrder() {
+        $orderId = $_GET['orderId'];
+
+        // Obtenim la comanda de la DB
+        $order = OrderDAO::getOrderById($orderId);
+        $order->setOrderProducts(OrderProductDAO::getOrderProductsByOrderId($order->getId()));
+
+        // Transformem la comanda de Order a $_SESSION
+        
+
+        // Redirigim a OrderController.checkout()
     }
 }
