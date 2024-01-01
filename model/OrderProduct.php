@@ -13,7 +13,6 @@ class OrderProduct {
 
     public function __construct() {}
 
-
     /**
      * Get the value of order_id
      */

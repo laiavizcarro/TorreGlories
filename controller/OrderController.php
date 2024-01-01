@@ -6,6 +6,7 @@ include_once 'model/Order.php';
 include_once 'model/OrderDAO.php';
 include_once 'model/OrderProduct.php';
 include_once 'model/OrderProductDAO.php';
+include_once 'config/parameters.php';
 
 
 class OrderController {
@@ -38,7 +39,8 @@ class OrderController {
                 $_SESSION['order'][$product_id]->setQuantity($_SESSION['order'][$product_id]->getQuantity() + 1);
             } else {
                 $product = ProductDAO::getProductById($_GET['product_id']);
-                $order = new OrderSession($product);
+                $order = new OrderSession();
+                $order->setProduct($product);
                 $_SESSION['order'][$product->getId()] = $order;
             }
 
@@ -164,8 +166,17 @@ class OrderController {
         $order->setOrderProducts(OrderProductDAO::getOrderProductsByOrderId($order->getId()));
 
         // Transformem la comanda de Order a $_SESSION
-        
+        $_SESSION['order'] = array();
+        $_SESSION['order_quantity'] = 0;
+        foreach ($order->getOrderProducts() as $orderProduct) {
+            $orderSession = new OrderSession();
+            $product = ProductDAO::getProductById($orderProduct->getProductId());
+            $orderSession->setProduct($product);
+            $orderSession->setQuantity($orderProduct->getQuantity());
+            $_SESSION['order'][$product->getId()] = $orderSession;
+            $_SESSION['order_quantity'] += $orderSession->getQuantity();
+        }
 
-        // Redirigim a OrderController.checkout()
+        header('Location: ' . url . '/index.php?controller=Order');
     }
 }

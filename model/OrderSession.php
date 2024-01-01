@@ -4,10 +4,7 @@ class OrderSession {
     private $product;
     private $quantity = 1;
 
-    public function __construct($product)
-    {
-        $this->product = $product;
-    }
+    public function __construct() {}
 
     /**
      * Get the value of product

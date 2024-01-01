@@ -1,10 +1,16 @@
+<?php if (isset($lastOrder)) { ?>
 <section class="container-fluid">
     <div class="col-xs-12 col-sm-12 col-md-12 last-order">
-        <h4>Última Comanda</h4>
-        <p>Total: <?php echo $lastOrder->getTotalPrice() ?> €</p>
-        <button class="btn">Repetir comanda</button>
+        <div class="container">
+            <h4>Última Comanda (<?php echo date_format(date_create($lastOrder->getDate()), 'Y-m-d H:i') ?>)</h4>
+            <p>Total: <?php echo $lastOrder->getTotalPrice() ?> €</p>
+            <a href="<?= url ?>/index.php?controller=Order&action=repeatOrder&orderId=<?=$lastOrder->getId()?>">
+                <button class="btn btn-outline-primary">Repetir comanda</button>
+            </a>  
+        </div>
     </div>
 </section>
+<?php } ?>
 
 <section class="container mt-70">
     <div class="row">
