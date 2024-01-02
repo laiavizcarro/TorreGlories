@@ -13,7 +13,7 @@ class OrderDAO {
         $con = DB::connectDB();
 
         $stmt = $con->prepare("INSERT INTO orders (user_id, date, is_paid, total_price) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("isii", $user_id, $date, $is_paid, $total_price);
+        $stmt->bind_param("isid", $user_id, $date, $is_paid, $total_price);
 
         $stmt->execute();
         $last_id = $con->insert_id;

@@ -2,14 +2,14 @@
 
 class PriceCalculator {
     public static function calculateProductTotalPrice($orderLine) {
-        return PriceCalculator::fixDecimal($orderLine->getProduct()->getTotal_Price() * $orderLine->getQuantity());
+        return PriceCalculator::fixDecimal($orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity());
     }
 
     public static function calculateOrderTotalPrice($order) {
         $totalPrice = 0;
 
         foreach($order as $orderLine) {
-            $totalPrice += $orderLine->getProduct()->getTotal_Price() * $orderLine->getQuantity();
+            $totalPrice += $orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity();
         }
 
         return PriceCalculator::fixDecimal($totalPrice);
@@ -18,8 +18,23 @@ class PriceCalculator {
     public static function fixDecimal($qty) {
         return number_format((float)$qty, 2, '.', '');
     }
-}
 
-6.17
+    public static function getIvaCalculation($iva) {
+        switch ($iva) {
+            case "4":
+                return 1.04;
+                break;
+            case "10":
+                return 1.10;
+                break;
+            case "21":
+                return 1.21;
+                break;
+            default:
+                return 1.00;
+                break;
+        }
+    }
+}
 
 ?>

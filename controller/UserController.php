@@ -47,6 +47,7 @@ class UserController {
             $_SESSION['email'] = $user->getEmail();
             $_SESSION['name'] = $user->getName();
             $_SESSION['surname'] = $user->getSurname();
+            $_SESSION['isAdmin'] = $user->isAdmin();
 
             if ($_SESSION['fromCheckout'] == true) {
                 header('Location: ' . url . '/index.php?controller=Order&action=checkout');

@@ -107,6 +107,10 @@ class User {
 
         return $this;
     }
+
+    public function isAdmin() {
+        return $this->role_id == 1;
+    }
 }
 
 ?>

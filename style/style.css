@@ -162,9 +162,6 @@ h5 {
     color: var(--bg-light-blue) !important;
 }
 
-.menu-link:not(:last-child):after {
-    content: "|";
-}
 
 
 /**carito - orders*/
@@ -393,6 +390,10 @@ h5 {
     width: 20px;
 }
 
+.product-card .card-body .card-text > span {
+    color: red;
+}
+
 
 /* HOME CARDS */
 .home-welcome-primary {
@@ -559,19 +560,23 @@ h5 {
 
 
 /* REGISTER / LOGIN */
-.tg-form input {
+.tg-form input:not([type=checkbox], [type=file]),
+.tg-form select {
     border: 1px solid #cacccd;
     box-shadow: 2px 2.3px 0 0 #cacccd;
-    width: 250px;
+    width: 100%;
+    min-width: 200px;
     height: 35px;
-    padding: 10px;
+    padding: 8px;
+    display: block;
 }
-
+    
 .tg-form input:focus {
     outline: none !important;
 }
 
-.tg-form input {
+.tg-form input,
+.tg-form select {
     margin: 10px 10px 10px 0px;
 }
 
@@ -624,4 +629,9 @@ h5 {
 .last-order h4,
 .last-order p {
     color: white !important;
+}
+
+.btn-return {
+    color: var(--dark-pink);
+    font-weight: bold;
 }

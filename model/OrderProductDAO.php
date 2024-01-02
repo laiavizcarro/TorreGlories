@@ -24,7 +24,7 @@ class OrderProductDAO {
         base_price, total_price, is_offer, offer_price, total_offer_price) VALUES 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param("iisiiiiiii", $order_id, $product_id, $name, $quantity, $iva, $base_price,
+        $stmt->bind_param("iisiiddidd", $order_id, $product_id, $name, $quantity, $iva, $base_price,
         $total_price, $is_offer, $offer_price, $total_offer_price);
 
         $result = $stmt->execute();

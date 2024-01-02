@@ -56,33 +56,33 @@ class ProductDAO {
         return $result;
     }
 
-    public static function updateProduct($product){
+    public static function updateProduct(Product $product){
         $con = DB::connectDB();
+
+        $name = $product->getName();
+        $category_id = $product->getCategory();
+        $iva = $product->getIva();
+        $base_price = $product->getBasePrice();
+        $total_price = $product->getTotalPrice();
+        $is_offer = $product->isOffer();
+        $offer_price = $product->getOfferPrice();
+        $total_offer_price = $product->getTotalOfferPrice();
+        $img_path = $product->getImgPath();
+        $id = $product->getId();
 
         $query = "UPDATE products ";
         $query .= "SET name = ?, ";
         $query .= "category_id = ?, ";
-        $query .= "stock = ?, ";
         $query .= "iva = ?, ";
         $query .= "base_price = ?, ";
         $query .= "total_price = ?, ";
         $query .= "is_offer = ?, ";
         $query .= "offer_price = ?, ";
-        $query .= "total_offer_price = ? ";
+        $query .= "total_offer_price = ?, ";
+        $query .= "img_path = ? ";
         $query .= "WHERE id=?";
         $stmt = $con->prepare($query);
-        $stmt->bind_param("siiiiiiiii", 
-            $product->getName(),
-            $product->getCategory(),
-            $product->getStock(),
-            $product->getIva(),
-            $product->getBase_price(),
-            $product->getTotal_price(),
-            $product->getIs_offer(),
-            $product->getOffer_price(),
-            $product->getTotal_offer_price(),
-            $product->getId()
-        );
+        $stmt->bind_param("siiddiddsi", $name, $category_id, $iva, $base_price, $total_price, $is_offer, $offer_price, $total_offer_price, $img_path, $id);
 
         $stmt->execute();
         $result=$stmt->get_result();
@@ -108,25 +108,29 @@ class ProductDAO {
         
     }
 
-    public static function insertProduct(){
+    public static function insertProduct(Product $product){
         $con = DB::connectDB();
 
-        if(isset($_POST['name'], $_POST['category_id'], $_POST['stock'], $_POST['iva'], $_POST['base_price'], $_POST['total_price'], 
-            $_POST['is_offer'], $_POST['offer_price'], $_POST['total_offer_price'])) {
-                $name = $_POST['name'];
-                $category_id = $_POST['category_id'];
-                $stock = $_POST['stock'];
-                $iva = $_POST['iva'];
-                $base_price = $_POST['base_price'];
-                $total_price = $_POST['total_price'];
-                $is_offer = $_POST['is_offer'];
-                $offer_price = $_POST['offer_price'];
-                $total_offer_price = $_POST['total_offer_price'];
-            
-                $query = "INSERT INTO products (name, category_id, stock, iva, base_price, total_price, is_offer, offer_price, total_offer_price)"; 
-                $query .= "VALUES ($name, $category_id, $stock, $iva, $base_price, $total_price, $is_offer, $offer_price, $total_offer_price)";
-        }
-                
+        $name = $product->getName();
+        $category_id = $product->getCategory();
+        $iva = $product->getIva();
+        $base_price = $product->getBasePrice();
+        $total_price = $product->getTotalPrice();
+        $is_offer = $product->isOffer();
+        $offer_price = $product->getOfferPrice();
+        $total_offer_price = $product->getTotalOfferPrice();
+        $img_path = $product->getImgPath();
+
+        $query = "INSERT INTO products (name, category_id, iva, base_price, total_price, is_offer, offer_price, total_offer_price, img_path)"; 
+        $query .= "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $con->prepare($query);
+        $stmt->bind_param("siiddidds", $name, $category_id, $iva, $base_price, $total_price, $is_offer, $offer_price, $total_offer_price, $img_path);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $con->close();
     }
 
     /*

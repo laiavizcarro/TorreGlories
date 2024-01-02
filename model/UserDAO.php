@@ -190,7 +190,7 @@ class UserDAO {
             );
     }
 
-    public static function getUserByEmail($email) {
+    public static function getUserByEmail($email): User {
         
         $con = DB::connectDB();
 

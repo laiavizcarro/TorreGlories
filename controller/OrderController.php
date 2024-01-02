@@ -123,11 +123,11 @@ class OrderController {
             $orderProduct->setName($orderProductSession->getProduct()->getName());
             $orderProduct->setQuantity($orderProductSession->getQuantity());
             $orderProduct->setIva($orderProductSession->getProduct()->getIva());
-            $orderProduct->setBasePrice($orderProductSession->getProduct()->getBase_price());
-            $orderProduct->setTotalPrice($orderProductSession->getProduct()->getTotal_price());
-            $orderProduct->setIsOffer($orderProductSession->getProduct()->getIs_offer());
-            $orderProduct->setOfferPrice($orderProductSession->getProduct()->getOffer_price());
-            $orderProduct->setTotalOfferPrice($orderProductSession->getProduct()->getTotal_offer_price());
+            $orderProduct->setBasePrice($orderProductSession->getProduct()->getBasePrice());
+            $orderProduct->setTotalPrice($orderProductSession->getProduct()->getTotalPrice());
+            $orderProduct->setIsOffer($orderProductSession->getProduct()->isOffer());
+            $orderProduct->setOfferPrice($orderProductSession->getProduct()->getOfferPrice());
+            $orderProduct->setTotalOfferPrice($orderProductSession->getProduct()->getTotalOfferPrice());
             array_push($orderProductsList, $orderProduct);
         }
         $order->setOrderProducts($orderProductsList);

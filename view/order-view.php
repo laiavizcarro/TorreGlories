@@ -65,13 +65,13 @@
                         <?php foreach($order as $orderLine) { ?>
                         <tr>
                             <td class="align-middle" style="width: 10%">
-                                <img src="<?php echo $orderLine->getProduct()->getImg_path() ?>" class="order-product-image" alt="Imatge del producte" height="75px">
+                                <img src="<?php echo $orderLine->getProduct()->getImgPath() ?>" class="order-product-image" alt="Imatge del producte" height="75px">
                             </td>
                             <td class="align-middle text-start" style="width: 40%;">
                                 <?=$orderLine->getProduct()->getName()?>
                             </td>
                             <td class="align-middle">
-                                <?=$orderLine->getProduct()->getTotal_Price()?>€
+                                <?=$orderLine->getProduct()->getTotalPrice()?>€
                             </td>
                             <td class="align-middle">
                                 <?=PriceCalculator::calculateProductTotalPrice($orderLine)?>€

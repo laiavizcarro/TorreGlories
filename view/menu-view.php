@@ -42,13 +42,17 @@
                 <div class="card product-card">
                     <div class="row g-0">
                         <div class="col-xs-4 col-sm-4 col-md-4 card-image">
-                            <img src="<?php echo $product->getImg_path() ?>" 
+                            <img src="<?php echo $product->getImgPath() ?>" 
                                 alt="Imatge del producte">
                         </div>
                         <div class="col-xs-8 col-sm-8 col-md-8">
                             <div class="card-body">
                                 <p class="card-title"><?= $product->getName() ?></p>
-                                <p class="card-text"><?= $product->getTotal_Price() ?> €</p>
+                                <?php if($product->isOffer()) { ?>
+                                    <p class="card-text"> <del class="error"><?= $product->getTotalPrice() ?></del> <?= $product->getTotalOfferPrice() ?> € </p>
+                                <?php } else { ?>
+                                    <p class="card-text"> <?= $product->getTotalPrice() ?> € </p>
+                                <?php } ?>
                                 <div>
                                     <div>
 										<img src="images/iconografia/icon-gluten.png" alt="Iconografia de l'al·lèrgen" 
