@@ -331,7 +331,11 @@ h5 {
 }
 
 .mt-20 {
-    margin-top: 20px;
+    margin-top: 20px !important;
+}
+
+.mw-250 {
+    max-width: 250px;
 }
 
 
@@ -346,7 +350,6 @@ h5 {
 .product-card {
     border: none !important;
     border-radius: 0px !important;
-    height: 150px !important;
     margin-top: 12px !important;
     margin-bottom: 12px !important;
 }
@@ -579,10 +582,6 @@ h5 {
     outline: none !important;
 }
 
-.tg-form input,
-.tg-form select {
-    
-}
 
 .submit-button {
     background-color: var(--pink);

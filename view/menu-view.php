@@ -38,13 +38,14 @@
 <section class="container mt-70">
     <div class="row">
         <?php foreach ($allProducts as $product) { ?>
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="card product-card">
                     <div class="row g-0">
                         <div class="col-xs-4 col-sm-4 col-md-4 card-image">
                             <img src="<?php echo $product->getImgPath() ?>" 
                                 alt="Imatge del producte">
                         </div>
+
                         <div class="col-xs-8 col-sm-8 col-md-8">
                             <div class="card-body">
                                 <p class="card-title"><?= $product->getName() ?></p>

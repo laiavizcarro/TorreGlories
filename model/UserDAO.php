@@ -81,7 +81,7 @@ class UserDAO {
         return $usersList;
     }
     
-    public static function insertUser(BasicUser|AdminUser $user) {
+    public static function insertUser($user) {
         $name = $user->getName();
         $surname = $user->getSurname();
         $email = $user->getEmail();
@@ -90,7 +90,7 @@ class UserDAO {
 
         $incorporationDate = null;
         $phoneNumber = null;
-        if ($roleId = 1) {
+        if ($roleId == 1) {
             $incorporationDate = $user->getIncorporationDate();
         } else {
             $phoneNumber = $user->getPhoneNumber();
