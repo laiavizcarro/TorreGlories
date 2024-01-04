@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button type="submit" class="add-btn mt-10">Actualitzar</button>
+                    <button type="submit" class="btn-add mt-10">Actualitzar</button>
                 </div>
             </form>
         </div>

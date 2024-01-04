@@ -9,22 +9,22 @@
 	<div class=""> 
 		<ul class="nav container justify-content-end">
 			<li class="nav-item">
-				<a class="nav-link category_button <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=1') ? 'category_button_active' : '' ?>" 
+				<a class="nav-link btn-category <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=1') ? 'btn-category_active' : '' ?>" 
 					href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Plats
                 </a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link category_button <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=2') ? 'category_button_active' : '' ?>" 
+				<a class="nav-link btn-category <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=2') ? 'btn-category_active' : '' ?>" 
 					href="<?= url ?>/index.php?controller=Product&action=products&category_id=2">Postres
                 </a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link category_button <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=3') ? 'category_button_active' : '' ?>" 
+				<a class="nav-link btn-category <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=3') ? 'btn-category_active' : '' ?>" 
 					href="<?= url ?>/index.php?controller=Product&action=products&category_id=3">Begudes
                 </a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link category_button <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=4') ? 'category_button_active' : '' ?>" 
+				<a class="nav-link btn-category <?= str_contains($_SERVER['REQUEST_URI'], 'category_id=4') ? 'btn-category_active' : '' ?>" 
 					href="<?= url ?>/index.php?controller=Product&action=products&category_id=4">Esmorzars
                 </a>
 			</li>
@@ -57,7 +57,7 @@
                                             class="icons">
                                     </div-->
                                     <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
-                                        <button class="add-btn">
+                                        <button class="btn-add">
                                             <img src="images/iconografia/shoppingcart-white.svg" alt="Botó d'afegir producte a la cistella" class="icons">Afegir
                                         </button>
                                     </a>

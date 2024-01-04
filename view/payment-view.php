@@ -53,7 +53,7 @@
               </div>
           </div>
           
-          <button id="PayButton" class="btn btn-block btn-success submit-button mt-10" type="submit">
+          <button id="PayButton" class="btn btn-block btn-success btn-submit mt-10" type="submit">
               <span class="align-middle">Pagar <?=PriceCalculator::calculateOrderTotalPrice($order)?>€</span>
           </button>
 

@@ -46,7 +46,7 @@
                 <input type="file" id="img" name="img"/>
             </div>
             <div class="col-12">
-                <button type="submit" class="add-btn mt-10">Inserir</button>
+                <button type="submit" class="btn-add mt-10">Inserir</button>
             </div>
 
             <?php if (isset($error)) { ?>
