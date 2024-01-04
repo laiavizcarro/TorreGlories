@@ -15,10 +15,57 @@
 <section class="container mt-70">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h4>Dades Personals</h4>
+            <h2>Dades Personals</h2>
+            <form class="tg-form row g-3" action="<?= url ?>/index.php?controller=Profile&action=update" method="POST">
+                <div class="col-md-3">    
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" id="name" name="name" class="form-control" value="<?= $user->getName()?>" required>
+                </div>
+
+                <div class="col-md-3"> 
+                    <label for="surname" class="form-label">Cognoms</label>
+                    <input type="text" id="surname" name="surname" class="form-control" value="<?= $user->getSurname()?>" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="email" class="form-label">Correu</label>
+                    <input type="text" id="email" name="email" class="form-control" value="<?= $user->getEmail()?>" disabled>
+                </div>
+
+                <div class="col-md-3">
+                <?php if ($user->isAdmin()) { ?>
+                    <label for="incorporation_date" class="form-label">Data incorporació</label>
+                    <input type="date" id="incorporation_date" name="incorporation_date" class="form-control" value="<?= $user->getIncorporationDate()?>" required pattern="^[\d]{9}$">
+
+                <?php } else { ?>
+                    <label for="phone_number" class="form-label">Telefon</label>
+                    <input type="text" id="phone_number" name="phone_number" class="form-control" value="<?=$user->getPhoneNumber()?>" required pattern="^[\d]{9}$">
+                <?php } ?>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="password" class="form-label">Contrasenya antiga</label>
+                    <input type="password" id="old_password" name="old_password" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="new_password" class="form-label">Contrasenya nova</label>
+                    <input type="password" id="new_password" name="new_password" class="form-control">
+                </div>
+
+                <div class="col-md-6"></div>
+
+                <div class="col-md-12">
+                    <button type="submit" value="submit" class="submit-button bold">Actualitzar</button>
+                </div>
+
+                <p class="error">
+                    <?php echo isset($error) ? $error : "" ?>
+                </p>
+            </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h4>Comandes</h4>
+            <h2>Comandes</h2>
         </div>
     </div>
 </section>

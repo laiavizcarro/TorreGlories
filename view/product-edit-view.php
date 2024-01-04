@@ -3,7 +3,7 @@
         <img src="images/iconografia/back-arrow.svg" alt="Icone tornar enrere" class="icons">
         Tornar
     </a>
-    <form action="<?= url ?>/index.php?controller=Product&action=update&id=<?= $product->getId()?>" method="post" class="tg-form" enctype="multipart/form-data">
+    <form action="<?= url ?>/index.php?controller=Product&action=update&id=<?= $product->getId()?>" method="post" class="tg-form tg-form-block" enctype="multipart/form-data">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                 <label for="name">Nom</label>

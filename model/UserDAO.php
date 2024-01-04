@@ -125,29 +125,33 @@ class UserDAO {
 
     public static function updateUser($user) {
 
+        $id = $user->getId();
+        $name = $user->getName();
+        $surname = $user->getSurname();
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+        $roleId = $user->getRoleId();
+        $phoneNumber = null;
+        $incorporationDate = null;
+        if ($user->isAdmin()) {
+            $incorporationDate = $user->getIncorporationDate();
+        } else {
+            $phoneNumber = $user->getPhoneNumber();
+        }
+
         $con = DB::connectDB();
 
-        $query = "UPDATE users";
+        $query = "UPDATE users ";
         $query .= "SET name = ?, ";
         $query .= "surname = ?, ";
-        $query .= "eamil = ?, ";
-        $query .= "phone_numer = ?, ";
+        $query .= "email = ?, ";
+        $query .= "phone_number = ?, ";
         $query .= "password = ?, ";
         $query .= "role_id = ?, ";
-        $query .= "incorporation_date = ?, ";
+        $query .= "incorporation_date = ? ";
         $query .= "WHERE id = ?";
         $stmt = $con->prepare($query);
-        $stmt->bind_param("sssisiii",
-            $user->getName(),
-            $user->getSurname(),
-            $user->getEmail(),
-            $user->getPhoneNumer(),
-            $user->getPassword(),
-            $user->getRoleId(),
-            $user->getIncorporationDate(),
-            $user->getId()
-
-        );
+        $stmt->bind_param("sssisisi", $name, $surname, $email, $phoneNumber, $password, $roleId, $incorporationDate, $id);
 
         $stmt->execute();
         $result=$stmt->get_result();
@@ -190,7 +194,7 @@ class UserDAO {
             );
     }
 
-    public static function getUserByEmail($email): User {
+    public static function getUserByEmail($email) {
         
         $con = DB::connectDB();
 
@@ -203,6 +207,10 @@ class UserDAO {
         $con->close();
 
         $resultArray = $result->fetch_array();
+
+        if ($resultArray == null) {
+            return null;
+        }
 
         return $resultArray['role_id'] == 1 ?
             new AdminUser(

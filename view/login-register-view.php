@@ -27,7 +27,7 @@
                         pattern="^[\d]{9}$">
 
                     <input type="password" name="password" placeholder="Contrasenya *" required>
-                    <input type="password" name="password_check" placeholder="Repeteix la contrasenya *" required>
+                    <input type="password" name="password_check" placeholder="Repetir la contrasenya *" required>
                     <button type="submit" value="submit" class="submit-button bold mt-20">Registrar-se</button>
                 </form>
 

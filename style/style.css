@@ -562,33 +562,36 @@ h5 {
 /* REGISTER / LOGIN */
 .tg-form input:not([type=checkbox], [type=file]),
 .tg-form select {
-    border: 1px solid #cacccd;
-    box-shadow: 2px 2.3px 0 0 #cacccd;
-    width: 100%;
-    min-width: 200px;
-    height: 35px;
-    padding: 8px;
-    display: block;
+    border: 1px solid #cacccd !important;
+    box-shadow: 2px 2.3px 0 0 #cacccd !important;
+    min-width: 200px !important;
+    height: 35px !important;
+    padding: 8px !important;
+    border-radius: 0 !important;
 }
-    
+
+.tg-form-block input:not([type=checkbox], [type=file]),
+.tg-form-block select {
+    display: block !important;
+    width: 100% !important;
+}
 .tg-form input:focus {
     outline: none !important;
 }
 
 .tg-form input,
 .tg-form select {
-    margin: 10px 10px 10px 0px;
+    
 }
 
 .submit-button {
     background-color: var(--pink);
     border: 0;
-    width: 150px;   
+    width: 150px;
     height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
     color: white;
 }
 

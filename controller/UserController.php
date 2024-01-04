@@ -53,7 +53,6 @@ class UserController {
                 header('Location: ' . url . '/index.php?controller=Order&action=checkout');
             } else {
                 header('Location: ' . url . '/index.php?controller=Home');
-
             }
         }
     }
