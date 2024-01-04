@@ -1,11 +1,19 @@
 <?php
+
 include_once 'config/db.php';
 include_once 'model/Product.php';
 
+/**
+ * Objecte d'accés a dades Product
+ */
 class ProductDAO {
 
-    public static function getAllProducts(){
-
+    /**
+     * Obtenir tots els productes
+     * 
+     * @return Product[]
+     */
+    public static function getAllProducts() {
         $con = DB::connectDB();
 
         $query = "SELECT p.*, c.name as categoryName FROM products p ";
@@ -25,8 +33,14 @@ class ProductDAO {
         return $productsList;
     }  
 
+    /**
+     * Obtenir els productes d'una categoria
+     * 
+     * @param integer $category_id ID de la categoria
+     * 
+     * @return Product[]
+     */
     public static function getProductsByCategory($category_id){
-
         $con = DB::connectDB();
 
         $stmt = $con->prepare("SELECT * FROM products WHERE category_id = ?");
@@ -45,6 +59,13 @@ class ProductDAO {
         return $productsList;
     }
 
+    /**
+     * Eliminar un producte
+     * 
+     * @param integer $id ID del producte
+     * 
+     * @return boolean
+     */
     public static function deleteProduct($id){
         $con = DB::connectDB();
 
@@ -58,6 +79,13 @@ class ProductDAO {
         return $result;
     }
 
+    /**
+     * Modificar un producte
+     * 
+     * @param Product $product Producte a modificar
+     * 
+     * @return boolean
+     */
     public static function updateProduct(Product $product){
         $con = DB::connectDB();
 
@@ -94,8 +122,14 @@ class ProductDAO {
         
     }
 
+    /**
+     * Obtindre un producte
+     * 
+     * @param integer $id ID del producte
+     * 
+     * @return Product
+     */
     public static function getProductById($id){
-        //preparo la consulta
         $con = DB::connectDB();
 
         $stmt = $con->prepare("SELECT * FROM products WHERE id=?");
@@ -110,6 +144,11 @@ class ProductDAO {
         
     }
 
+    /**
+     * Crear un producte
+     * 
+     * @param Product $product Producte a crear
+     */
     public static function insertProduct(Product $product){
         $con = DB::connectDB();
 

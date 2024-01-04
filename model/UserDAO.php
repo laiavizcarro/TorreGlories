@@ -1,11 +1,20 @@
 <?php
+
 include_once 'config/db.php';
 include_once 'User.php';
 include_once 'BasicUser.php';
 include_once 'AdminUser.php';
 
+/**
+ * Objecte d'accés a dades User
+ */
 class UserDAO {
     
+    /**
+     * Obtindre tots els usuaris
+     * 
+     * @return AdminUser[]|BasicUser[]
+     */
     public static function getAllUsers() {
 
         $con = DB::connectDB();
@@ -43,6 +52,13 @@ class UserDAO {
         return $usersList;
     }  
 
+    /**
+     * Obtindre usuaris a partir d'un rol
+     * 
+     * @param integer $role_id ID del rol
+     * 
+     * @return AdminUser[]|BasicUser[]
+     */
     public static function getUsersByRole($role_id){
         
         $con = DB::connectDB();
@@ -81,6 +97,11 @@ class UserDAO {
         return $usersList;
     }
     
+    /**
+     * Crear usuari
+     * 
+     * @param User $user Usuari a crear
+     */
     public static function insertUser($user) {
         $name = $user->getName();
         $surname = $user->getSurname();
@@ -109,6 +130,13 @@ class UserDAO {
         return $result;
     }
 
+    /**
+     * Eliminar un usuari
+     * 
+     * @param integer $id ID de l'usuari
+     * 
+     * @return boolean
+     */
     public static function deleteUser($id) {
         $con = DB::connectDB();
 
@@ -120,9 +148,15 @@ class UserDAO {
 
         $con->close();
         return $result;
-        
     }
 
+    /**
+     * Modificar un usuari
+     * 
+     * @param AdminUser|BasicUser $user Usuari a modificar
+     * 
+     * @return boolean
+     */
     public static function updateUser($user) {
 
         $id = $user->getId();
@@ -160,6 +194,13 @@ class UserDAO {
         return $result;
     }
 
+    /**
+     * Obtindre un usuari a partir del seu id
+     * 
+     * @param integer $id ID de l'usuari
+     * 
+     * @return AdminUser|BasicUser
+     */
     public static function getUserById($id) {
         
         $con = DB::connectDB();
@@ -194,6 +235,13 @@ class UserDAO {
             );
     }
 
+    /**
+     * Obtindre un usuari a partir del seu email
+     * 
+     * @param string $email Email de l'usuari
+     * 
+     * @return AdminUser|BasicUser
+     */
     public static function getUserByEmail($email) {
         
         $con = DB::connectDB();

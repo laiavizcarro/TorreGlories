@@ -1,16 +1,29 @@
 <?php
-class OrderProduct {
-    protected $order_id;
-    protected $product_id;
-    protected $name;
-    protected $quantity;
-    protected $iva;
-    protected $base_price;
-    protected $total_price;
-    protected $is_offer;
-    protected $offer_price;
-    protected $total_offer_price;
 
+/**
+ * Entitat OrderProduct
+ * 
+ * Emmagatzema les dades de tots els productes d'una cistella
+ */
+class OrderProduct {
+
+    /**
+     * Propietats
+     */
+    private $order_id;
+    private $product_id;
+    private $name;
+    private $quantity;
+    private $iva;
+    private $base_price;
+    private $total_price;
+    private $is_offer;
+    private $offer_price;
+    private $total_offer_price;
+
+    /**
+     * Constructor
+     */
     public function __construct() {}
 
     /**

@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Entitat User
+ * 
+ * Emmagatzema les dades d'un usuari
+ */
 class User {
 
+    /**
+     * Propietats
+     */
     private $id;
     private $name;
     private $surname;
@@ -9,6 +17,9 @@ class User {
     private $password;
     private $role_id;
 
+    /**
+     * Constructor
+     */
     public function __construct($id, $name, $surname, $email, $password, $role_id) {
         $this->id = $id;
         $this->name = $name;

@@ -2,8 +2,16 @@
 
 include_once 'utils/PriceCalculator.php';
 
+/**
+ * Entitat Order
+ * 
+ * Emmagatzema les dades de la cistella
+ */
 class Order {
 
+    /**
+     * Propietats
+     */
     private $id;
     private $user_id;
     private $date;
@@ -12,6 +20,9 @@ class Order {
 
     private array $orderProducts = [];
 
+    /**
+     * Constructor
+     */
     public function __construct() {
     }
 
@@ -123,6 +134,11 @@ class Order {
         return $this;
     }
 
+    /**
+     * Calcula el preu total de la cistella
+     * 
+     * @return string Preu total amb decimals
+     */
     public function calculateTotalPrice() {
         $totalPrice = 0;
 

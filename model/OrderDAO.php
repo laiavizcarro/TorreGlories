@@ -1,9 +1,20 @@
 <?php
+
 include_once 'config/db.php';
 include_once 'Order.php';
 
+/**
+ * Objecte d'accés a dades Order
+ */
 class OrderDAO {
 
+    /**
+     * Crear cistella
+     * 
+     * @param Order $order Cistella a crear
+     * 
+     * @return integer El ID de la cistella creada
+     */
     public static function createOrder(Order $order) {
         $user_id = $order->getUserId();
         $date = $order->getDate();
@@ -24,6 +35,11 @@ class OrderDAO {
         return $last_id;
     }
 
+    /**
+     * Pagar cistella
+     * 
+     * @param Order $order Cistella a pagar
+     */
     public static function orderPay(Order $order) {
         $order_id = $order->getId();
 
@@ -38,6 +54,13 @@ class OrderDAO {
         $con->close();
     }
 
+    /**
+     * Obtindre cistella a partir del seu ID
+     * 
+     * @param integer $id ID de la cistella
+     * 
+     * @return Order
+     */
     public static function getOrderById($id) {
         $con = DB::connectDB();
 
@@ -52,6 +75,13 @@ class OrderDAO {
         return $result->fetch_object('Order');
     }
 
+    /**
+     * Obtindre les cistelles d'un usuari
+     * 
+     * @param integer $userId ID de l'usuari
+     * 
+     * @return Order[]
+     */
     public static function getOrdersByUserId($userId){
 
         $con = DB::connectDB();

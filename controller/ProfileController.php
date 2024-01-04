@@ -9,21 +9,43 @@ include_once 'model/OrderProductDAO.php';
 include_once 'model/User.php';
 include_once 'model/UserDAO.php';
 
+/**
+ * ProfileController s'encarrega de gestionar el perfil de l'usuari
+ * 
+ * El perfil de l'usuari consta de:
+ *  - Última comanda realitzada amb opció de repetir-la
+ *  - Formulari de dades personals
+ *  - Llistat de comandes realitzades amb opció de repetir-les
+ */
 class ProfileController {
 
+    /**
+     * Constructor
+     */
     function __construct() {
+        // Iniciem la sessió en el cas de que no s'hagi inicialitzat.
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
     
+    /**
+     * Retorna la vista del profile
+     * 
+     * Dades pre-carregades:
+     *  - Usuari
+     *  - Última comanda
+     *  - Llistat de comandes
+     */
     public function index() {
 
         $user = UserDAO::getUserByEmail($_SESSION['email']);
 
         if (isset($_COOKIE['lastOrder'])) {
             $lastOrder = OrderDAO::getOrderById($_COOKIE['lastOrder']);
-            $lastOrder->setOrderProducts(OrderProductDAO::getOrderProductsByOrderId($lastOrder->getId()));
+            $lastOrder->setOrderProducts(
+                OrderProductDAO::getOrderProductsByOrderId($lastOrder->getId())
+            );
         }
 
         $orders = OrderDAO::getOrdersByUserId($user->getId());
@@ -31,6 +53,9 @@ class ProfileController {
         include_once 'view/profile-view.php';
     }
 
+    /**
+     * Modificar de les dades de l'usuari amb canvi de contrasenya
+     */
     public function update() {
         $user = UserDAO::getUserByEmail($_SESSION['email']);
 

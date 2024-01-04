@@ -1,11 +1,19 @@
 <?php
+
 include_once 'config/db.php';
 include_once 'OrderProduct.php';
 include_once 'Order.php';
 
-
+/**
+ * Objecte d'accés a dades OrderProduct
+ */
 class OrderProductDAO {
 
+    /**
+     * Crear OrderProduct
+     * 
+     * @param OrderProduct $orderProduct Línia de la cistella a crear
+     */
     public static function createOrderProduct(OrderProduct $orderProduct) {
         $order_id = $orderProduct->getOrderId();
         $product_id = $orderProduct->getProductId();
@@ -35,6 +43,13 @@ class OrderProductDAO {
         return $result;
     }
 
+    /**
+     * Obtenir totes les línies d'una cistella
+     * 
+     * @param integer $orderId ID de la cistella
+     * 
+     * @return OrderProduct[]
+     */
     public static function getOrderProductsByOrderId($orderId){
 
         $con = DB::connectDB();

@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * Entitat de sessió OrderSession
+ * 
+ * Emmagatzema la cistella en sessió de l'usuari fins que es guardada a la 
+ * base de dades
+ */
 class OrderSession {
+
+    /**
+     * Propietats
+     */
     private $product;
     private $quantity = 1;
 
+    /**
+     * Constructor
+     */
     public function __construct() {}
 
     /**

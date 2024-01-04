@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Entitat Product
+ * 
+ * Emmagatzema les dades d'un producte
+ */
 class Product {
 
+    /**
+     * Propietats
+     */
     private $id;
     private $name;
     private $category_id;
@@ -14,6 +22,9 @@ class Product {
     private $total_offer_price;
     private $img_path;
 
+    /**
+     * Constructor
+     */
     public function __construct() {
     }
 

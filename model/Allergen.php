@@ -1,117 +1,123 @@
 <?php
-    class Allergen {
-        protected $id;
-        protected $code;
-        protected $name;
-        protected $description;
-        protected $img_path;
 
-        public function __construct(){
-               
-        }
+/**
+ * Entitat Allergen
+ * 
+ * Emmagatzema la informació dels alergens dels productes
+ */
+class Allergen {
 
-        
-        
+	/**
+	 * Propietats
+	 */
+	private $id;
+	private $code;
+	private $name;
+	private $description;
+	private $img_path;
 
-        /**
-         * Get the value of id
-         */ 
-        public function getId()
-        {
-                return $this->id;
-        }
+	public function __construct() {}
 
-        /**
-         * Set the value of id
-         *
-         * @return  self
-         */ 
-        public function setId($id)
-        {
-                $this->id = $id;
+	/**
+	 * Get the value of id
+	 */ 
+	public function getId()
+	{
+		return $this->id;
+	}
 
-                return $this;
-        }
+	/**
+	 * Set the value of id
+	 *
+	 * @return  self
+	 */ 
+	public function setId($id)
+	{
+		$this->id = $id;
 
-        /**
-         * Get the value of code
-         */ 
-        public function getCode()
-        {
-                return $this->code;
-        }
+		return $this;
+	}
 
-        /**
-         * Set the value of code
-         *
-         * @return  self
-         */ 
-        public function setCode($code)
-        {
-                $this->code = $code;
+	/**
+	 * Get the value of code
+	 */ 
+	public function getCode()
+	{
+		return $this->code;
+	}
 
-                return $this;
-        }
+	/**
+	 * Set the value of code
+	 *
+	 * @return  self
+	 */ 
+	public function setCode($code)
+	{
+		$this->code = $code;
 
-        /**
-         * Get the value of name
-         */ 
-        public function getName()
-        {
-                return $this->name;
-        }
+		return $this;
+	}
 
-        /**
-         * Set the value of name
-         *
-         * @return  self
-         */ 
-        public function setName($name)
-        {
-                $this->name = $name;
+	/**
+	 * Get the value of name
+	 */ 
+	public function getName()
+	{
+		return $this->name;
+	}
 
-                return $this;
-        }
+	/**
+	 * Set the value of name
+	 *
+	 * @return  self
+	 */ 
+	public function setName($name)
+	{
+		$this->name = $name;
 
-        /**
-         * Get the value of description
-         */ 
-        public function getDescription()
-        {
-                return $this->description;
-        }
+		return $this;
+	}
 
-        /**
-         * Set the value of description
-         *
-         * @return  self
-         */ 
-        public function setDescription($description)
-        {
-                $this->description = $description;
+	/**
+	 * Get the value of description
+	 */ 
+	public function getDescription()
+	{
+		return $this->description;
+	}
 
-                return $this;
-        }
+	/**
+	 * Set the value of description
+	 *
+	 * @return  self
+	 */ 
+	public function setDescription($description)
+	{
+		$this->description = $description;
 
-        /**
-         * Get the value of img_path
-         */ 
-        public function getImgPath()
-        {
-                return $this->img_path;
-        }
+		return $this;
+	}
 
-        /**
-         * Set the value of img_path
-         *
-         * @return  self
-         */ 
-        public function setImgPath($img_path)
-        {
-                $this->img_path = $img_path;
+	/**
+	 * Get the value of img_path
+	 */ 
+	public function getImgPath()
+	{
+		return $this->img_path;
+	}
 
-                return $this;
-        }
-    }
+	/**
+	 * Set the value of img_path
+	 *
+	 * @return  self
+	 */ 
+	public function setImgPath($img_path)
+	{
+		$this->img_path = $img_path;
+
+		return $this;
+	}
+
+}
 
 ?>

@@ -8,21 +8,32 @@ include_once 'model/OrderProduct.php';
 include_once 'model/OrderProductDAO.php';
 include_once 'config/parameters.php';
 
-
+/**
+ * OrderController s'encarrega de tota la gestió de la cistella de compra
+ */
 class OrderController {
 
+    /**
+     * Constructor
+     */
     function __construct() {
+        // Iniciem la sessió en el cas de que no s'hagi inicialitzat.
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
 
+    /**
+     * Retorna la vista de la cistella
+     */
     public function index() {
         $order = isset($_SESSION['order']) ? $_SESSION['order'] : array();
         include_once 'view/order-view.php';
     }
 
-    //Funció per afegir un producte a la cistella
+    /**
+     * Afegir un producte a la cistella en sessió
+     */
     public function add() {
         if (isset($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
@@ -50,7 +61,9 @@ class OrderController {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    //Funció per a eliminar un producte de la cistella
+    /**
+     * Eliminar un producte de la cistella en sessió
+     */
     public function delete() {
         if (isset($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
@@ -61,7 +74,10 @@ class OrderController {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    //Funció que permet augmentar o disminuir la quantitat d'un producte a la cistella
+    /**
+     * Incrementar o decrementar la quantitat de productes de la cistella
+     * en sessió des de la vista de la cistella
+     */
     public function increaseOrDecrease() {
         if (isset($_POST['increase'])) {
             $product_id = $_POST['increase'];
@@ -80,7 +96,9 @@ class OrderController {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    //Funció que comprova si existeix una sessió iniciada o cal obrir per a procedir al pagament
+    /**
+     * Iniciar al checkout de la cistella, amb comprovació de sessió i order
+     */
     public function checkout() {
         if (!isset($_SESSION['email'])) {
             $_SESSION['fromCheckout'] = true;
@@ -99,6 +117,11 @@ class OrderController {
         return;
     }
 
+    /**
+     * Iniciar el pagament de la cistella, amb comprobació de les dades bancàries,
+     * creació de la cistella a la base de dades i els seus productes, pagament
+     * i guardar-la a la cookie de lastOrder
+     */
     public function checkoutPayment() {
         // Validar que omplin les dades del formulari correctament
         if (!isset($_POST['card-name'], $_POST['card-number'], $_POST['card-expiry-date'], $_POST['card-cvv'] )) {
@@ -160,6 +183,9 @@ class OrderController {
         header('Location: ' . url . '/index.php?controller=Profile');
     }
 
+    /**
+     * Repetir una comanda ja feta a través del seu id
+     */
     public function repeatOrder() {
         $orderId = $_GET['orderId'];
 
