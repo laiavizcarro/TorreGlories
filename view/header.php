@@ -27,7 +27,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 			
 			<div class="button-resume">
 				<a href="<?= url ?>/index.php?controller=Order">
-					<img src="images/iconografia/shoppingcart-white.svg" width="24px" alt="Icone del carrito">Resum compra
+					<img src="images/iconografia/shoppingcart-white.svg" width="24px" alt="Icone de la cistella, redirigeix al resum de la compra">Resum compra
 					<span class="badge text-bg-secondary"><?= $orderQuantity ?></span>
 				</a>
 
@@ -38,7 +38,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container">
 			<a class="navbar-brand" href="<?= url ?>/index.php?controller=Home">
-				<img src="images/logoPrincipal.svg" alt="Logo principal de la web">
+				<img src="images/logoPrincipal.svg" alt="Logo principal de la web, redirigeix a la pàgina principal">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

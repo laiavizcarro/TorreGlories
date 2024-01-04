@@ -30,7 +30,7 @@
       <div class="card-row">
         <img class="payment-card" src="images/iconografia/visa-4.svg" alt="Logo targeta VISA">
         <img class="payment-card" src="images/iconografia/mastercard-6.svg" alt="Logo targeta Mastercard">
-        <img class="payment-card" src="images/iconografia/maestro-2.svg" alt="Logo targeta Mastercard">
+        <img class="payment-card" src="images/iconografia/maestro-2.svg" alt="Logo targeta Maestro">
       </div>
       <form method="POST" action="<?= url ?>/index.php?controller=Order&action=checkoutPayment">
         

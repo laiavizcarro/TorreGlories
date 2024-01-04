@@ -40,7 +40,7 @@
                     <div class="row g-0">
                         <div class="col-xs-4 col-sm-4 col-md-4 card-image">
                             <img src="<?php echo $product->getImgPath() ?>" 
-                                alt="Imatge del producte">
+                                alt="Imatge del producte: <?= $product->getName() ?>">
                         </div>
 
                         <div class="col-xs-8 col-sm-8 col-md-8">
@@ -58,7 +58,7 @@
                                     </div-->
                                     <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
                                         <button class="add-btn">
-                                            <img src="images/iconografia/shoppingcart-white.svg" alt="Imatge del producte de la carta" class="icons">Afegir
+                                            <img src="images/iconografia/shoppingcart-white.svg" alt="Botó d'afegir producte a la cistella" class="icons">Afegir
                                         </button>
                                     </a>
                                 </div>

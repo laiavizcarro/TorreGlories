@@ -65,7 +65,7 @@
                         <?php foreach($order as $orderLine) { ?>
                         <tr>
                             <td class="align-middle" style="width: 10%">
-                                <img src="<?php echo $orderLine->getProduct()->getImgPath() ?>" class="order-product-image" alt="Imatge del producte" height="75px">
+                                <img src="<?php echo $orderLine->getProduct()->getImgPath() ?>" class="order-product-image" alt="Imatge del producte: <?=$orderLine->getProduct()->getName()?>" height="75px">
                             </td>
                             <td class="align-middle text-start" style="width: 40%;">
                                 <?=$orderLine->getProduct()->getName()?>
@@ -88,7 +88,7 @@
                             </td>
                             <td class="align-middle">
                                 <a href="<?= url ?>/index.php?controller=Order&action=delete&product_id=<?=$orderLine->getProduct()->getId()?>">
-                                    <img class="delete-icon" src="images/iconografia/paperera.svg" height="25px" alt="Logo escombraries, esborrar producte">
+                                    <img class="delete-icon" src="images/iconografia/paperera.svg" height="25px" alt="Icone escombraries, esborrar producte">
                                 </a>
                             </td>
                         </tr>
