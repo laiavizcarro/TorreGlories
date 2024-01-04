@@ -1,5 +1,22 @@
 @import 'variables.css';
 
+@font-face {
+    font-family: Graphik;
+    src: url("fonts/Graphik/GraphikRegular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Graphik;
+    font-weight: bold;
+    src: url("fonts/Graphik/GraphikBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Graphik;
+    font-weight: 600;
+    src: url("fonts/Graphik/GraphikSemibold.otf") format("opentype");
+}
+
 /*general*/
 * {
     font-family: "Graphik";
