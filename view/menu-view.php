@@ -32,9 +32,6 @@
 	</div>
 </section>
 
-
-
-
 <section class="container mt-70">
     <div class="row">
         <?php foreach ($allProducts as $product) { ?>
@@ -54,11 +51,11 @@
                                 <?php } else { ?>
                                     <p class="card-text"> <?= $product->getTotalPrice() ?> € </p>
                                 <?php } ?>
-                                <div>
-                                    <div>
+                                <div class="justify-content-end">
+                                    <!--div>
 										<img src="images/iconografia/icon-gluten.png" alt="Iconografia de l'al·lèrgen" 
                                             class="icons">
-                                    </div>
+                                    </div-->
                                     <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
                                         <button class="add-btn">
                                             <img src="images/iconografia/shoppingcart-white.svg" alt="Imatge del producte de la carta" class="icons">Afegir
@@ -72,6 +69,4 @@
             </div>
         <?php } ?>
     </div>
-</section>
-
 </section>

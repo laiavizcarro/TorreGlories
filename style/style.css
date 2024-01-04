@@ -89,16 +89,14 @@ h5 {
     background-color: var(--pink);
     height: 45px;
     width: 100px;
-    border-style: none;
+    border: none !important;
     color: white;
     font-weight: bold;
 }
 
 .add-btn:hover {
-    border: 2px solid var(--bg-light-blue) !important;
     background-color: var(--bg-light-blue) !important;
     transition: all .5s;
-
 }
 
 .category_button {

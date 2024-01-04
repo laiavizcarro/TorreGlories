@@ -64,8 +64,36 @@
                 </p>
             </form>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <h2>Comandes</h2>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row">
+        <h2>Comandes</h2>
+        <?php foreach ($orders as $order) { ?>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="card product-card">
+                <div class="card-body">
+                    <p class="card-title"><?php echo date_format(date_create($order->getDate()), 'Y-m-d H:i') ?></p>
+                    <span> <?= $order->getTotalPrice() ?> € </span>
+
+                    <div>
+                        <div>
+                            <?php if ($order->getIsPaid()) { ?>
+                                <span class="badge rounded-pill text-bg-success">Pagada</span>
+                            <?php } else { ?>
+                                <span class="badge rounded-pill text-bg-warning">Pendent</span>
+                            <?php } ?>
+                        </div>
+                        <div class="justify-content-end">
+                            <a href="<?= url ?>?controller=Order&action=repeatOrder&orderId=<?= $order->getId() ?>">
+                                <button class="add-btn">Repetir</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    <?php } ?>
     </div>
 </section>

@@ -156,6 +156,8 @@ class OrderController {
         // Eliminar la comanda de la session
         unset($_SESSION['order']);
         unset($_SESSION['order_quantity']);
+
+        header('Location: ' . url . '/index.php?controller=Profile');
     }
 
     public function repeatOrder() {
