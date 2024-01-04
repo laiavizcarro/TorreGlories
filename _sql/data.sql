@@ -23,17 +23,17 @@ INSERT INTO allergens (code, name, description, img_path) VALUES
 -- Bolcament de dades per a la taula 'categories'
 --
 INSERT INTO categories (name) VALUES
-('menu'),
-('dessert'),
-('drinkCoffee'),
-('breakfastSnack');
+('Plats'),
+('Postres'),
+('Begudes'),
+('Esmorzars');
 
 --
 -- Bolcament de dades per a la taula 'products'
 --
 INSERT INTO products (name, category_id, iva, base_price, total_price, is_offer, offer_price, total_offer_price, img_path) VALUES
 ('Canelons de rostit', 1, 4, 10.00, 12.00, 0, null, null, 'images/uploads/canelons.jpg'),
-("Canelons d\'espinacs i pinyons", 1, 4, 8.00, 10.00, 0, null, null, 'images/uploads/canelonsespinacs.jpg'),
+("Canelons d\'espinacs i pinyons", 1, 4, 8.00, 8.32, 1, 6.75, 7.02, 'images/uploads/canelonsespinacs.jpg'),
 ('Amanida variada amb panses', 1, 4, 10.00, 15.00, 0, null, null, 'images/uploads/amanida.jpg'),
 ('Spaghetti a la bolonyesa', 1, 4, 10.00, 12.10, 0, null, null, 'images/uploads/spagettis.jpg'),
 ('Macedonia', 2, 4, 10.00, 12.10, 0, null, null, 'images/uploads/macedonia.jpg'),
@@ -54,7 +54,7 @@ INSERT INTO products (name, category_id, iva, base_price, total_price, is_offer,
 ('Pastís de Santiago', 2, 4, 10.00, 15.00, 0, null, null, 'images/uploads/pastis-santiago.jpg'),
 ('Milfulls de crema', 2, 4, 10.00, 12.10, 0, null, null, 'images/uploads/milfulls.jpg'),
 ('Macarons', 2, 4, 10.00, 12.10, 0, null, null, 'images/uploads/macaron.jpg'),
-('Aigua 1L', 3, 4, 4.13, 5.00, 0, null, null, 'images/uploads/aigua.jpg'),
+('Aigua 1L', 3, 4, 4.13, 4.29, 1, 3.50, 3.64, 'images/uploads/aigua.jpg'),
 ('Coca Cola Zero', 3, 4, 2.64, 3.20, 0, null, null, 'images/uploads/cocacolazero.jpeg'),
 ('Fanta taronja', 3, 4, 1.10, 1.0, 0, null, null, 'images/uploads/fanta-taronja.jpg');
 

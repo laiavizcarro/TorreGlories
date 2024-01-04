@@ -8,7 +8,9 @@ class ProductDAO {
 
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM products");
+        $query = "SELECT p.*, c.name as categoryName FROM products p ";
+        $query .= " INNER JOIN categories c ON c.id = p.category_id ";
+        $stmt = $con->prepare($query);
 
         $stmt ->execute();
         $result=$stmt->get_result();
@@ -27,7 +29,7 @@ class ProductDAO {
 
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM products WHERE category_id=?");
+        $stmt = $con->prepare("SELECT * FROM products WHERE category_id = ?");
         $stmt->bind_param("i", $category_id);
 
         $stmt ->execute();

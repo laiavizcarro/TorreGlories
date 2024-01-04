@@ -4,18 +4,17 @@
             <div class="p-3">
                 <h2>Inici sessió</h2>
                 <form class="tg-form row g-3" action="<?= url ?>/index.php?controller=User&action=login" method="POST">
-                    <div class="col-md-12">    
+                    <div class="col-12">
                         <label for="email" class="form-label">Correu</label>
                         <input type="text" id="email" name="email" class="form-control mw-250">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <label for="password" class="form-label">Contrasenya</label>
                         <input type="password" id="password" name="password" class="form-control mw-250">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <button type="submit" value="Submit" class="submit-button bold mt-20">Iniciar sessió</button>
                     </div>
-
                 </form>
 
                 <p class="error">
@@ -23,7 +22,6 @@
                 </p>
             </div>
         </div>
-
 
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <div class="p-3">

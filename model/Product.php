@@ -5,6 +5,7 @@ class Product {
     private $id;
     private $name;
     private $category_id;
+    private $categoryName;
     private $iva;
     private $base_price;
     private $total_price;
@@ -192,6 +193,26 @@ class Product {
      */
     public function setImgPath($img_path) {
         $this->img_path = $img_path;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categoryName
+     */ 
+    public function getCategoryName()
+    {
+        return $this->categoryName;
+    }
+
+    /**
+     * Set the value of categoryName
+     *
+     * @return  self
+     */ 
+    public function setCategoryName($categoryName)
+    {
+        $this->categoryName = $categoryName;
 
         return $this;
     }
