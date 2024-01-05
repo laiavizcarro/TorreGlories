@@ -51,14 +51,14 @@
                                 <?php } else { ?>
                                     <p class="card-text"> <?= $product->getTotalPrice() ?> € </p>
                                 <?php } ?>
-                                <div class="justify-content-end">
+                                <div class="d-flex justify-content-end">
                                     <!--div>
 										<img src="images/iconografia/icon-gluten.png" alt="Iconografia de l'al·lèrgen" 
                                             class="icons">
                                     </div-->
-                                    <a href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
+                                    <a class="d-flex" href="<?= url ?>?controller=Order&action=add&product_id=<?= $product->getId() ?>">
                                         <button class="btn-add">
-                                            <img src="images/iconografia/shoppingcart-white.svg" alt="Botó d'afegir producte a la cistella" class="icons">Afegir
+                                            <img src="images/iconografia/shoppingcart-white.svg" alt="Botó d'afegir producte a la cistella" class="icons" width="20px" height="20px">Afegir
                                         </button>
                                     </a>
                                 </div>

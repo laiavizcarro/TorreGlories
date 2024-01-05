@@ -56,7 +56,7 @@
                 <div class="col-md-6"></div>
 
                 <div class="col-md-12">
-                    <button type="submit" value="submit" class="btn-submit bold">Actualitzar</button>
+                    <button type="submit" value="submit" class="btn-submit fw-bold">Actualitzar</button>
                 </div>
 
                 <p class="error">

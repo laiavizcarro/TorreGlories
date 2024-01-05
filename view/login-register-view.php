@@ -13,7 +13,7 @@
                         <input type="password" id="password" name="password" class="form-control mw-250">
                     </div>
                     <div class="col-12">
-                        <button type="submit" value="Submit" class="btn-submit bold mt-20">Iniciar sessió</button>
+                        <button type="submit" value="Submit" class="btn-submit fw-bold mt-20">Iniciar sessió</button>
                     </div>
                 </form>
 
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-md-12"> 
-                        <button type="submit" value="submit" class="btn-submit bold mt-20">Registrar-se</button>
+                        <button type="submit" value="submit" class="btn-submit fw-bold mt-20">Registrar-se</button>
                     </div>
                 </form>
 

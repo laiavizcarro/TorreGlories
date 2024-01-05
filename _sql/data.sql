@@ -84,4 +84,5 @@ INSERT INTO roles (name) VALUES
 --
 INSERT INTO users (name, surname, email, phone_number, password, role_id, incorporation_date) VALUES
 ('Admin', 'Admin', 'admin@torreglories.com', NULL, '21232f297a57a5a743894a0e4a801fc3', 1, '2021-05-04'), -- password: admin
-('Laia', 'Vizcarro', 'laia@torreglories.com', '123456789', '81dc9bdb52d04dc20036dbd8313ed055', 2, NULL); -- password: 1234
+('Laia', 'Vizcarro', 'laia@torreglories.com', '123456789', '81dc9bdb52d04dc20036dbd8313ed055', 2, NULL), -- password: 1234
+('User', 'Two', 'usertwo@torreglories.com', '123456789', '81dc9bdb52d04dc20036dbd8313ed055', 2, NULL); -- password: 1234

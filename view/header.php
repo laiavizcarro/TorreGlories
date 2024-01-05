@@ -46,14 +46,14 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'menu-link-active' : '' ?>" href="<?= url ?>/index.php?controller=Home">Restaurant</a>
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Home">Restaurant</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'menu-link-active' : '' ?>" href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
 					</li>
 					<?php if (isset($_SESSION['loggedIn'], $_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) { ?>
 						<li class="nav-item dropdown">
-							<a class="nav-link menu-link dropdown-toggle <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') && !str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'menu-link-active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link menu-link dropdown-toggle <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') && !str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Admin
 							</a>
 							<ul class="dropdown-menu">

@@ -58,8 +58,6 @@
                         </button>
                     </a>
                 </td>
-
-
             </tr>
             <?php } ?>
         </tbody>

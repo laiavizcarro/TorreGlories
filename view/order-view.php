@@ -1,30 +1,22 @@
 <!-- STEPS ORDER MENU -->
 <section class="container mt-70 steps">
-    <div class="circle-active">
+    <div class="circle active">
         <img src="images/iconografia/shoppingcart-white.svg" alt="Icone passos cistella." width="25px">
     </div>
-    <div class="rectangle-active">
+    <div class="rectangle active">
         <p>Cistella</p>
     </div>
-    <!--
-    <div class="circle-disabled">
-        <img src="images/iconografia/steps-menu.svg" alt="Icone passos menu." width="25px">
-    </div>
-    <div class="rectangle-disabled">
-        <p>Dades personals</p>
-    </div>
-    -->
-    <div class="circle-disabled">
+    <div class="circle">
         <img src="images/iconografia/steps-card.svg" alt="Icone passos targeta pagament." width="25px">
     </div>
-    <div class="rectangle-disabled">
+    <div class="rectangle">
         <p>Pagament</p>
     </div>
 
-    <div class="circle-disabled">
+    <div class="circle">
         <img src="images/iconografia/steps-confirmation.svg" alt="Icone passos confirmació" width="20px">
     </div>
-    <div class="rectangle-disabled">
+    <div class="rectangle">
         <p>Confirmació</p>
     </div>
 </section>
@@ -32,13 +24,17 @@
 
 <!-- ORDER RESUME -->
 <section class="container mt-70 mb-1">
-    <div class="order">
-        <div class="orderHeader">
-            <h4 class="white bold m-20">RESTAURANT TORRE GLÒRIES</h4>
-            <!--img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px" style="margin-left: 20px;"-->
+    <div class="order border border-1 border-black">
+        <div class="order-header">
+            <div class="m-20">
+                <h4 class="text-white fw-bold">RESTAURANT TORRE GLÒRIES</h4>
+                <span class="text-white fw-bold">
+                    <img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px"> 
+                    <?=PriceCalculator::calculateOrderTotalPrice($order)?>€
+                </span>
+            </div>
         </div>
         
-    
         <?php if(empty($order)) { ?>
             <div class="cart-empty-message">
                 The cart is empty
@@ -46,10 +42,8 @@
             </div>
             
         <?php } else { ?>
-            <p style="margin: 10px;">Detalls cistella</p>
-
-            <div class="orders">
-                <table class="table" style="max-width: 1100px; margin: 0px 40px;">
+            <div class="d-flex justify-content-center text-center">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Producte</th>
@@ -98,11 +92,10 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            
-                            <td colspan="2" style="text-align:right;">TOTAL <?=PriceCalculator::calculateOrderTotalPrice($order)?>€</td>
+                            <td colspan="2" class="text-end">TOTAL <?=PriceCalculator::calculateOrderTotalPrice($order)?>€</td>
                             <td>
                                 <a href="<?= url ?>/index.php?controller=Order&action=checkout">
-                                    <button class="button-resume" style="color:white; font-weight: bold; width:200px; height: 50px" >FINALITZAR COMPRA</button>
+                                    <button class="button-resume" class="text-white fw-bold" style="width:200px; height: 50px" >FINALITZAR COMPRA</button>
                                 </a>
                             </td>
                             <td></td>

@@ -34,8 +34,8 @@
 	<div class="row g-4">
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 			<div class="p-5 home-welcome-primary">
-				<h3 class="pink">Plats cassolans</h3>
-				<p style="color: white; font-size:19px;">Vine a provar els nostres plats cassolans, cuinats pel xef de la casa.
+				<h3 class="text-pink">Plats cassolans</h3>
+				<p class="text-white" style="font-size:19px;">Vine a provar els nostres plats cassolans, cuinats pel xef de la casa.
 					Recomanem els canelons de la iaia i el pastís de formatge per a un menú complet.
 				</p>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">
@@ -56,12 +56,12 @@
 					<div class="col-2">
 						<img src="images/iconografia/sandwich.svg" alt="Icone d'un sandwich" height="80" width="80">
 					</div>
-					<div class="col-1 home-welcome-secondary-separator">
-						<div></div>
+					<div class="col-1 d-flex justify-content-center">
+						<div class="home-vertical-separator"></div>
 					</div>
-					<div class="col-9 home-welcome-secondary-body">
-						<h3 class="h3-smallest white">Esmorzars i berenars</h3>
-						<p style="color:white">Prova el croissant de mantega i el biquini planxat calent estrella de torre Glòries.</p>
+					<div class="col-9 d-flex flex-column">
+						<h3 class="h3-smallest text-white">Esmorzars i berenars</h3>
+						<p class="text-white">Prova el croissant de mantega i el biquini planxat calent estrella de torre Glòries.</p>
 						<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4">
 							<button class="btn btn-outline-primary">Consultar</button>
 						</a>
@@ -76,12 +76,12 @@
 					<div class="col-2">
 						<img src="images/iconografia/drink.svg" alt="Icono d'una beguda." height="80" width="80">
 					</div>
-					<div class="col-1 home-welcome-secondary-separator">
-						<div></div>
+					<div class="col-1 d-flex justify-content-center">
+						<div class="home-vertical-separator"></div>
 					</div>
-					<div class="col-9 home-welcome-secondary-body">
-						<h3 class="h3-smallest white">Begudes</h3>
-						<p style="color:white">Consulta les nostres begudes i cocktails premium per acompanyar els teus àpats.</p>
+					<div class="col-9 d-flex flex-column">
+						<h3 class="h3-smallest text-white">Begudes</h3>
+						<p class="text-white">Consulta les nostres begudes i cocktails premium per acompanyar els teus àpats.</p>
 						<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=3">
 							<button class="btn btn-outline-primary">Consultar</button>
 						</a>
@@ -110,8 +110,8 @@
 					<h3 class="h3-offers">Entrepà vegetal més suc</h3>
 				</div>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4&product_id=26">
-				<div class="home-offer-button">
-					<button class="btn">Accedir</button>
+				<div class="d-flex justify-content-center text-center">
+					<button class="btn home-offer-button">Accedir</button>
 				</div>
 				</a>
 			</div>
@@ -122,8 +122,8 @@
 					<h3 class="h3-offers">Plat de pasta i postre</h3>
 				</div>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=1&product_id=27">
-				<div class="home-offer-button">
-					<button class="btn">Accedir</button>
+				<div class="d-flex justify-content-center text-center">
+					<button class="btn home-offer-button">Accedir</button>
 				</div>
 				</a>
 			</div>	
@@ -134,8 +134,8 @@
 					<h3 class="h3-offers">Torrades amb melmelada</h3>
 				</div>
 				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4&product_id=28">
-				<div class="home-offer-button">
-					<button class="btn">Accedir</button>
+				<div class="d-flex justify-content-center text-center">
+					<button class="btn home-offer-button">Accedir</button>
 				</div>
 				</a>
 			</div>
@@ -153,9 +153,9 @@
                         <img src="images/iconografia/horarios-1.svg" alt="Imatge d'un calendari per mostrar horaris i calendari" width="80px">
                         <div class="horaris-content">
                             <h5>Dinars i sopars</h5>
-                            <p style="font-weight: bold; color: black ">Durant tot l'any</p>
+                            <p class="text-black fw-bold">Durant tot l'any</p>
                             <p>De dilluns a diumenge, de 12 a 15:30h i de 20:00 a 00:00h.</p>
-                            <p style="font-weight: bold; color: black ">Dies de tancament</p>
+                            <p class="text-black fw-bold">Dies de tancament</p>
                             <p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
                                 Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15 h.
                             </p>
@@ -166,9 +166,9 @@
                     <div class="p-5">
                         <h5>Esmorzars i berenars</h5>
                         <div class="horaris-content">
-                            <p style="font-weight: bold; color: black ">Durant tot l'any</p>
+                            <p class="text-black fw-bold">Durant tot l'any</p>
                             <p>De dilluns a diumenge, de 7:30 a 11:45h i de 16:00 a 19:45h.</p>
-                            <p style="font-weight: bold; color: black ">Dies de tancament</p>
+                            <p class="text-black fw-bold">Dies de tancament</p>
                             <p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
                                 Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15h.
                             </p>
@@ -182,7 +182,7 @@
 	
 
 
-<section class="container-fluid mt-70" style="position: relative;">
+<section class="container-fluid mt-70 position-relative">
 	<div class="floating-address">
 		<p class="bold">Direcció</p>
 	</div>
@@ -191,7 +191,7 @@
 
 <section class="container-fluid" style="margin-bottom: -70px;">
 	<div class="contact">
-		<div class="container">
+		<div class="container d-flex justify-content-between">
 			<p>Estàs pensant a celebrar un esdeveniment exclusiu en un lloc emblemàtic de Barcelona?</p>
 			<button class="btn btn-outline-primary">Contacta amb nosaltres</button>
 		</div>

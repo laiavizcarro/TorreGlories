@@ -3,23 +3,23 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <section class="container mt-70 steps">
-    <div class="circle-disabled">
+    <div class="circle">
         <img src="images/iconografia/shoppingcart.svg" alt="Icone passos cistella." width="25px">
     </div>
-    <div class="rectangle-disabled">
+    <div class="rectangle">
         <p>Cistella</p>
     </div>
-    <div class="circle-active">
+    <div class="circle">
         <img src="images/iconografia/steps-card-white.svg" alt="Icone passos targeta pagament." width="25px">
     </div>
-    <div class="rectangle-active">
+    <div class="rectangle">
         <p>Pagament</p>
     </div>
 
-    <div class="circle-disabled">
+    <div class="circle active">
         <img src="images/iconografia/steps-confirmation.svg" alt="Icone passos confirmació" width="20px">
     </div>
-    <div class="rectangle-disabled">
+    <div class="rectangle active">
         <p>Confirmació</p>
     </div>
 </section>

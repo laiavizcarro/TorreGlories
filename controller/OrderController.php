@@ -113,7 +113,7 @@ class OrderController {
 
         $order = isset($_SESSION['order']) ? $_SESSION['order'] : array();
     
-        include_once 'view/payment-view.php';
+        include_once 'view/order-payment-view.php';
         return;
     }
 

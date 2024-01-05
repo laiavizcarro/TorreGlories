@@ -26,12 +26,6 @@
                     H-51.3z M-48.8,26.3h2.6l11.6,15.5h-2.6L-48.8,26.3z" />
                 </g>
             </svg>
-
-            <!--
-            <img src="images/iconografia/instagramPink.svg" alt="Icone Instagram" class="social-icons">
-            <img src="images/iconografia/facebookPink.svg" alt="Icone Facebook"class="social-icons">
-            <img src="images/iconografia/twitterPink.svg" alt="Icone Twitter" style="width: 25px;" class="social-icons">
-            -->
         </div>
         <div class="mt-10">
             <p>Copyright 2023 | Laia Vizcarro Viladiu</p>
