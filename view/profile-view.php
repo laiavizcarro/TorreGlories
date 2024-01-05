@@ -77,7 +77,7 @@
                     <p class="card-title"><?php echo date_format(date_create($order->getDate()), 'Y-m-d H:i') ?></p>
                     <span> <?= $order->getTotalPrice() ?> € </span>
 
-                    <div>
+                    <div class="d-flex justify-content-between">
                         <div>
                             <?php if ($order->getIsPaid()) { ?>
                                 <span class="badge rounded-pill text-bg-success">Pagada</span>
@@ -85,11 +85,9 @@
                                 <span class="badge rounded-pill text-bg-warning">Pendent</span>
                             <?php } ?>
                         </div>
-                        <div class="justify-content-end">
-                            <a href="<?= url ?>?controller=Order&action=repeatOrder&orderId=<?= $order->getId() ?>">
-                                <button class="btn-add">Repetir</button>
-                            </a>
-                        </div>
+                        <a href="<?= url ?>?controller=Order&action=repeatOrder&orderId=<?= $order->getId() ?>">
+                            <button class="btn-add">Repetir</button>
+                        </a>
                     </div>
                 </div>
             </div>
