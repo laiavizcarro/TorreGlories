@@ -95,7 +95,7 @@
                             <td colspan="2" class="text-end">TOTAL <?=PriceCalculator::calculateOrderTotalPrice($order)?>€</td>
                             <td>
                                 <a href="<?= url ?>/index.php?controller=Order&action=checkout">
-                                    <button class="button-resume" class="text-white fw-bold" style="width:200px; height: 50px" >FINALITZAR COMPRA</button>
+                                    <button class="button-resume text-white fw-bold" style="width:200px; height: 50px" >FINALITZAR COMPRA</button>
                                 </a>
                             </td>
                             <td></td>
