@@ -107,11 +107,13 @@
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
 			<div class="p-5 home-offer home-offer-breakfast-bg">
 				<div class="home-offer-heading">
-					<h3 class="h3-offers">Entrepà vegetal més suc o cafè</h3>
+					<h3 class="h3-offers">Entrepà vegetal més suc</h3>
 				</div>
+				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4&product_id=26">
 				<div class="home-offer-button">
 					<button class="btn">Accedir</button>
 				</div>
+				</a>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
@@ -119,9 +121,11 @@
 				<div class="home-offer-heading">
 					<h3 class="h3-offers">Plat de pasta i postre</h3>
 				</div>
+				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=1&product_id=27">
 				<div class="home-offer-button">
 					<button class="btn">Accedir</button>
 				</div>
+				</a>
 			</div>	
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
@@ -129,9 +133,11 @@
 				<div class="home-offer-heading">
 					<h3 class="h3-offers">Torrades amb melmelada</h3>
 				</div>
+				<a href="<?= url ?>/index.php?controller=Product&action=products&category_id=4&product_id=28">
 				<div class="home-offer-button">
 					<button class="btn">Accedir</button>
 				</div>
+				</a>
 			</div>
 		</div>
 

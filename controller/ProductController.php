@@ -182,7 +182,9 @@ class ProductController{
      * Llistar els productes per categoria seleccionada des de la Carta
      */
     public function products() {
-        $allProducts = ProductDAO::getProductsByCategory($_GET['category_id']);
+        $categoryId = $_GET['category_id'];
+        $productId = isset($_GET['product_id']) ? $_GET['product_id'] : null;
+        $allProducts = ProductDAO::getProductsByCategory($categoryId, $productId);
         include_once 'view/menu-view.php';
     }
 

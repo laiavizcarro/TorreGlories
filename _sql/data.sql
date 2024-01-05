@@ -56,7 +56,11 @@ INSERT INTO products (name, category_id, iva, base_price, total_price, is_offer,
 ('Macarons', 2, 4, 10.00, 12.10, 0, null, null, 'images/uploads/macaron.jpg'),
 ('Aigua 1L', 3, 4, 4.13, 4.29, 1, 3.50, 3.64, 'images/uploads/aigua.jpg'),
 ('Coca Cola Zero', 3, 4, 2.64, 3.20, 0, null, null, 'images/uploads/cocacolazero.jpeg'),
-('Fanta taronja', 3, 4, 1.10, 1.0, 0, null, null, 'images/uploads/fanta-taronja.jpg');
+('Fanta taronja', 3, 4, 1.10, 1.0, 0, null, null, 'images/uploads/fanta-taronja.jpg'),
+('Entrepà vegetal més suc', 4, 4, 4.50, 4.68, 0, null, null, 'images/uploads/offer_breakfast.jpg'),
+('Plat de pasta i postre', 1, 4, 7, 7.28, 0, null, null, 'images/uploads/offer_pasta.webp'),
+('Torrades amb melmelada', 4, 4, 4, 4.16, 0, null, null, 'images/uploads/offer_toast.webp');
+
 
 --
 -- Bolcament de dades per a la taula 'product_allergens'

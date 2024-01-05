@@ -40,11 +40,17 @@ class ProductDAO {
      * 
      * @return Product[]
      */
-    public static function getProductsByCategory($category_id){
+    public static function getProductsByCategory($category_id, $product_id) {
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM products WHERE category_id = ?");
-        $stmt->bind_param("i", $category_id);
+        if ($product_id != null) {
+            $stmt = $con->prepare("SELECT * FROM products WHERE category_id = ? AND id = ?");
+            $stmt->bind_param("ii", $category_id, $product_id);
+        } else {
+            $stmt = $con->prepare("SELECT * FROM products WHERE category_id = ?");
+            $stmt->bind_param("i", $category_id);
+        }
+
 
         $stmt ->execute();
         $result=$stmt->get_result();
