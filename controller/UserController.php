@@ -32,7 +32,7 @@ class UserController {
         }
 
         $allUsers = UserDAO::getAllUsers();
-        include_once 'view/admin/users-view';
+        include_once 'view/admin/users-view.php';
     }
 
     /**
@@ -122,7 +122,13 @@ class UserController {
                 return;
             }
             
-            $user = new BasicUser(null, $name, $surname, $email, $password, 2, $phoneNumber);
+            $user = new BasicUser();
+            $user->setName($name);
+            $user->setSurname($surname);
+            $user->getEmail($email);
+            $user->setPassword($password);
+            $user->setRoleId(2);
+            $user->setPhoneNumber($phoneNumber);
             UserDao::insertUser($user);
 
             $_SESSION['loggedIn'] = true;

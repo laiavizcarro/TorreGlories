@@ -27,26 +27,29 @@ class UserDAO {
         $con->close();
 
         $usersList = [];
-        while ($userDB = $result->fetch_object("User")) {
-            $user = $userDB['role_id'] == 1 ?
-                new AdminUser(
-                    $userDB['id'],
-                    $userDB['name'],
-                    $userDB['surname'],
-                    $userDB['email'],
-                    $userDB['password'],
-                    $userDB['role_id'],
-                    $userDB['incorporation_date']
-                ) : new BasicUser(
-                    $userDB['id'],
-                    $userDB['name'],
-                    $userDB['surname'],
-                    $userDB['email'],
-                    $userDB['password'],
-                    $userDB['role_id'],
-                    $userDB['phone_number'],
-                );
-            $usersList[] = $user;
+        while ($userDB = $result->fetch_array()) {
+            if ($userDB['role_id'] == 1) {
+                $user = new AdminUser();
+                $user->setId($userDB['id']);
+                $user->setName($userDB['name']);
+                $user->setSurname($userDB['surname']);
+                $user->setEmail($userDB['email']);
+                $user->setPassword($userDB['password']);
+                $user->setRoleId($userDB['role_id']);
+                $user->setIncorporationDate($userDB['incorporation_date']);
+                $usersList[] = $user;
+            } else {
+                $user = new BasicUser();
+                $user->setId($userDB['id']);
+                $user->setName($userDB['name']);
+                $user->setSurname($userDB['surname']);
+                $user->setEmail($userDB['email']);
+                $user->setPassword($userDB['password']);
+                $user->setRoleId($userDB['role_id']);
+                $user->setPhoneNumber($userDB['phone_number']);
+                $usersList[] = $user;
+            }
+            
         }
 
         return $usersList;
@@ -63,7 +66,7 @@ class UserDAO {
         
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM users WHERE role_id=?");
+        $stmt = $con->prepare("SELECT * FROM users WHERE role_id = ?");
         $stmt->bind_param("i",$role_id);
 
         $stmt->execute();
@@ -72,26 +75,28 @@ class UserDAO {
         $con->close();
 
         $usersList = [];
-        while ($userDB = $result->fetch_object("User")) {
-            $user = $userDB['role_id'] == 1 ?
-                new AdminUser(
-                    $userDB['id'],
-                    $userDB['name'],
-                    $userDB['surname'],
-                    $userDB['email'],
-                    $userDB['password'],
-                    $userDB['role_id'],
-                    $userDB['incorporation_date']
-                ) : new BasicUser(
-                    $userDB['id'],
-                    $userDB['name'],
-                    $userDB['surname'],
-                    $userDB['email'],
-                    $userDB['password'],
-                    $userDB['role_id'],
-                    $userDB['phone_number'],
-                );
-            $usersList[] = $user;
+        while ($userDB = $result->fetch_array()) {
+            if ($userDB['role_id'] == 1) {
+                $user = new AdminUser();
+                $user->setId($userDB['id']);
+                $user->setName($userDB['name']);
+                $user->setSurname($userDB['surname']);
+                $user->setEmail($userDB['email']);
+                $user->setPassword($userDB['password']);
+                $user->setRoleId($userDB['role_id']);
+                $user->setIncorporationDate($userDB['incorporation_date']);
+                $usersList[] = $user;
+            } else {
+                $user = new BasicUser();
+                $user->setId($userDB['id']);
+                $user->setName($userDB['name']);
+                $user->setSurname($userDB['surname']);
+                $user->setEmail($userDB['email']);
+                $user->setPassword($userDB['password']);
+                $user->setRoleId($userDB['role_id']);
+                $user->setPhoneNumber($userDB['phone_number']);
+                $usersList[] = $user;
+            }
         }
 
         return $usersList;
@@ -140,7 +145,7 @@ class UserDAO {
     public static function deleteUser($id) {
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("DELETE FROM users WHERE id=?");
+        $stmt = $con->prepare("DELETE FROM users WHERE id = ?");
         $stmt->bind_param("i", $id);
 
         $stmt->execute();
@@ -205,7 +210,7 @@ class UserDAO {
         
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM users WHERE id=?");
+        $stmt = $con->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->bind_param("i",$id);
 
         $stmt->execute();
@@ -213,26 +218,28 @@ class UserDAO {
 
         $con->close();
 
-        $resultArray = $result->fetch_array();
-
-        return $resultArray['role_id'] == 1 ?
-            new AdminUser(
-                $resultArray['id'],
-                $resultArray['name'],
-                $resultArray['surname'],
-                $resultArray['email'],
-                $resultArray['password'],
-                $resultArray['role_id'],
-                $resultArray['incorporation_date']
-            ) : new BasicUser(
-                $resultArray['id'],
-                $resultArray['name'],
-                $resultArray['surname'],
-                $resultArray['email'],
-                $resultArray['password'],
-                $resultArray['role_id'],
-                $resultArray['phone_number'],
-            );
+        $userDB = $result->fetch_array();
+        if ($userDB['role_id'] == 1) {
+            $user = new AdminUser();
+            $user->setId($userDB['id']);
+            $user->setName($userDB['name']);
+            $user->setSurname($userDB['surname']);
+            $user->setEmail($userDB['email']);
+            $user->setPassword($userDB['password']);
+            $user->setRoleId($userDB['role_id']);
+            $user->setIncorporationDate($userDB['incorporation_date']);
+            return $user;
+        } else {
+            $user = new BasicUser();
+            $user->setId($userDB['id']);
+            $user->setName($userDB['name']);
+            $user->setSurname($userDB['surname']);
+            $user->setEmail($userDB['email']);
+            $user->setPassword($userDB['password']);
+            $user->setRoleId($userDB['role_id']);
+            $user->setPhoneNumber($userDB['phone_number']);
+            return $user;
+        }
     }
 
     /**
@@ -246,7 +253,7 @@ class UserDAO {
         
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM users WHERE email=?");
+        $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
 
         $stmt->execute();
@@ -254,30 +261,32 @@ class UserDAO {
 
         $con->close();
 
-        $resultArray = $result->fetch_array();
-
-        if ($resultArray == null) {
+        $userDB = $result->fetch_array();
+        if ($userDB == null) {
             return null;
         }
 
-        return $resultArray['role_id'] == 1 ?
-            new AdminUser(
-                $resultArray['id'],
-                $resultArray['name'],
-                $resultArray['surname'],
-                $resultArray['email'],
-                $resultArray['password'],
-                $resultArray['role_id'],
-                $resultArray['incorporation_date']
-            ) : new BasicUser(
-                $resultArray['id'],
-                $resultArray['name'],
-                $resultArray['surname'],
-                $resultArray['email'],
-                $resultArray['password'],
-                $resultArray['role_id'],
-                $resultArray['phone_number'],
-            );
+        if ($userDB['role_id'] == 1) {
+            $user = new AdminUser();
+            $user->setId($userDB['id']);
+            $user->setName($userDB['name']);
+            $user->setSurname($userDB['surname']);
+            $user->setEmail($userDB['email']);
+            $user->setPassword($userDB['password']);
+            $user->setRoleId($userDB['role_id']);
+            $user->setIncorporationDate($userDB['incorporation_date']);
+            return $user;
+        } else {
+            $user = new BasicUser();
+            $user->setId($userDB['id']);
+            $user->setName($userDB['name']);
+            $user->setSurname($userDB['surname']);
+            $user->setEmail($userDB['email']);
+            $user->setPassword($userDB['password']);
+            $user->setRoleId($userDB['role_id']);
+            $user->setPhoneNumber($userDB['phone_number']);
+            return $user;
+        }
     }
 
 

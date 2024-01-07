@@ -17,10 +17,7 @@ class BasicUser extends User {
     /**
      * Constructor
      */
-    public function __construct($id = 0, $name = null, $surname = null, $email = null, 
-        $password = null, $role_id = null, $phone_number = null) {
-        parent::__construct($id, $name, $surname, $email, $password, $role_id);
-        $this->phone_number = $phone_number;
+    public function __construct() {
     }
 
 	/**

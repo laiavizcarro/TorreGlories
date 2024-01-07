@@ -58,8 +58,8 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 							</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?= url ?>/index.php?controller=Product">Productes</a></li>
-								<li><a class="dropdown-item" href="#">Comandes</a></li>
 								<li><a class="dropdown-item" href="<?= url ?>/index.php?controller=User">Usuaris</a></li>
+								<li><a class="dropdown-item" href="#">Comandes</a></li>
 							</ul>
 							</li>
 					<?php } ?>

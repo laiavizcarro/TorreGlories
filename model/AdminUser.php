@@ -16,9 +16,7 @@ class AdminUser extends User {
     /**
      * Constructor
      */
-    public function __construct($id, $name, $surname, $email, $password, $role_id, $incorporation_date) {
-        parent::__construct($id, $name, $surname, $email, $password, $role_id);
-        $this->incorporation_date = $incorporation_date;
+    public function __construct() {
     }
     
 
