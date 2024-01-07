@@ -103,12 +103,12 @@ CREATE TABLE `products` (
 --
 
 CREATE TABLE `product_allergens` (
-  `allergen_id` int NOT NULL AUTO_INCREMENT,
   `product_id` int NOT NULL,
+  `allergen_id` int NOT NULL,
 
-  CONSTRAINT PK_PRODUCT_ALLERGENS PRIMARY KEY (allergen_id, product_id),
-  CONSTRAINT FK_PRODUCT_ALLERGENS_ALLERGEN_ID FOREIGN KEY (allergen_id) REFERENCES allergens (id),
-  CONSTRAINT FK_PRODUCT_ALLERGENS_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES products (id)
+  CONSTRAINT PK_PRODUCT_ALLERGENS PRIMARY KEY (product_id, allergen_id),
+  CONSTRAINT FK_PRODUCT_ALLERGENS_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES products (id),
+  CONSTRAINT FK_PRODUCT_ALLERGENS_ALLERGEN_ID FOREIGN KEY (allergen_id) REFERENCES allergens (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -134,7 +134,7 @@ CREATE TABLE `orders` (
 CREATE TABLE `order_products` (
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
-   `name` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `quantity` int(5) NOT NULL,
   `iva` int(2) NOT NULL,
   `base_price` decimal(5,2) NOT NULL,

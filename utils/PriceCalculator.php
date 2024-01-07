@@ -26,7 +26,7 @@ class PriceCalculator {
         foreach($order as $orderLine) {
             $totalPrice += $orderLine->getProduct()->isOffer()
                 ? $orderLine->getProduct()->getTotalOfferPrice() * $orderLine->getQuantity()
-                : $totalPrice += $orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity();
+                : $orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity();
         }
 
         return PriceCalculator::fixDecimal($totalPrice);
