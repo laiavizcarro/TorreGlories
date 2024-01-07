@@ -65,7 +65,7 @@
                                 <?=$orderLine->getProduct()->getName()?>
                             </td>
                             <td class="align-middle">
-                                <?=$orderLine->getProduct()->getTotalPrice()?>€
+                                <?=$orderLine->getProduct()->isOffer() ? $orderLine->getProduct()->getTotalOfferPrice() : $orderLine->getProduct()->getTotalPrice()?>€
                             </td>
                             <td class="align-middle">
                                 <?=PriceCalculator::calculateProductTotalPrice($orderLine)?>€

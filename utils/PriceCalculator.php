@@ -12,7 +12,9 @@ class PriceCalculator {
      * Calcular el preu total d'una línia de la cistella
      */
     public static function calculateProductTotalPrice($orderLine) {
-        return PriceCalculator::fixDecimal($orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity());
+        return $orderLine->getProduct()->isOffer()
+            ? PriceCalculator::fixDecimal($orderLine->getProduct()->getTotalOfferPrice() * $orderLine->getQuantity())
+            : PriceCalculator::fixDecimal($orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity());
     }
 
     /**
@@ -22,7 +24,9 @@ class PriceCalculator {
         $totalPrice = 0;
 
         foreach($order as $orderLine) {
-            $totalPrice += $orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity();
+            $totalPrice += $orderLine->getProduct()->isOffer()
+                ? $orderLine->getProduct()->getTotalOfferPrice() * $orderLine->getQuantity()
+                : $totalPrice += $orderLine->getProduct()->getTotalPrice() * $orderLine->getQuantity();
         }
 
         return PriceCalculator::fixDecimal($totalPrice);

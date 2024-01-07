@@ -137,22 +137,6 @@ class Order {
     }
 
     /**
-     * Calcula el preu total de la cistella
-     * 
-     * @return string Preu total amb decimals
-     */
-    public function calculateTotalPrice() {
-        $totalPrice = 0;
-
-        foreach($this->getOrderProducts() as $orderProduct) {
-            $totalPrice += $orderProduct->getTotalPrice() * $orderProduct->getQuantity();
-        }
-
-        return PriceCalculator::fixDecimal($totalPrice);
-    }
-
-
-    /**
      * Get the value of userName
      */ 
     public function getUserName()
@@ -190,5 +174,23 @@ class Order {
         $this->userSurname = $userSurname;
 
         return $this;
+    }
+
+
+    /**
+     * Calcula el preu total de la cistella
+     * 
+     * @return string Preu total amb decimals
+     */
+    public function calculateTotalPrice() {
+        $totalPrice = 0;
+
+        foreach($this->getOrderProducts() as $orderProduct) {
+            $totalPrice += $orderProduct->getIsOffer() 
+                ? $orderProduct->getTotalOfferPrice() * $orderProduct->getQuantity()
+                : $orderProduct->getTotalPrice() * $orderProduct->getQuantity();
+        }
+
+        return PriceCalculator::fixDecimal($totalPrice);
     }
 }
