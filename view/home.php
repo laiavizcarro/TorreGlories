@@ -52,9 +52,9 @@
 			<div class="p-5 home-breakfast-bg"></div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-			<div class="p-5 home-welcome-secondary">
+			<div class="home-welcome-secondary">
 				<div class="row">
-					<div class="col-2">
+					<div class="col-2 d-flex justify-content-center">
 						<img src="images/iconografia/sandwich.svg" alt="Icone d'un sandwich">
 					</div>
 					<div class="col-1 d-flex justify-content-center">
@@ -72,7 +72,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-			<div class="p-5 home-welcome-secondary">
+			<div class="home-welcome-secondary">
 				<div class="row">
 					<div class="col-2">
 						<img src="images/iconografia/drink.svg" alt="Icono d'una beguda.">
