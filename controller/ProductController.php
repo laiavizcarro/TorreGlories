@@ -6,7 +6,7 @@ include_once 'model/ProductDAO.php';
  * ProductController s'encarrega de proveïr les funcionalitats per als productes
  * 
  */
-class ProductController{
+class ProductController {
 
     /**
      * Constructor
@@ -24,15 +24,23 @@ class ProductController{
      * Funcionalitat d'administrador
      */
     public function index() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
         $allProducts = ProductDAO::getAllProducts();
-        include_once 'view/products-view.php';
+        include_once 'view/admin/products-view.php';
     }
 
     /**
      * Retorna la vista de modificació d'un producte
      */
     public function insertView() {
-        include_once 'view/product-insert-view.php';
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
+        include_once 'view/admin/product-insert-view.php';
     }
 
     /**
@@ -45,7 +53,10 @@ class ProductController{
      *  - Base Price
      * 
      */
-    public function insert() {        
+    public function insert() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }     
     
         if(empty($_POST['name']) || empty($_POST['category_id']) || 
             empty($_POST['iva']) || empty($_POST['base_price'])) {
@@ -106,8 +117,12 @@ class ProductController{
      * Funcionalitat d'administrador
      */
     public function show() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
         $product = ProductDAO::getProductById($_GET['id']);
-        include_once 'view/product-edit-view.php';
+        include_once 'view/admin/product-edit-view.php';
     }
 
     /**
@@ -116,12 +131,16 @@ class ProductController{
      * Funcionalitat d'administrador
      */
     public function update() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
         $product = ProductDAO::getProductById($_GET['id']);
 
         if(empty($_POST['name']) || empty($_POST['category_id']) || 
             empty($_POST['iva']) || empty($_POST['base_price'])) {
             $error = "Falten camps per emplenar";
-            include_once 'view/product-edit-view.php';
+            include_once 'view/admin/product-edit-view.php';
             return;
         }
 
@@ -174,6 +193,10 @@ class ProductController{
      * Funcionalitat d'administrador
      */
     public function delete() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
         ProductDAO::deleteProduct($_GET['id']);
         header("Location:" . url . "?controller=Product");
     }

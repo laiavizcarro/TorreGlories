@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="p-3">
                 <h2>Inici sessió</h2>
-                <form class="tg-form row g-3" action="<?= url ?>/index.php?controller=User&action=login" method="POST">
+                <form class="tg-form row g-3 mt-20" action="<?= url ?>/index.php?controller=User&action=login" method="POST">
                     <div class="col-12">
                         <label for="email" class="form-label">Correu</label>
                         <input type="text" id="email" name="email" class="form-control mw-250">
@@ -26,7 +26,7 @@
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <div class="p-3">
                 <h2>Registre</h2>
-                <form class="tg-form row g-3" action="<?= url ?>/index.php?controller=User&action=register" method="POST">
+                <form class="tg-form row g-3 mt-20" action="<?= url ?>/index.php?controller=User&action=register" method="POST">
                     <div class="col-md-3">   
                         <label for="name" class="form-label">Nom</label>
                         <input type="text" id="name" name="name" class="form-control" required>

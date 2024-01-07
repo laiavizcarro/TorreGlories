@@ -34,13 +34,13 @@ include_once 'controller/ProfileController.php';
 
     <main>
     <?php
-        if(!isset($_GET['controller'])){
+        if (!isset($_GET['controller'])) {
             //si no es passa res, es mostrarà la home
             header("Location:" . url. '?controller=Home');
-        }else{
+        } else {
             $controller_name = $_GET['controller'].'Controller';
 
-            if(class_exists($controller_name)){
+            if (class_exists($controller_name)) {
                 //mirem si ens passa una accio
                 //en cas contrari mostrem una accio per defecte
                 $controller = new $controller_name;
@@ -51,7 +51,7 @@ include_once 'controller/ProfileController.php';
                     $action = default_action;
                 }
                 $controller->$action();
-            }else{
+            } else {
                 header("Location:" . url. '?controller=Home');
             }
         }

@@ -102,7 +102,7 @@ class UserDAO {
      * 
      * @param User $user Usuari a crear
      */
-    public static function insertUser($user) {
+    public static function insertUser(BasicUser|AdminUser $user) {
         $name = $user->getName();
         $surname = $user->getSurname();
         $email = $user->getEmail();

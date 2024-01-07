@@ -27,8 +27,12 @@ class UserController {
      * Funcionalitat d'administrador
      */
     public function index() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+
         $allUsers = UserDAO::getAllUsers();
-        include_once 'view/admin-panel-view';
+        include_once 'view/admin/users-view';
     }
 
     /**
