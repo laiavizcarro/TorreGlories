@@ -102,6 +102,31 @@ class OrderDAO {
         return $list;
     }
 
+    /**
+     * Obtindre les cistelles
+     * 
+     * @return Order[]
+     */
+    public static function getOrders(){
+
+        $con = DB::connectDB();
+
+        $query = "SELECT o.*, u.name as userName, u.surname as userSurname FROM orders o ";
+        $query .= "INNER JOIN users u ON o.user_id = u.id ";
+        $stmt = $con->prepare($query);
+
+        $stmt ->execute();
+        $result = $stmt->get_result();
+
+        $con->close();
+
+        $list = [];
+        while ($current = $result->fetch_object("Order")){
+            $list[] = $current;
+        }
+
+        return $list;
+    }
    
 }
 

@@ -207,4 +207,13 @@ class OrderController {
 
         header('Location: ' . url . '/index.php?controller=Order');
     }
+
+    public function getOrders() {
+        if ($_SESSION['isAdmin'] == false) {
+            header('Location: ' . url . '/index.php?controller=Home');
+        }
+        
+        $allOrders = OrderDAO::getOrders();
+        include_once 'view/admin/orders-view.php';
+    }
 }

@@ -14,6 +14,8 @@ class Order {
      */
     private $id;
     private $user_id;
+    private $userName;
+    private $userSurname;
     private $date;
     private $is_paid;
     private $total_price;
@@ -149,4 +151,44 @@ class Order {
         return PriceCalculator::fixDecimal($totalPrice);
     }
 
+
+    /**
+     * Get the value of userName
+     */ 
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    /**
+     * Set the value of userName
+     *
+     * @return  self
+     */ 
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of userSurname
+     */ 
+    public function getUserSurname()
+    {
+        return $this->userSurname;
+    }
+
+    /**
+     * Set the value of userSurname
+     *
+     * @return  self
+     */ 
+    public function setUserSurname($userSurname)
+    {
+        $this->userSurname = $userSurname;
+
+        return $this;
+    }
 }
