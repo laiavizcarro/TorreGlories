@@ -3,6 +3,9 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img src="images/home/banner_restaurant.jpg" class="d-block w-100" alt="Imatge del restaurant.">
+				<div class="carousel-content">
+					<h1>Restaurant Torre Glòries</h1>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="images/home/banner_vistes.jpeg" class="d-block w-100" alt="Imatge de les vistes del restaurant.">
@@ -24,15 +27,13 @@
 </section>
 
 <section class="container text-center mt-70">
-	<div>
-		<h2>Benvinguts al Restaurant Torre Glòries</h2>
-		<h4>Una experiència inoblidable per a descobrir nous sabors des del restaurant ubicat al mirador.</h4>
-	</div>
+	<h2>Menja a Barcelona com mai</h2>
+	<h4>Una experiència inoblidable per a descobrir nous sabors des del restaurant ubicat al mirador.</h4>
 </section>
 
 <section class="container mt-70">
 	<div class="row g-4">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-welcome-primary">
 				<h3 class="text-pink">Plats cassolans</h3>
 				<p class="text-white" style="font-size:19px;">Vine a provar els nostres plats cassolans, cuinats pel xef de la casa.
@@ -43,18 +44,18 @@
 				</a>		
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-plates-bg"></div>
 		</div>
 
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-breakfast-bg"></div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-welcome-secondary">
 				<div class="row">
 					<div class="col-2">
-						<img src="images/iconografia/sandwich.svg" alt="Icone d'un sandwich" height="80" width="80">
+						<img src="images/iconografia/sandwich.svg" alt="Icone d'un sandwich">
 					</div>
 					<div class="col-1 d-flex justify-content-center">
 						<div class="home-vertical-separator"></div>
@@ -70,11 +71,11 @@
 			</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-welcome-secondary">
 				<div class="row">
 					<div class="col-2">
-						<img src="images/iconografia/drink.svg" alt="Icono d'una beguda." height="80" width="80">
+						<img src="images/iconografia/drink.svg" alt="Icono d'una beguda.">
 					</div>
 					<div class="col-1 d-flex justify-content-center">
 						<div class="home-vertical-separator"></div>
@@ -89,7 +90,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 			<div class="p-5 home-drinks-bg">
 			</div>
 		</div>
@@ -144,48 +145,43 @@
 	</div>
 </section>
 
-<section class="container-fluid mt-70">
-    <div class="calendar">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="p-5 horaris">
-                        <img src="images/iconografia/horarios-1.svg" alt="Imatge d'un calendari per mostrar horaris i calendari" width="80px">
-                        <div class="horaris-content">
-                            <h5>Dinars i sopars</h5>
-                            <p class="text-black fw-bold">Durant tot l'any</p>
-                            <p>De dilluns a diumenge, de 12 a 15:30h i de 20:00 a 00:00h.</p>
-                            <p class="text-black fw-bold">Dies de tancament</p>
-                            <p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
-                                Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15 h.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="p-5">
-                        <h5>Esmorzars i berenars</h5>
-                        <div class="horaris-content">
-                            <p class="text-black fw-bold">Durant tot l'any</p>
-                            <p>De dilluns a diumenge, de 7:30 a 11:45h i de 16:00 a 19:45h.</p>
-                            <p class="text-black fw-bold">Dies de tancament</p>
-                            <p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
-                                Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15h.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="container-fluid mt-70 calendar">
+	<div class="container">
+		<div class="row g-4">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p-5">
+				<div class="horaris">
+					<img src="images/iconografia/horarios-1.svg" alt="Imatge d'un calendari per mostrar horaris i calendari" width="80px">
+					<div class="horaris-content">
+						<h5>Dinars i sopars</h5>
+						<p class="text-black fw-bold">Durant tot l'any</p>
+						<p>De dilluns a diumenge, de 12 a 15:30h i de 20:00 a 00:00h.</p>
+						<p class="text-black fw-bold">Dies de tancament</p>
+						<p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
+							Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15 h.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p-5">
+				<div class="">
+					<h5>Esmorzars i berenars</h5>
+					<div class="horaris-content">
+						<p class="text-black fw-bold">Durant tot l'any</p>
+						<p>De dilluns a diumenge, de 7:30 a 11:45h i de 16:00 a 19:45h.</p>
+						<p class="text-black fw-bold">Dies de tancament</p>
+						<p>Mirador torre Glòries tancarà els dies 25 de desembre i 1 de gener.
+							Els dies 24 i 31 de desembre, Restaurant torre Glòries obrirà de 9:00 a 15h.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 	
 
 
-<section class="container-fluid mt-70 position-relative">
-	<div class="floating-address">
-		<p class="bold">Direcció</p>
-	</div>
+<section class="container-fluid mt-70">
     <img src="images/footer/mapa.svg" alt="Imatge del mapa d'on es troba ubicat el restaurant i els mètodes de transport.">
 </section>
 

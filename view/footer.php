@@ -1,5 +1,5 @@
-<section class="container-fluid mt-70">
-    <section class="footer">
+<footer class="container-fluid mt-70">
+    <div class="footer">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.848 19.849" class="instagram">
                 <g  transform="translate(-11673.214 -4316.382)">
@@ -30,5 +30,5 @@
         <div class="mt-10">
             <p>Copyright 2023 | Laia Vizcarro Viladiu</p>
         </div>
-    </section>
-</section>
+    </div>
+</footer>

@@ -32,7 +32,7 @@ include_once 'controller/ProfileController.php';
 <body>
     <?php include_once 'view/header.php'; ?>
 
-    <div class="content">
+    <main>
     <?php
         if(!isset($_GET['controller'])){
             //si no es passa res, es mostrarà la home
@@ -56,7 +56,7 @@ include_once 'controller/ProfileController.php';
             }
         }
     ?>
-    </div>
+    </main>
 
     <?php include_once 'view/footer.php'; ?>
 
