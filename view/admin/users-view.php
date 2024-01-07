@@ -1,4 +1,8 @@
 <section class="container mt-70">
+    <h2>Administrador d'usuaris</h2>
+</section>
+
+<section class="container mt-20">
     <table class="table table-striped table-hover">
             <thead>
                 <th>ID</th>

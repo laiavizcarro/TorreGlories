@@ -53,7 +53,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 					</li>
 					<?php if (isset($_SESSION['loggedIn'], $_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) { ?>
 						<li class="nav-item dropdown">
-							<a class="nav-link menu-link dropdown-toggle <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product') && !str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link menu-link dropdown-toggle <?= (str_contains($_SERVER['REQUEST_URI'], 'controller=Product') && !str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products')) || $_SERVER['QUERY_STRING'] == 'controller=Order&action=getOrders' || $_SERVER['QUERY_STRING'] == "controller=User" ? 'active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Admin
 							</a>
 							<ul class="dropdown-menu">

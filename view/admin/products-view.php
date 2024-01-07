@@ -1,4 +1,8 @@
 <section class="container mt-70">
+    <h2>Administrador de productes</h2>
+</section>
+
+<section class="container mt-20">
     <a href="<?= url ?>?controller=Product&action=insertView">
         <button class="btn btn-success">Insertar nou producte</button>
     </a>

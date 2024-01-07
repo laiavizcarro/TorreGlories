@@ -1,4 +1,8 @@
 <section class="container mt-70">
+    <h2>Inserir producte</h2>
+</section>
+
+<section class="container mt-20">
     <a class="btn-return" href="<?= url ?>/index.php?controller=Product">
         <img src="images/iconografia/back-arrow.svg" alt="Icone tornar enrere" class="icons">
         Tornar
