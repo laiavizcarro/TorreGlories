@@ -125,7 +125,7 @@ class UserController {
             $user = new BasicUser();
             $user->setName($name);
             $user->setSurname($surname);
-            $user->getEmail($email);
+            $user->setEmail($email);
             $user->setPassword($password);
             $user->setRoleId(2);
             $user->setPhoneNumber($phoneNumber);
@@ -144,6 +144,7 @@ class UserController {
      * Logout de l'usuari, destrucció de la sessió i redirect a la Home
      */
     public function logout() {
+        setcookie('lastOrder', null, time() - 3600);
         session_destroy();
         header('Location: ' . url . '/index.php?controller=Home');
 

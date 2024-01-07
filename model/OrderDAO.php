@@ -111,7 +111,7 @@ class OrderDAO {
 
         $con = DB::connectDB();
 
-        $query = "SELECT o.*, u.name as userName, u.surname as userSurname FROM orders o ";
+        $query = "SELECT o.*, u.name as user_name, u.surname as user_surname FROM orders o ";
         $query .= "INNER JOIN users u ON o.user_id = u.id ";
         $stmt = $con->prepare($query);
 

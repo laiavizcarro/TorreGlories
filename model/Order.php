@@ -14,8 +14,8 @@ class Order {
      */
     private $id;
     private $user_id;
-    private $userName;
-    private $userSurname;
+    private $user_name;
+    private $user_surname;
     private $date;
     private $is_paid;
     private $total_price;
@@ -137,41 +137,41 @@ class Order {
     }
 
     /**
-     * Get the value of userName
+     * Get the value of user_name
      */ 
     public function getUserName()
     {
-        return $this->userName;
+        return $this->user_name;
     }
 
     /**
-     * Set the value of userName
+     * Set the value of user_name
      *
      * @return  self
      */ 
-    public function setUserName($userName)
+    public function setUserName($user_name)
     {
-        $this->userName = $userName;
+        $this->user_name = $user_name;
 
         return $this;
     }
 
     /**
-     * Get the value of userSurname
+     * Get the value of user_surname
      */ 
     public function getUserSurname()
     {
-        return $this->userSurname;
+        return $this->user_surname;
     }
 
     /**
-     * Set the value of userSurname
+     * Set the value of user_surname
      *
      * @return  self
      */ 
-    public function setUserSurname($userSurname)
+    public function setUserSurname($user_surname)
     {
-        $this->userSurname = $userSurname;
+        $this->user_surname = $user_surname;
 
         return $this;
     }
