@@ -11,19 +11,18 @@ class Review {
      * Propietats
      */
 
-     private $id;
-     private $title;
-     private $review;
-     private $order_id;
-     private $date;
+    public $id;
+    public $title;
+    public $review;
+    public $rate;
+    public $order_id;
+    public $date;
 
      /**
       * Constructor
       */
     public function __construct() {
     }
-
-
 
 
     /**
@@ -115,6 +114,26 @@ class Review {
 
         return $this;
     }
+
+     /**
+      * Get the value of rate
+      */ 
+     public function getRate()
+     {
+          return $this->rate;
+     }
+
+     /**
+      * Set the value of rate
+      *
+      * @return  self
+      */ 
+     public function setRate($rate)
+     {
+          $this->rate = $rate;
+
+          return $this;
+     }
 }
 
 ?>
