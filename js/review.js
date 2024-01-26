@@ -32,10 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 reviews.push(review);
                 reviewForm.reset();
                 showReviews();
+                notie.alert({ type: 'success', text: 'Ressenya insertada correctament', time: 2 }) 
+
             }
         });
 
-        
+
     }
 
     function showReviews() {

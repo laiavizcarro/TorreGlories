@@ -29,6 +29,8 @@ include_once 'controller/APIController.php';
         rel="stylesheet" 
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+
 </head>
 
 <body>
@@ -66,5 +68,9 @@ include_once 'controller/APIController.php';
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.0/dist/qrcode.min.js"></script>
+    <script src="https://unpkg.com/notie"></script>
+
+
 </body>
 </html>
