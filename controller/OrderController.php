@@ -180,8 +180,50 @@ class OrderController {
         unset($_SESSION['order']);
         unset($_SESSION['order_quantity']);
 
-        header('Location: ' . url . '/index.php?controller=Profile');
+
+    /*************************************** QR GENERATOR  ****************************chch*************/
+
+    $orderUrl = url . '/index.php?controller=Order&action=view&order_id=' . $order->getId();
+    $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' . urlencode($orderUrl);
+    
+    // Obtindre el contingut de la imatge del codi QR 
+    $qrCodeContent = file_get_contents($qrCodeUrl);
+    
+    // Ruta de la carpeta
+    $qrCodePath = 'images/qr/' . $order->getId() . '_qr.png';
+    
+    // Guardar el contingut en un arxiu a la carpeta
+    file_put_contents($qrCodePath, $qrCodeContent);
+    
+    // Redirigir a la vista de confirmació
+    header('Location: ' . url . '/index.php?controller=Order&action=showQrCode&order_id=' . $order->getId());
+    
+    //header('Location: ' . url . '/index.php?controller=Profile');
+
     }
+
+    /**
+     * Mostrar el QR un cop la comanda està feta
+     */
+    public function showQrCode() {
+        if (isset($_GET['order_id'])) {
+            $orderId = $_GET['order_id'];
+            $qrCodePath = 'images/qr/' . $orderId . '_qr.png';  
+            if (file_exists($qrCodePath)) {
+                $qrCodeUrl = url . '/images/qr/' . $orderId . '_qr.png';  
+                include_once 'view/order-confirmation-view.php';
+            } else {
+                echo "Error: QR code not found. Path: " . $qrCodePath;
+            }
+        } else {
+            echo "Error: Order ID not specified.";
+        }
+    }
+
+    /************************** FINS AQUÍ EL CODI PER FER EL QR  ******************************/
+
+
+    
 
     /**
      * Repetir una comanda ja feta a través del seu id
