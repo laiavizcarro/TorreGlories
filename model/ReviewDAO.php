@@ -57,6 +57,20 @@ class ReviewDAO {
         $con->close();
     }
 
+    public static function orderReviewExists($order_id) {
+        $con = DB::connectDB();
+
+        $query = "SELECT count(*) as count FROM reviews WHERE order_id = $order_id";
+        $stmt = $con->prepare($query);
+
+        $stmt ->execute();
+        $result = $stmt->get_result();
+
+        $con->close();
+
+        return $result->fetch_assoc()['count'];
+    }
+
 }
 
 

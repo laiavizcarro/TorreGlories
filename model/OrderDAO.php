@@ -86,7 +86,9 @@ class OrderDAO {
 
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("SELECT * FROM orders WHERE user_id = ?");
+        $query = "SELECT o.*, (select count(*) from reviews r where r.order_id = o.id) as review_count FROM orders o ";
+        $query .= "WHERE o.user_id = ? ";
+        $stmt = $con->prepare($query);
         $stmt->bind_param("i", $userId);
 
         $stmt ->execute();

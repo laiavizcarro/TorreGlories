@@ -33,9 +33,18 @@ class APIController {
         $title = $_POST['title'];
         $reviewText = $_POST['review'];
         $rate = $_POST['rate'];
-        $order_id = 1; // TODO: Canviar aixo
+        $order_id = $_POST['orderId'];
         $date = date("Y-m-d H:i:s");
 
+        if(ReviewDAO::orderReviewExists($order_id) > 0) {
+            echo json_encode([
+                "success" => false,
+                "message" => "Aquesta comanda ja té una ressenya.",
+                "data" => null
+            ]);
+           
+            return;
+        }
         $review = new Review();
         $review->setReviewTitle($title);
         $review->setReview($reviewText);
@@ -45,8 +54,12 @@ class APIController {
 
         ReviewDAO::addReview($review);
 
-        echo json_encode(['success' => true, 'message' => 'Ressenya insertada correctament']);
-
+        echo json_encode([
+            "success" => true,
+            "message" => "Ressenya insertada correctament",
+            "data" => null
+        ]);
+       
         return;
     }
 }

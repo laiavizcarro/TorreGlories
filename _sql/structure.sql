@@ -14,6 +14,7 @@ USE torreglories;
 
 START TRANSACTION;
 
+DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS order_products;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS product_allergens;
@@ -22,6 +23,7 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS allergens;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS roles;
+
 
 --
 -- Estructura de la taula `roles`
@@ -147,6 +149,24 @@ CREATE TABLE `order_products` (
   CONSTRAINT FK_ORDER_PRODUCTS_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES products (id),
   CONSTRAINT FK_ORDER_PRODUCTS_ORDER_ID FOREIGN KEY (order_id) REFERENCES orders (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Estructura de la taula `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR (100) NOT NULL,
+  `review` VARCHAR (500) NOT NULL,
+  `rate` INT (1) NOT NULL, 
+  `order_id` INT (11) NOT NULL,
+  `date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+
+  CONSTRAINT PK_REVIEWS PRIMARY KEY (id),
+  CONSTRAINT FK_REVIEWS_ORDERS_ORDER_ID FOREIGN KEY (order_id) REFERENCES orders (id),
+  CONSTRAINT UK_REVIEWS_ORDER_ID UNIQUE KEY (order_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 COMMIT;
 

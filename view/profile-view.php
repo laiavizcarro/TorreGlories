@@ -1,3 +1,5 @@
+
+
 <?php if (isset($lastOrder)) { ?>
 <section class="container-fluid">
     <div class="col-xs-12 col-sm-12 col-md-12 last-order">
@@ -86,6 +88,11 @@
                                     <span class="badge rounded-pill text-bg-warning">Pendent</span>
                                 <?php } ?>
                             </div>
+                            <?php if (!$order->hasReview()) { ?>
+                            <button type="button" class="btn btn-primary add-review" data-bs-toggle="modal" data-bs-target="#review-modal" data-bs-orderId="<?php echo $order->getId() ?>">
+                                Ressenya
+                            </button>
+                            <?php } ?>
                             <a href="<?= url ?>?controller=Order&action=repeatOrder&orderId=<?= $order->getId() ?>">
                                 <button class="btn-add">Repetir</button>
                             </a>
@@ -97,3 +104,56 @@
         <?php } ?>
     </div>
 </section>
+
+<div class="modal fade" id="review-modal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reviewModalLabel">Afegir ressenya</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form onsubmit="return saveReview()" id="reviewForm">
+        <div class="modal-body">
+            <div class="col-md-12">
+                <?php echo $_SESSION['name'] . ' ' . $_SESSION['surname']; ?>
+                <?php echo $_SESSION['email']; ?>
+            </div>
+
+            <div class="col-md-12">
+                <fieldset>
+                    <span class="star-cb-group">
+                        <input type="radio" id="rating-5" name="rate" value=5 />
+                        <label for="rating-5">5</label>
+                        <input type="radio" id="rating-4" name="rate" value=4 />
+                        <label for="rating-4">4</label>
+                        <input type="radio" id="rating-3" name="rate" value=3 />
+                        <label for="rating-3">3</label>
+                        <input type="radio" id="rating-2" name="rate" value=2 />
+                        <label for="rating-2">2</label>
+                        <input type="radio" id="rating-1" name="rate" value=1 />
+                        <label for="rating-1">1</label>
+                        <input type="radio" id="rating-0" name="rate" value=0 class="star-cb-clear" checked="checked" />
+                        <label for="rating-0">0</label>
+                    </span>
+                </fieldset>
+
+                <div class="col-md-12">
+                    <input type="hidden" id="orderId" name="orderId" class="form-control" placeholder="Order de la ressenya" disabled readonly>
+
+                    <!--<label for="review-name" class="form-label">Titol:</label>-->
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Titol de la ressenya" required>
+                    <textarea name="review" id="review" cols="30" rows="5" class="form-control tg-text-area mt-10" placeholder="Valora la teva experiència amb el restaurant i la comanda."></textarea>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/profile.js"></script>

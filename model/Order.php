@@ -19,8 +19,10 @@ class Order {
     private $date;
     private $is_paid;
     private $total_price;
+    private $review_count;
 
     private array $orderProducts = [];
+
 
     /**
      * Constructor
@@ -192,5 +194,35 @@ class Order {
         }
 
         return PriceCalculator::fixDecimal($totalPrice);
+    }
+
+    /**
+     * Get the value of review_count
+     */ 
+    public function getReviewCount()
+    {
+        return $this->review_count;
+    }
+
+    /**
+     * Set the value of review_count
+     *
+     * @return  self
+     */ 
+    public function setReviewCount($review_count)
+    {
+        $this->review_count = $review_count;
+
+        return $this;
+    }
+
+
+    /**
+     * Retorna si la comanda te review o no
+     * 
+     * @return boolean True/False conte review
+     */
+    public function hasReview() {
+        return $this->review_count > 0;
     }
 }

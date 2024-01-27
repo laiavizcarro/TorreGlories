@@ -1,44 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     let reviews = [];
-    let reviewForm = document.getElementById("tg-review-form");
     let reviewsSection = document.getElementById("reviews-section");
 
     reviewForm.addEventListener("submit", function (e) {
         e.preventDefault();
         addReview();
     });
-
-    function addReview() {
-        let title = document.getElementById("title").value;
-        let rate = document.querySelector('input[name="rate"]:checked').value;
-        let reviewText = document.getElementById("review").value;
-
-        let review = {
-            title: title,
-            review: reviewText,
-            rate: rate
-        };
-
-        fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=API&action=addReview", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application-json; charset=UTF-8'
-            },
-            body: JSON.stringify(review)
-        })
-        .then(response => response.json())
-        .then(response => {
-            if (response.success == true) {
-                reviews.push(review);
-                reviewForm.reset();
-                showReviews();
-                notie.alert({ type: 'success', text: 'Ressenya insertada correctament', time: 2 }) 
-
-            }
-        });
-
-
-    }
 
     function showReviews() {
         let rate = document.getElementById("rate").value;
