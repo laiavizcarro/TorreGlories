@@ -223,7 +223,14 @@ class OrderController {
     /************************** FINS AQUÍ EL CODI PER FER EL QR  ******************************/
 
 
-    
+    public function view() {
+        $order_id = $_GET['order_id'];
+        $order = OrderDAO::getOrderById($order_id);
+        $order->setOrderProducts(OrderProductDAO::getOrderProductsByOrderId($order_id));
+        include_once 'view/order-detail-view.php';
+    }
+
+
 
     /**
      * Repetir una comanda ja feta a través del seu id
