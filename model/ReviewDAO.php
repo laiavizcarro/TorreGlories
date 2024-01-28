@@ -42,7 +42,7 @@ class ReviewDAO {
     public static function addReview(Review $review) {
         $con = DB::connectDB();
 
-        $title = $review->getReviewTitle();
+        $title = $review->getTitle();
         $reviewText = $review->getReview();
         $rate = $review->getRate();
         $order_id = $review->getOrderId();

@@ -4,20 +4,17 @@ include_once 'utils/Utils.php';
 include_once 'model/Review.php';
 include_once 'model/ReviewDAO.php';
 
-class APIController {
-
-    /**
-     * Constructor
-     */
-    function __construct() {
-        $_POST = json_decode(file_get_contents('php://input'), true);
-    }
+class ReviewController {
 
     public function getReviews() {
         $rate = isset($_POST['rate']) ? $_POST['rate'] : null;
         $rateOrder = isset($_POST['rateOrder']) ? $_POST['rateOrder'] : null;
         
         $reviews = ReviewDAO::getAllReviews($rate, $rateOrder);
+
+        foreach ($reviews as $review) {
+            $review->setDate(date_format(date_create($review->getDate()), 'Y-m-d H:i'));
+        }
 
         echo json_encode([
             "success" => true,
@@ -29,12 +26,10 @@ class APIController {
     }
 
     public function addReview() {
-    
         $title = $_POST['title'];
         $reviewText = $_POST['review'];
         $rate = $_POST['rate'];
         $order_id = $_POST['orderId'];
-        $date = date("Y-m-d H:i:s");
 
         if(ReviewDAO::orderReviewExists($order_id) > 0) {
             echo json_encode([
@@ -45,12 +40,13 @@ class APIController {
            
             return;
         }
+
         $review = new Review();
-        $review->setReviewTitle($title);
+        $review->setTitle($title);
         $review->setReview($reviewText);
         $review->setRate($rate);
         $review->setOrderId($order_id);
-        $review->setDate($date);
+        $review->setDate(date("Y-m-d H:i:s"));
 
         ReviewDAO::addReview($review);
 

@@ -12,19 +12,15 @@ function saveReview() {
     let rate = document.querySelector('input[name="rate"]:checked').value;
     let reviewText = document.getElementById("review").value;
 
-    let review = {
-        orderId: orderId,
-        title: title,
-        review: reviewText,
-        rate: rate
-    };
+    let formData = new FormData();
+    formData.append("orderId", orderId);
+    formData.append("title", title);
+    formData.append("review", reviewText);
+    formData.append("rate", rate);
 
-    fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=API&action=addReview", {
+    fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=Review&action=addReview", {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application-json; charset=UTF-8'
-        },
-        body: JSON.stringify(review)
+        body: formData
     })
     .then(response => response.json())
     .then(response => {

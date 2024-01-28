@@ -5,11 +5,14 @@ session_set_cookie_params(time() + 3600);
 
 // Importem tots els scripts necessaris.
 include_once 'config/parameters.php';
-include_once 'controller/APIController.php';
+include_once 'controller/api/ReviewController.php';
 
 if (!isset($_GET['controller'])) {
-    //si no es passa res, es mostrarà la home
-    //header("Location:" . url. '?controller=Home');
+    echo json_encode([
+        "success" => false,
+        "message" => "El parametre 'controller' es obligatori",
+        "data" => null
+    ]);
 } else {
     $controller_name = $_GET['controller'].'Controller';
 
@@ -18,14 +21,20 @@ if (!isset($_GET['controller'])) {
         //en cas contrari mostrem una accio per defecte
         $controller = new $controller_name;
 
-        if(isset($_GET['action']) && method_exists($controller, $_GET['action'])){
+        if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
             $action = $_GET['action'];
-        }else{
+        } else {
             $action = default_action;
         }
+        
         $controller->$action();
     } else {
-        //header("Location:" . url. '?controller=Home');
+        echo json_encode([
+            "success" => false,
+            "message" => "Aquesta ruta no existeix",
+            "data" => null
+        ]);
     }
 }
+
 ?>

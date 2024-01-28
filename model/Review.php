@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Entitat Review
  * 
@@ -7,133 +8,146 @@
 
 class Review {
 
-    /**
-     * Propietats
-     */
+  /**
+   * Propietats
+   */
+  public $id;
+  public $title;
+  public $review;
+  public $rate;
+  public $order_id;
+  public $date;
+  public $user_name;
 
-    public $id;
-    public $title;
-    public $review;
-    public $rate;
-    public $order_id;
-    public $date;
+  /**
+   * Constructor
+   */
+  public function __construct() {
+  }
 
-     /**
-      * Constructor
-      */
-    public function __construct() {
-    }
+  /**
+   * Get propietats
+   */
+  public function getId() {
+    return $this->id;
+  }
 
+  /**
+   * Set propietats
+   *
+   * @return  self
+   */
+  public function setId($id) {
+    $this->id = $id;
 
-    /**
-     * Get the value of id
-     */
-    public function getId() {
-        return $this->id;
-    }
+    return $this;
+  }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id) {
-        $this->id = $id;
+  /**
+   * Get the value of title
+   */
+  public function getTitle() {
+    return $this->title;
+  }
 
-        return $this;
-    }
+  /**
+   * Set the value of title
+   *
+   * @return  self
+   */
+  public function setTitle($title) {
+    $this->title = $title;
 
-    /**
-     * Get the value of title
-     */
-    public function getReviewTitle() {
-        return $this->title;
-    }
+    return $this;
+  }
 
-    /**
-     * Set the value of title
-     *
-     * @return  self
-     */
-    public function setReviewTitle($title) {
-        $this->title = $title;
+  /**
+   * Get the value of review
+   */
+  public function getReview() {
+    return $this->review;
+  }
 
-        return $this;
-    }
+  /**
+   * Set the value of review
+   *
+   * @return  self
+   */
+  public function setReview($review) {
+    $this->review = $review;
 
-    /**
-     * Get the value of review
-     */
-    public function getReview() {
-        return $this->review;
-    }
+    return $this;
+  }
 
-    /**
-     * Set the value of review
-     *
-     * @return  self
-     */
-    public function setReview($review) {
-        $this->review = $review;
+  /**
+   * Get the value of rate
+   */
+  public function getRate() {
+    return $this->rate;
+  }
 
-        return $this;
-    }
+  /**
+   * Set the value of rate
+   *
+   * @return  self
+   */
+  public function setRate($rate) {
+    $this->rate = $rate;
 
-    /**
-     * Get the value of orderId
-     */
-    public function getOrderId() {
-        return $this->order_id;
-    }
+    return $this;
+  }
 
-    /**
-     * Set the value of orderId
-     *
-     * @return  self
-     */
-    public function setOrderId($orderId) {
-        $this->order_id = $orderId;
+  /**
+   * Get the value of order_id
+   */
+  public function getOrderId() {
+    return $this->order_id;
+  }
 
-        return $this;
-    }
+  /**
+   * Set the value of order_id
+   *
+   * @return  self
+   */
+  public function setOrderId($order_id) {
+    $this->order_id = $order_id;
 
-    /**
-     * Get the value of date
-     */
-    public function getDate() {
-        return $this->date;
-    }
+    return $this;
+  }
 
-    /**
-     * Set the value of date
-     *
-     * @return  self
-     */
-    public function setDate($date) {
-        $this->date = $date;
+  /**
+   * Get the value of date
+   */
+  public function getDate() {
+    return $this->date;
+  }
 
-        return $this;
-    }
+  /**
+   * Set the value of date
+   *
+   * @return  self
+   */
+  public function setDate($date) {
+    $this->date = $date;
 
-     /**
-      * Get the value of rate
-      */ 
-     public function getRate()
-     {
-          return $this->rate;
-     }
+    return $this;
+  }
 
-     /**
-      * Set the value of rate
-      *
-      * @return  self
-      */ 
-     public function setRate($rate)
-     {
-          $this->rate = $rate;
+  /**
+   * Get the value of user_name
+   */
+  public function getUserName() {
+    return $this->user_name;
+  }
 
-          return $this;
-     }
+  /**
+   * Set the value of user_name
+   *
+   * @return  self
+   */
+  public function setUserName($user_name) {
+    $this->user_name = $user_name;
+
+    return $this;
+  }
 }
-
-?>

@@ -1,27 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
     let reviews = [];
     let reviewsSection = document.getElementById("reviews-section");
-
-    reviewForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        addReview();
-    });
-
+    
     function showReviews() {
         let rate = document.getElementById("rate").value;
         let rateOrder = document.getElementById("rateOrder").value;
 
         reviewsSection.innerHTML = '';
 
-        fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=API&action=getReviews", {
+        let formData = new FormData();
+        if (rate != "ALL") {
+            formData.append("rate",  rate);
+        }
+        if (rateOrder != "ALL") {
+            formData.append("rateOrder",  rateOrder);
+        }
+
+        fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=Review&action=getReviews", {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application-json; charset=UTF-8'
-            },
-            body: JSON.stringify({
-                rate: rate == "ALL" ? null : rate,
-                rateOrder: rateOrder == "ALL" ? null : rateOrder
-            })
+            body: formData
         })
         .then(response => response.json())
         .then(response => {
@@ -61,11 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         return starsHtml;
-    }
-
-
-    function saveReviewsToLocalStorage() {
-        localStorage.setItem('reviews', JSON.stringify(reviews));
     }
 
     showReviews();

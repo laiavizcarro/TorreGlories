@@ -12,7 +12,6 @@ include_once 'controller/OrderController.php';
 include_once 'controller/UserController.php';
 include_once 'controller/ProfileController.php';
 include_once 'controller/ReviewController.php';
-include_once 'controller/APIController.php';
 
 ?>
 
