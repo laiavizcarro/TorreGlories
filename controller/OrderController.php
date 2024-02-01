@@ -181,7 +181,9 @@ class OrderController {
         unset($_SESSION['order_quantity']);
 
 
-    /*************************************** QR GENERATOR  ****************************chch*************/
+    /**
+     * Generador de QR
+     */
 
     $orderUrl = url . '/index.php?controller=Order&action=view&order_id=' . $order->getId();
     $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' . urlencode($orderUrl);
@@ -220,9 +222,10 @@ class OrderController {
         }
     }
 
-    /************************** FINS AQUÍ EL CODI PER FER EL QR  ******************************/
 
-
+    /**
+     * Mostrar la vista de la comanda detallada 
+     */
     public function view() {
         $order_id = $_GET['order_id'];
         $order = OrderDAO::getOrderById($order_id);
