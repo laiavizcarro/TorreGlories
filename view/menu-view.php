@@ -4,7 +4,7 @@
         <h4>Consulta els plats a escollir de la carta</h4>
     </div>
 </section>
-
+<!-- FILTRE DE CATEGORIES ANTIC 
 <section>
     <div class="">
         <ul class="nav container justify-content-end">
@@ -31,19 +31,21 @@
         </ul>
     </div>
 </section>
-
-<section class="nav container justify-content-end">
-    <div><input type="checkbox" name="plats" value="plats" id="plats"><label for="plats">Plats</label></div>
-    <div><input type="checkbox" name="postres" value="postres" id="postres"><label for="postres">Postres</label></div>
-    <div><input type="checkbox" name="begudes" value="begudes" id="begudes"><label for="begudes">Begudes</label></div>
-    <div><input type="checkbox" name="esmorzars" value="esmorzars" id="esmorzars"><label for="esmorzars">Esmorzars</label></div>
+FI DEL FILTRE DE CATEGORIES ANTIC -->
+<section class="container mt-70">
+    <section class="nav container justify-content-end">
+        <div><input type="checkbox" name="category" value="1" id="1"><label for="1">Plats</label></div>
+        <div><input type="checkbox" name="category" value="2" id="2"><label for="2">Postres</label></div>
+        <div><input type="checkbox" name="category" value="3" id="3"><label for="3">Begudes</label></div>
+        <div><input type="checkbox" name="category" value="4" id="4"><label for="4">Esmorzars</label></div>
+    </section>
 </section>
 
 <section class="container mt-70">
     <div class="row">
         <?php foreach ($allProducts as $product) { ?>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="card product-card">
+                <div class="card product-card category-<?= $product->getCategory() ?>">
                     <div class="row g-0">
                         <div class="col-xs-4 col-sm-4 col-md-4 card-image">
                             <img src="<?php echo $product->getImgPath() ?>"
@@ -77,3 +79,5 @@
         <?php } ?>
     </div>
 </section>
+
+<script src="js/product.js"></script>

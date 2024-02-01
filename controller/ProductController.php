@@ -211,6 +211,11 @@ class ProductController {
         include_once 'view/menu-view.php';
     }
 
+    public function allProducts() {
+        $allProducts = ProductDAO::getAllProducts();
+        include_once 'view/menu-view.php';
+    }
+
     
  
 }
