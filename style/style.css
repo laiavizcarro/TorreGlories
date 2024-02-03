@@ -63,6 +63,9 @@ h5 {
 }
 
 /* Margins */
+.m-5 {
+    margin: 5px !important;
+}
 .m-10 {
     margin: 10px !important;
 }
@@ -78,10 +81,17 @@ h5 {
 .mt-70 {
     margin-top: 70px !important;
 }
+.ml-3 {
+    margin-left: 3px !important;
+}
+.ml-10 {
+    margin-left: 10px !important;
+}
 
 .mw-250 {
     max-width: 250px;
 }
+
 
 .error {
     color: tomato;

@@ -49,7 +49,7 @@ $orderQuantity = isset($_SESSION['order_quantity']) && $_SESSION['order_quantity
 						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Home') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Home">Restaurant</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Product&action=products&category_id=1">Carta</a>
+						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Product&action=products') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Product&action=products">Carta</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link menu-link <?= str_contains($_SERVER['REQUEST_URI'], 'controller=Review') ? 'active' : '' ?>" href="<?= url ?>/index.php?controller=Review&action=index">Ressenyes</a>

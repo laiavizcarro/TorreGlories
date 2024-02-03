@@ -10,17 +10,17 @@ class Product {
     /**
      * Propietats
      */
-    private $id;
-    private $name;
-    private $category_id;
-    private $categoryName;
-    private $iva;
-    private $base_price;
-    private $total_price;
-    private $is_offer;
-    private $offer_price;
-    private $total_offer_price;
-    private $img_path;
+    public $id;
+    public $name;
+    public $category_id;
+    public $categoryName;
+    public $iva;
+    public $base_price;
+    public $total_price;
+    public $is_offer;
+    public $offer_price;
+    public $total_offer_price;
+    public $img_path;
 
     /**
      * Constructor
