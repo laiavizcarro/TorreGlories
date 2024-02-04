@@ -137,6 +137,7 @@ class OrderController {
         $order->setUserId($user->getId());
         $order->setDate(date("Y-m-d H:i:s"));
         $order->setIsPaid(0);
+        $order->setTip($_POST['tip_calculated']);
 
         // Assignem tots els products al Order
         $orderProductsList = [];
@@ -181,26 +182,26 @@ class OrderController {
         unset($_SESSION['order_quantity']);
 
 
-    /**
-     * Generador de QR
-     */
+        /**
+         * Generador de QR
+         */
 
-    $orderUrl = url . '/index.php?controller=Order&action=view&order_id=' . $order->getId();
-    $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' . urlencode($orderUrl);
-    
-    // Obtindre el contingut de la imatge del codi QR 
-    $qrCodeContent = file_get_contents($qrCodeUrl);
-    
-    // Ruta de la carpeta
-    $qrCodePath = 'images/qr/' . $order->getId() . '_qr.png';
-    
-    // Guardar el contingut en un arxiu a la carpeta
-    file_put_contents($qrCodePath, $qrCodeContent);
-    
-    // Redirigir a la vista de confirmació
-    header('Location: ' . url . '/index.php?controller=Order&action=showQrCode&order_id=' . $order->getId());
-    
-    //header('Location: ' . url . '/index.php?controller=Profile');
+        $orderUrl = url . '/index.php?controller=Order&action=view&order_id=' . $order->getId();
+        $qrCodeUrl = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' . urlencode($orderUrl);
+        
+        // Obtindre el contingut de la imatge del codi QR 
+        $qrCodeContent = file_get_contents($qrCodeUrl);
+        
+        // Ruta de la carpeta
+        $qrCodePath = 'images/qr/' . $order->getId() . '_qr.png';
+        
+        // Guardar el contingut en un arxiu a la carpeta
+        file_put_contents($qrCodePath, $qrCodeContent);
+        
+        // Redirigir a la vista de confirmació
+        header('Location: ' . url . '/index.php?controller=Order&action=showQrCode&order_id=' . $order->getId());
+        
+        //header('Location: ' . url . '/index.php?controller=Profile');
 
     }
 

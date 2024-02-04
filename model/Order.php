@@ -20,6 +20,7 @@ class Order {
     private $is_paid;
     private $total_price;
     private $review_count;
+    private $tip;
 
     private array $orderProducts = [];
 
@@ -224,5 +225,25 @@ class Order {
      */
     public function hasReview() {
         return $this->review_count > 0;
+    }
+
+    /**
+     * Get the value of tip
+     */ 
+    public function getTip()
+    {
+        return $this->tip;
+    }
+
+    /**
+     * Set the value of tip
+     *
+     * @return  self
+     */ 
+    public function setTip($tip)
+    {
+        $this->tip = $tip;
+
+        return $this;
     }
 }
