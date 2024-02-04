@@ -123,6 +123,7 @@ CREATE TABLE `orders` (
   `user_id` int NOT NULL,
   `date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `is_paid` tinyint(1) NOT NULL,
+  `tip` decimal(5,2),
   `total_price` decimal(5,2) NOT NULL,
   
   CONSTRAINT PK_ORDERS PRIMARY KEY (id),

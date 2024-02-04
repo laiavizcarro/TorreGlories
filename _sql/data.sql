@@ -107,3 +107,14 @@ INSERT INTO `order_products` (`order_id`, `product_id`, `name`, `quantity`, `iva
 (2, 23, 'Aigua 1L', 1, 4, 4.13, 4.29, 1, 3.50, 3.50),
 (3, 1, 'Canelons de rostit', 1, 4, 10.00, 12.00, 0, NULL, NULL),
 (4, 2, 'Canelons d\'espinacs i pinyons', 2, 4, 8.00, 8.32, 1, 6.75, 6.75);
+
+--
+-- Bolcament de dades per a la taula `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `title`, `review`, `rate`, `order_id`, `date`) VALUES 
+(1, 'Experiència Encantadora', 'No puc deixar de compartir la meva recent visita al restaurant. Vaig quedar impressionat amb la varietat i la qualitat dels plats.', 5, 2, '2024-01-30 15:07:06.485001'),
+(2, 'Sorprenent', 'Experiència sorprenent al restaurant. Plats deliciosos!', 4, 4, '2024-02-03 09:15:10.567001');
+
+
+
