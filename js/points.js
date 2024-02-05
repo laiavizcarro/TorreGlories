@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalPrice = parseFloat(totalPriceInput.value);
         console.log(`total_price: ${totalPrice}`);
         let calculatedPoints = totalPrice * 5;
-        finalCalculatedPoints.innerHTML = `Punts que s'acumularan en aquesta comanda: ${calculatedPoints}`;
+        finalCalculatedPoints.innerHTML = `Punts que s'acumularan en aquesta comanda: ${Math.round(calculatedPoints)}`;
     }
 
     calculatePoints();
