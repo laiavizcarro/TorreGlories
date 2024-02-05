@@ -32,6 +32,8 @@
                     <img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px">
                     <?= PriceCalculator::calculateOrderTotalPrice($order) ?>€
                 </span>
+                <h4 class="text-white text-end h4-smallest" id="generated_points">Punts que s'acumularan en aquesta comanda:</h4>
+
             </div>
         </div>
 
@@ -70,6 +72,8 @@
                                 <td class="align-middle">
                                     <?= PriceCalculator::calculateProductTotalPrice($orderLine) ?>€
                                 </td>
+                                <input type="hidden" id="total_price" value="<?= PriceCalculator::calculateOrderTotalPrice($order) ?>">
+
                                 <td class="align-middle">
                                     <form action="<?= url ?>/index.php?controller=Order&action=increaseOrDecrease" method="POST">
                                         <input type="hidden" name="prd" value="<?= $orderLine->getProduct()->getId() ?>">
@@ -108,3 +112,5 @@
     </div>
 
 </section>
+
+<script src="js/points.js"></script>

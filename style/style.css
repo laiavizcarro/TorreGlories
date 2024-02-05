@@ -53,6 +53,12 @@ h4 {
     font-weight: 400 !important;
 }
 
+.h4-smallest {
+    color: var(--grey-subtitle) !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+
 h5 {
     color:var(--text-blue) !important;
     font-weight: bold !important;  
@@ -298,7 +304,7 @@ h5 {
     border: solid lightgray 1px;
     padding: 15px;
     border-radius: 10px;
-    height: 400px;
+    height: 480px;
     width: 400px !important;
 }
 

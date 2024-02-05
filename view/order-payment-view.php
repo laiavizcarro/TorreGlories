@@ -25,6 +25,9 @@
 
 
 <section class="container d-flex justify-content-center mt-20">
+    <h4 class="bold" id="generated_points">Punts que s'acumularan en aquesta comanda:</h4>
+</section>
+<section class="container d-flex justify-content-center mt-20">
     <div class="payment">
         <div class="d-flex justify-content-center">
             <img src="images/iconografia/visa-4.svg" alt="Logo targeta VISA" width="50px">
@@ -41,20 +44,25 @@
                 <label for="CreditCardNumber">Número de targeta</label>
                 <input id="CreditCardNumber" name="card-number" class="null card-image form-control" type="tel" maxlength="16" pattern="\d*" required></input>
             </div>
-            <div class="expiry-date-group form-group  mt-10">
-                <label for="ExpiryDate">Data caducitat</label>
-                <input id="ExpiryDate" name="card-expiry-date" class="form-control" type="text" placeholder="MM / AA" maxlength="7" pattern="\d{2}\s?\/\s?\d{2}" required></input>
-            </div>
-            <div class="security-code-group form-group  mt-10">
-                <label for="SecurityCode">Codi seguretat</label>
-                <div class="input-container">
-                    <input id="SecurityCode" name="card-cvv" class="form-control" type="text" maxlength="3" pattern="\d{3}" required></input>
+            <div class="row">
+                <div class="col-6">
+                    <div class="expiry-date-group form-group  mt-10">
+                        <label for="ExpiryDate">Data caducitat</label>
+                        <input id="ExpiryDate" name="card-expiry-date" class="form-control" type="text" placeholder="MM / AA" maxlength="7" pattern="\d{2}\s?\/\s?\d{2}" required></input>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="security-code-group form-group  mt-10">
+                        <label for="SecurityCode">Codi seguretat</label>
+                        <div class="input-container">
+                            <input id="SecurityCode" name="card-cvv" class="form-control" type="text" maxlength="3" pattern="\d{3}" required></input>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <label for="tip">Propina %</label>
-
+                    <label for="tip" class="mt-10">Propina %</label>
                     <select type="text" id="tip" name="tip" class="form-control">
                         <option value="0">0,00%</option>
                         <option value="0.05">0,50%</option>
@@ -67,8 +75,19 @@
                     </select>
                 </div>
                 <div class="col-6">
-                    <label for="tip_calculated">Propina €</label>
+                    <label for="tip_calculated" class="mt-10">Propina €</label>
                     <input type="text" name="tip_calculated" id="tip_calculated" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="AcPoints" class="mt-10">Punts aculumats</label>
+                    <input type="text" class="form-control"></input>
+                </div>
+                <div class="col-6">
+                    <label for="SpPoints" class="mt-10">Punts a gastar</label>
+                    <input type="text" class="form-control"></input>
+
                 </div>
             </div>
 
