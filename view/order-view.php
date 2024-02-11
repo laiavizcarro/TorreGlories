@@ -32,8 +32,6 @@
                     <img src="images/iconografia/shoppingcart-white.svg" alt="Logo del carrito" width="24px">
                     <?= PriceCalculator::calculateOrderTotalPrice($order) ?>€
                 </span>
-                <h4 class="text-white text-end h4-smallest" id="generated_points">Punts que s'acumularan en aquesta comanda:</h4>
-
             </div>
         </div>
 

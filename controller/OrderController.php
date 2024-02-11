@@ -138,6 +138,7 @@ class OrderController {
         $order->setDate(date("Y-m-d H:i:s"));
         $order->setIsPaid(0);
         $order->setTip($_POST['tip_calculated']);
+        $order->setGeneratedPoints($_POST['generated_points']);
 
         // Assignem tots els products al Order
         $orderProductsList = [];

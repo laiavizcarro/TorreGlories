@@ -25,7 +25,9 @@
 
 
 <section class="container d-flex justify-content-center mt-20">
-    <h4 class="bold" id="generated_points">Punts que s'acumularan en aquesta comanda:</h4>
+    <h4 class="bold" id="generated_points_text"></h4>
+    <!--<input type="hidden" name="generated_points" id="generated_points" value="<?= $calculatedPoints ?>">-->
+
 </section>
 <section class="container d-flex justify-content-center mt-20">
     <div class="payment">
@@ -35,6 +37,7 @@
             <img src="images/iconografia/maestro-2.svg" alt="Logo targeta Maestro" width="50px">
         </div>
         <form method="POST" action="<?= url ?>/index.php?controller=Order&action=checkoutPayment">
+        <input type="hidden" name="generated_points" id="generated_points" class="form-control">
 
             <div class="form-group">
                 <label or="NameOnCard">Nom</label>

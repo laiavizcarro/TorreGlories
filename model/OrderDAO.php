@@ -21,11 +21,12 @@ class OrderDAO {
         $is_paid = $order->getIsPaid();
         $total_price = $order->getTotalPrice();
         $tip = $order->getTip();
+        $generatedPoints = $order->getGeneratedPoints();
         
         $con = DB::connectDB();
 
-        $stmt = $con->prepare("INSERT INTO orders (user_id, date, is_paid, tip, total_price) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("isidd", $user_id, $date, $is_paid, $tip, $total_price);
+        $stmt = $con->prepare("INSERT INTO orders (user_id, date, is_paid, tip, total_price, generated_points) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isiddd", $user_id, $date, $is_paid, $tip, $total_price, $generatedPoints);
 
         $stmt->execute();
         $last_id = $con->insert_id;

@@ -20,14 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
     
     calculateTip();    
 
-    let finalCalculatedPoints = document.getElementById("generated_points");
+    let finalCalculatedPointsText = document.getElementById("generated_points_text");
+    let calculatedPointsInput = document.getElementById("generated_points");
 
     function calculatePoints() {
         let totalPrice = parseFloat(totalPriceInput.value);
-        console.log(`total_price: ${totalPrice}`);
         let calculatedPoints = totalPrice * 5;
+
+        calculatedPointsInput.value = calculatedPoints;
+        finalCalculatedPointsText.innerHTML = `Punts que s'acumularan en aquesta comanda: ${Math.round(calculatedPoints)}`;
         
-        finalCalculatedPoints.innerHTML = `Punts que s'acumularan en aquesta comanda: ${Math.round(calculatedPoints)}`;
     }
 
     calculatePoints();
