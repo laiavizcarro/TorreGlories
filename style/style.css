@@ -94,6 +94,10 @@ h5 {
     margin-left: 10px !important;
 }
 
+.p-20 {
+    padding: 20px !important;
+}
+
 .mw-250 {
     max-width: 250px;
 }

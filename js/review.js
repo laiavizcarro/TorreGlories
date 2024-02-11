@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let reviewContainer = document.createElement("div");
                 reviewContainer.classList.add("product-card", "mt-20");
                 reviewContainer.innerHTML = `
-                    <div class="card-body">
+                    <div class="card-body p-20">
                         <p class="card-title">${review.user_name} (${review.date})</p>
                         <p class="fw-bold">${review.title}</p>
                         <p>${review.review}</p>
