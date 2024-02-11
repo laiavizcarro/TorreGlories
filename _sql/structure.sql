@@ -125,6 +125,7 @@ CREATE TABLE `orders` (
   `is_paid` tinyint(1) NOT NULL,
   `tip` decimal(5,2),
   `total_price` decimal(5,2) NOT NULL,
+  `generated_points` int NOT NULL,
   
   CONSTRAINT PK_ORDERS PRIMARY KEY (id),
   CONSTRAINT FK_ORDERS_USER_ID FOREIGN KEY (user_id) REFERENCES users (id)

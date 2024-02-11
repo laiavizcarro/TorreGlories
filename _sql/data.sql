@@ -91,11 +91,12 @@ INSERT INTO users (id, name, surname, email, phone_number, password, role_id, in
 --
 -- Bolcament de dades per a la taula `orders`
 --
-INSERT INTO `orders` (`id`, `user_id`, `date`, `is_paid`, `total_price`) VALUES
-(1, 2, '2023-12-27 01:53:06.941755', 1, 12.00),
-(2, 2, '2023-12-27 03:33:14.520434', 1, 31.29),
-(3, 2, '2024-01-05 15:04:29.988165', 1, 12.00),
-(4, 2, '2024-01-05 15:07:06.485001', 1, 14.04);
+INSERT INTO `orders` (`id`, `user_id`, `date`, `is_paid`, `tip`, `total_price`) VALUES
+(1, 2, '2023-12-27 01:53:06.941755', 1, NULL, 12.00),
+(2, 2, '2023-12-27 03:33:14.520434', 1, NULL, 31.29),
+(3, 2, '2024-01-05 15:04:29.988165', 1, NULL, 12.00),
+(4, 2, '2024-01-05 15:07:06.485001', 1, NULL, 14.04),
+(5, 2, '2024-02-06 15:23:32.171415', 1, 22.24, 74.14);
 
 --
 -- Bolcament de dades per a la taula `order_products`
