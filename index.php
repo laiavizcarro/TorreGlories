@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Mantindre totes les cookies 1h després de reiniciar el navegador.
 session_set_cookie_params(time() + 3600);
@@ -12,7 +15,6 @@ include_once 'controller/OrderController.php';
 include_once 'controller/UserController.php';
 include_once 'controller/ProfileController.php';
 include_once 'controller/ReviewController.php';
-
 ?>
 
 <!DOCTYPE html>
