@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     getProducts();
 
     function getProducts() {
-        fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=Product&action=getProducts", {
+        fetch(`${url}api_index.php?controller=Product&action=getProducts`, {
             method: 'POST'
         })
         .then(response => response.json())

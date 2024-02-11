@@ -2,7 +2,7 @@
 
 /**
  * PLESK CONFIG FOR DATABASE
- * host: localhost
+ * host: localhost:3306
  * user: torreglories
  * pwd: torreglories
  * db: torreglories

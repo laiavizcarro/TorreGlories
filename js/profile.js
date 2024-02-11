@@ -1,3 +1,5 @@
+const url = window.location.href.split('index.php?')[0];
+
 const reviewModal = document.getElementById('review-modal');
 reviewModal.addEventListener('show.bs.modal', event => {
   const button = event.relatedTarget;
@@ -18,7 +20,7 @@ function saveReview() {
     formData.append("review", reviewText);
     formData.append("rate", rate);
 
-    fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=Review&action=addReview", {
+    fetch(`${url}api_index.php?controller=Review&action=addReview`, {
         method: 'POST',
         body: formData
     })

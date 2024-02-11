@@ -1,3 +1,5 @@
+const url = window.location.href.split('index.php?')[0];
+
 document.addEventListener("DOMContentLoaded", function () {
     let reviews = [];
     let reviewsSection = document.getElementById("reviews-section");
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("rateOrder",  rateOrder);
         }
 
-        fetch("http://localhost/DAW2/TorreGlories/api_index.php?controller=Review&action=getReviews", {
+        fetch(`${url}api_index.php?controller=Review&action=getReviews`, {
             method: 'POST',
             body: formData
         })
