@@ -21,6 +21,7 @@ class Order {
     private $total_price;
     private $review_count;
     private $tip;
+    private $generated_points;
 
     private array $orderProducts = [];
 
@@ -243,6 +244,28 @@ class Order {
     public function setTip($tip)
     {
         $this->tip = $tip;
+
+        return $this;
+    }
+
+    
+
+    /**
+     * Get the value of generated_points
+     */ 
+    public function getGeneratedPoints()
+    {
+        return $this->generated_points;
+    }
+
+    /**
+     * Set the value of generated_points
+     *
+     * @return  self
+     */ 
+    public function setGeneratedPoints($generated_points)
+    {
+        $this->generated_points = $generated_points;
 
         return $this;
     }
