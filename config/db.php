@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * PLESK CONFIG FOR DATABASE
+ * host: localhost
+ * user: torreglories
+ * pwd: torreglories
+ * db: torreglories
+ * 
+ * LOCALHOST CONFIG FOR DATABASE
+ * host: localhost
+ * user: root
+ * pwd: ''
+ * db: torreglories
+ */
+
 class DB {
 
     /**
@@ -13,7 +27,7 @@ class DB {
      * @return Mysqli
      */
     public static function connectDB($host = 'localhost', $user = 'root', 
-        $pwd = '', $db = 'torreGlories') {
+        $pwd = '', $db = 'torreglories') {
         $con = new mysqli($host,$user,$pwd,$db);
 
         if ($con == false) {
