@@ -25,7 +25,7 @@
     </section>
 
     <section class="container mt-70">
-        <h2>Order QR</h2>
-        <p>La comanda s'ha realitzat correctament</p>
+        <h2>QR de la comanda</h2>
+        <p>La comanda s'ha realitzat correctament, pot accedir als detalls escanejant el següent codi:</p>
         <img src="<?php echo $qrCodePath; ?>" alt="Order QR Code">    </section>
 </section>
