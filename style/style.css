@@ -116,6 +116,9 @@ h5 {
 .text-pink {
     color: var(--pink) !important;
 }
+.bg-pink {
+    background-color: var(--pink) !important;
+}
 
 /* Buttons */
 .btn-outline-success {
@@ -148,6 +151,21 @@ h5 {
     background-color: var(--bg-light-blue) !important;
     transition: all .5s;
 }
+
+.btn-gray {
+    background-color: var(--grey) !important;
+    height: 45px;
+    width: 100px;
+    border: none !important;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-gray:hover {
+    background-color: var(--ligth-grey) !important;
+    transition: all .5s;
+}
+
 
 .btn-category {
     display: flex;

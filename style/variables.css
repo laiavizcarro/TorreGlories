@@ -6,8 +6,11 @@
     --bg-dark-blue: #080083;
     --bg-dark-blue-alpha: rgb(8, 0, 131, 0.7);
     --bg-light-blue: #0900ba;
+    --bg-lightest-blue: #0029de;
     --text-blue: #0029de;
     --bg-preHeader: #ebebeb;
     --bg-ligth-gray: #eaeaea;
+    --grey: #383b3e;
+    --ligth-grey: #6d7176;
     --grey-subtitle: #383b3e;
 }
