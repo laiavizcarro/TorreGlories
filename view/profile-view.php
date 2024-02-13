@@ -89,7 +89,7 @@
                                 <?php } ?>
                             </div>
                             <?php if (!$order->hasReview()) { ?>
-                            <button type="button" class="btn btn-primary add-review" data-bs-toggle="modal" data-bs-target="#review-modal" data-bs-orderId="<?php echo $order->getId() ?>">
+                            <button type="button" class="btn-gray" data-bs-toggle="modal" data-bs-target="#review-modal" data-bs-orderId="<?php echo $order->getId() ?>">
                                 Ressenya
                             </button>
                             <?php } ?>
@@ -148,8 +148,8 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            <button type="button" class="btn-gray" data-bs-dismiss="modal">Tancar</button>
+            <button type="submit" class="btn-add" data-bs-dismiss="modal">Enviar</button>
         </div>
       </form>
     </div>

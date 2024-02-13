@@ -12,10 +12,10 @@
                 <select name="rate" id="rate">
                     <option value="ALL"></option>
                     <option value="1">1 estrella</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="2">2 estrelles</option>
+                    <option value="3">3 estrelles</option>
+                    <option value="4">4 estrelles </option>
+                    <option value="5">5 estrelles</option>
                 </select>
             </div>
 
