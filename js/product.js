@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const url = window.location.href.split('index.php?')[0];
 
-    // Obtinc tots els elements checkbox
+    // Obtenir tots els elements checkbox
     const checkboxes = document.querySelectorAll('input[name="category"]');
 
     let productsSection = document.getElementById("products-section");
@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     getProducts();
 
+    /**
+     * Obte tots els productes de la base de dades
+     */
     function getProducts() {
         fetch(`${url}api_index.php?controller=Product&action=getProducts`, {
             method: 'POST'
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
+    /**
+     * Mostra tots els productes
+     */
     function showProducts() {
         products.forEach(function (product) {
             let productContainer = document.createElement("div");
@@ -70,7 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
             productsSection.appendChild(productContainer);
         });
     }
-
+    
+    /**
+     * Filtra els productes segons la categoria seleccionada
+     */
     function filterProducts() {
         // Obtinc les categories seleccionades
         const selectedCategories = Array.from(checkboxes)

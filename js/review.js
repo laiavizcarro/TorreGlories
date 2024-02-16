@@ -1,9 +1,15 @@
+// Guardar la url en la que ens trobem excloent de "index.php?"" cap endavant
 const url = window.location.href.split('index.php?')[0];
 
 document.addEventListener("DOMContentLoaded", function () {
     let reviews = [];
     let reviewsSection = document.getElementById("reviews-section");
     
+    /**
+     * Mostrar les ressenyes
+     * Permet a l'usuari filtrar per puntuació
+     * Permet a l'usuari ordenar per puntuació
+     */
     function showReviews() {
         let rate = document.getElementById("rate").value;
         let rateOrder = document.getElementById("rateOrder").value;
@@ -50,6 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
         showReviews();
     });
 
+    /**
+     * Obté les estrelles inserides per l'usuari
+     * @param {*} rating 
+     * @returns la puntuació amb estrelles 
+     */
     function getStarsHtml(rating) {
         let starsHtml = "";
         for (let i = 1; i <= 5; i++) {

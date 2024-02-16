@@ -1,5 +1,7 @@
+// Guardar la url en la que ens trobem excloent de "index.php?"" cap endavant
 const url = window.location.href.split('index.php?')[0];
 
+// Mostrar el modal que permet a l'usuari fer la ressenya
 const reviewModal = document.getElementById('review-modal');
 reviewModal.addEventListener('show.bs.modal', event => {
   const button = event.relatedTarget;
@@ -7,6 +9,9 @@ reviewModal.addEventListener('show.bs.modal', event => {
   document.getElementById("orderId").value = orderId;
 })
 
+/**
+ * Guardar la ressenya obtenint els elements inserits
+ */
 function saveReview() {
     let reviewForm = document.getElementById("reviewForm");
     let orderId = document.getElementById("orderId").value;

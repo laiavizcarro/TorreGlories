@@ -6,6 +6,10 @@ include_once 'model/ReviewDAO.php';
 
 class ReviewController {
 
+    /**
+     * Obté totes les ressenyes
+     */
+
     public function getReviews() {
         $rate = isset($_POST['rate']) ? $_POST['rate'] : null;
         $rateOrder = isset($_POST['rateOrder']) ? $_POST['rateOrder'] : null;
@@ -25,6 +29,10 @@ class ReviewController {
         return;
     }
 
+    /**
+     * Afegeix una ressenya nova sobre una comanda realitzada 
+     * Cada comanda només pot tenir una ressenya
+     */
     public function addReview() {
         $title = $_POST['title'];
         $reviewText = $_POST['review'];

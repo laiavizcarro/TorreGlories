@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
+    //Otindre els elements de la vista i guarda-los en variables
     let tipInput = document.getElementById("tip");
     let tipCalculatedInput = document.getElementById("tip_calculated");
     let totalPriceInput = document.getElementById("total_price");
     let finalPriceText = document.getElementById("final_price_text");
 
+    /**
+     * Calcula la propina de la comanda segons el percentatge escollit
+     */
     function calculateTip() {
         let tipSelected = parseFloat(tipInput.options[tipInput.selectedIndex].value);
         let totalPrice = parseFloat(totalPriceInput.value);
@@ -20,9 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
     calculateTip();    
 
+
+    //Otindre els elements de la vista i guarda-los en variables
     let finalCalculatedPointsText = document.getElementById("generated_points_text");
     let calculatedPointsInput = document.getElementById("generated_points");
 
+    /**
+     * Calcula els punts generats en la comanda
+     */
     function calculatePoints() {
         let totalPrice = parseFloat(totalPriceInput.value);
         let calculatedPoints = totalPrice * 5;
