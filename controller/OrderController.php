@@ -112,7 +112,7 @@ class OrderController {
         }
 
         $order = isset($_SESSION['order']) ? $_SESSION['order'] : array();
-    
+            
         include_once 'view/order-payment-view.php';
         return;
     }
@@ -160,6 +160,10 @@ class OrderController {
         // Calculem el totalPrice per a la comanda
         $order->setTotalPrice($order->calculateTotalPrice());
         
+        if (!empty($_POST['usePoints'])) {
+            $order->setTotalPrice(PriceCalculator::fixDecimal($order->getTotalPrice() - ((int)$_POST['usePoints'] / 5)));
+        }
+        
         // Creem la comanda i els seus productes a la DB
         $order_id = OrderDAO::createOrder($order);
         $order->setId($order_id);
@@ -174,6 +178,15 @@ class OrderController {
 
         // Marcar la comanda com a pagada
         OrderDAO::orderPay($order);
+
+        // Gestionar els punts de l'usuari
+        if (isset($_POST['usePoints'])) {
+            $user->setPoints($user->getPoints() + $order->getGeneratedPoints() - (int)$_POST['usePoints']);
+            $user->setUsedPoints($user->getUsedPoints() + (int)$_POST['usePoints']);
+        } else {
+            $user->setPoints($user->getPoints() + $order->getGeneratedPoints());
+        }
+        UserDAO::updateUser($user);
 
         // Guardar la comanda en cookie
         setcookie('lastOrder', $order->getId(), time() + 3600);

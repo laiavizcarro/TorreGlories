@@ -49,6 +49,8 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `role_id` tinyint(1) NOT NULL,
   `incorporation_date` date DEFAULT NULL,
+  `points` INT DEFAULT 0,
+  `used_points` INT DEFAULT 0,
 
   CONSTRAINT PK_USERS PRIMARY KEY (id),
   CONSTRAINT FK_USERS_ROLE_ID FOREIGN KEY (role_id) REFERENCES roles(id),

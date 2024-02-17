@@ -16,6 +16,8 @@ class User {
     private $email;
     private $password;
     private $role_id;
+    private $points;
+    private $used_points;
 
     /**
      * Constructor
@@ -114,6 +116,46 @@ class User {
 
     public function isAdmin() {
         return $this->role_id == 1;
+    }
+
+    /**
+     * Get the value of points
+     */ 
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * Set the value of points
+     *
+     * @return  self
+     */ 
+    public function setPoints($points)
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of used_points
+     */ 
+    public function getUsedPoints()
+    {
+        return $this->used_points;
+    }
+
+    /**
+     * Set the value of used_points
+     *
+     * @return  self
+     */ 
+    public function setUsedPoints($used_points)
+    {
+        $this->used_points = $used_points;
+
+        return $this;
     }
 }
 

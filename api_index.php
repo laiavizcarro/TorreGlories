@@ -9,8 +9,9 @@ session_set_cookie_params(time() + 3600);
 // Importem tots els scripts necessaris.
 include_once 'config/parameters.php';
 include_once 'controller/api/ReviewController.php';
-include_once 'controller/api/TipController.php';
 include_once 'controller/api/ProductController.php';
+include_once 'controller/api/UserController.php';
+
 
 if (!isset($_GET['controller'])) {
     echo json_encode([

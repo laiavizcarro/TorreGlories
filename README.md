@@ -28,7 +28,13 @@ En quant a la vista, està feta principalment amb JS però té una base de html 
 
 
 ## Programa de fidelitat
-Per a realitzar el programa de fidelitat s'ha fet a través de JS, on 1 euro són 5 punts. Aplicant la funció `calculatePoints()` s'agafa el preu total de la comanda a través de l'input, que ve del càlcul fet amb PHP i s'aplica la formula per transformar els euros en punts. A la vista s'indica amb JS, a la part superior del pagament, els punts que es generaran a la comanda actual.
+Per a realitzar el programa de fidelitat s'ha fet a través de JS, on 1 euro són 5 punts.
+
+El programa de fidelitat es gestiona amb les funcions: 
+
+- `showUserPoints`: A partir de fetch s'obtenen i es mostren els punts acumulats que té l'usuari. 
+- `calculateTotalPrice`: Calcula el preu total de la comanda on es té en compte la propina que l'usuari ha volgut pagar, i els punts que vol gastar dels acumulats que té. Aquesta funció actualitza el preu total quan l'usuari canvia els valors dels punts a gastar i/o la propina. 
+
 
 ## QR
 La creació del QR es realitza dins de la funció `checkoutPayment()` feta amb PHP, i una API de google. Primer es crea la url de la comanda amb la seva id, i aquesta url es concatena al final de https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=', on chs i cht són la mida de la base i altura que tindrà el QR. Guardem la imatge a la carpeta corresponent i redirigim a l'usuari a la vista de confirmació on aparexierà el codi QR que si s'escaneja el portarà a la vista del detall de la comanda. 

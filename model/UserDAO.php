@@ -4,6 +4,7 @@ include_once 'config/db.php';
 include_once 'User.php';
 include_once 'BasicUser.php';
 include_once 'AdminUser.php';
+include_once 'Order.php';
 
 /**
  * Objecte d'accés a dades User
@@ -37,6 +38,8 @@ class UserDAO {
                 $user->setPassword($userDB['password']);
                 $user->setRoleId($userDB['role_id']);
                 $user->setIncorporationDate($userDB['incorporation_date']);
+                $user->setPoints($userDB['points']);
+                $user->setUsedPoints($userDB['used_points']);
                 $usersList[] = $user;
             } else {
                 $user = new BasicUser();
@@ -47,6 +50,8 @@ class UserDAO {
                 $user->setPassword($userDB['password']);
                 $user->setRoleId($userDB['role_id']);
                 $user->setPhoneNumber($userDB['phone_number']);
+                $user->setPoints($userDB['points']);
+                $user->setUsedPoints($userDB['used_points']);
                 $usersList[] = $user;
             }
             
@@ -85,6 +90,8 @@ class UserDAO {
                 $user->setPassword($userDB['password']);
                 $user->setRoleId($userDB['role_id']);
                 $user->setIncorporationDate($userDB['incorporation_date']);
+                $user->setPoints($userDB['points']);
+                $user->setUsedPoints($userDB['used_points']);
                 $usersList[] = $user;
             } else {
                 $user = new BasicUser();
@@ -95,6 +102,8 @@ class UserDAO {
                 $user->setPassword($userDB['password']);
                 $user->setRoleId($userDB['role_id']);
                 $user->setPhoneNumber($userDB['phone_number']);
+                $user->setPoints($userDB['points']);
+                $user->setUsedPoints($userDB['used_points']);
                 $usersList[] = $user;
             }
         }
@@ -177,6 +186,8 @@ class UserDAO {
         } else {
             $phoneNumber = $user->getPhoneNumber();
         }
+        $points = $user->getPoints();
+        $used_points = $user->getUsedPoints();
 
         $con = DB::connectDB();
 
@@ -187,10 +198,12 @@ class UserDAO {
         $query .= "phone_number = ?, ";
         $query .= "password = ?, ";
         $query .= "role_id = ?, ";
-        $query .= "incorporation_date = ? ";
-        $query .= "WHERE id = ?";
+        $query .= "incorporation_date = ?, ";
+        $query .= "points = ?, " ;
+        $query .= "used_points = ? ";
+        $query .= "WHERE id = ? ";
         $stmt = $con->prepare($query);
-        $stmt->bind_param("sssisisi", $name, $surname, $email, $phoneNumber, $password, $roleId, $incorporationDate, $id);
+        $stmt->bind_param("sssisisiii", $name, $surname, $email, $phoneNumber, $password, $roleId, $incorporationDate, $points, $used_points, $id);
 
         $stmt->execute();
         $result=$stmt->get_result();
@@ -228,6 +241,8 @@ class UserDAO {
             $user->setPassword($userDB['password']);
             $user->setRoleId($userDB['role_id']);
             $user->setIncorporationDate($userDB['incorporation_date']);
+            $user->setPoints($userDB['points']);
+            $user->setUsedPoints($userDB['used_points']);
             return $user;
         } else {
             $user = new BasicUser();
@@ -238,6 +253,8 @@ class UserDAO {
             $user->setPassword($userDB['password']);
             $user->setRoleId($userDB['role_id']);
             $user->setPhoneNumber($userDB['phone_number']);
+            $user->setPoints($userDB['points']);
+            $user->setUsedPoints($userDB['used_points']);
             return $user;
         }
     }
@@ -275,6 +292,8 @@ class UserDAO {
             $user->setPassword($userDB['password']);
             $user->setRoleId($userDB['role_id']);
             $user->setIncorporationDate($userDB['incorporation_date']);
+            $user->setPoints($userDB['points']);
+            $user->setUsedPoints($userDB['used_points']);
             return $user;
         } else {
             $user = new BasicUser();
@@ -285,6 +304,8 @@ class UserDAO {
             $user->setPassword($userDB['password']);
             $user->setRoleId($userDB['role_id']);
             $user->setPhoneNumber($userDB['phone_number']);
+            $user->setPoints($userDB['points']);
+            $user->setUsedPoints($userDB['used_points']);
             return $user;
         }
     }

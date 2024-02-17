@@ -37,7 +37,7 @@
             <img src="images/iconografia/maestro-2.svg" alt="Logo targeta Maestro" width="50px">
         </div>
         <form method="POST" action="<?= url ?>/index.php?controller=Order&action=checkoutPayment">
-        <input type="hidden" name="generated_points" id="generated_points" class="form-control">
+            <input type="hidden" name="generated_points" id="generated_points" class="form-control">
 
             <div class="form-group">
                 <label or="NameOnCard">Nom</label>
@@ -84,21 +84,24 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <label for="AcPoints" class="mt-10">Punts aculumats</label>
-                    <input type="text" class="form-control"></input>
+                    <label for="points" class="mt-10">Punts aculumats</label>
+                    <input type="text" id="points" class="form-control" readonly></input>
                 </div>
                 <div class="col-6">
-                    <label for="SpPoints" class="mt-10">Punts a gastar</label>
-                    <input type="text" class="form-control"></input>
-
+                    <label for="usePoints" class="mt-10">Punts a gastar</label>
+                    <input type="text" id="usePoints" name="usePoints" class="form-control" pattern="\d*"></input>
                 </div>
             </div>
 
             <input type="hidden" id="total_price" value="<?= PriceCalculator::calculateOrderTotalPrice($order) ?>">
 
-            <button id="PayButton" class="btn btn-block btn-success btn-submit mt-10" type="submit">
-                <span class="align-middle" id="final_price_text">Pagar €</span>
-            </button>
+            <div class="row">
+                <div class="col-12">
+                    <button id="PayButton" class="btn btn-block btn-success btn-submit mt-10" type="submit">
+                        <span class="align-middle" id="final_price_text">Pagar €</span>
+                    </button>
+                </div>
+            </div>
 
             <p class="error">
                 <?php echo isset($error) ? $error : "" ?>
